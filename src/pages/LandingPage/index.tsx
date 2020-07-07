@@ -1,7 +1,9 @@
 import React from 'react';
 
+import Banner from '../../components/Banner';
+
 const LandingPage: React.FC = () => {
-  return <h1>Página inicial</h1>;
+  return <Banner />;
 };
 
 export default LandingPage;
