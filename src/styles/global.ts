@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
     * {
@@ -10,6 +10,7 @@ export default createGlobalStyle`
 
     body{
         background: #D9D9D9;
+        background: #ffffff;
         -webkit-font-smoothing: antialiased;
     }
 
@@ -26,4 +27,10 @@ export default createGlobalStyle`
     button{
         cursor: pointer;
     }
+`;
+
+export const container = styled.div`
+  max-width: 1244px;
+  margin: 0 auto;
+  padding: 15px;
 `;
