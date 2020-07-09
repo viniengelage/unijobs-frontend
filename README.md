@@ -21,7 +21,7 @@ $ git clone https://github.com/viniengelage/unijobs-frontend.git
 Abra o diretório com:
 
 ```
-$ cd unijobs-front
+$ cd unijobs-frontend
 ```
 
 Rode o projeto com:
