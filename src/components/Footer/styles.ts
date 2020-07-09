@@ -1,7 +1,4 @@
 import styled from 'styled-components';
-import { container } from '../../styles/global';
-
-export const Container = container;
 
 export const FooterContent = styled.footer`
   width: 100%;
