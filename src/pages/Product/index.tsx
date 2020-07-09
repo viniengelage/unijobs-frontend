@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 import {
-  Container,
+  Content,
   Item,
   Images,
   InfoContact,
@@ -13,6 +13,7 @@ import {
 interface IItem {
   name: string;
   description: string;
+  author: string;
   categories: ICategory[];
   investiment?: string;
   price?: number;
@@ -25,8 +26,27 @@ interface ICategory {
 }
 
 const Product: React.FC = () => {
+  const [post, setPost] = useState<IItem>();
+
+  useEffect(() => {
+    setPost({
+      name: 'Samsung Galaxy A10s Dual SIM 32 GB Vermelho 2 GB RAM',
+      description:
+        '- Desbloqueado. - Tela PLS de 6.2. ' +
+        '- Câmeras traseiras de 13Mpx/2Mpx. - Câmera frontal de 8Mpx.' +
+        '- Processador MediaTek MT6762 Helio P22 Octa-Core de 2GHz com 2GB de ' +
+        'RAM. \n' +
+        '- Memória interna 32GB. Adequado para cartão SD de 512GB.' +
+        '- Sistema operacional Android 9.0 Pie. - Com sensor de impressão' +
+        'digital.',
+      author: 'Vinícios Engelage',
+      categories: [],
+      price: 810.5,
+    });
+  }, []);
+
   return (
-    <Container>
+    <Content>
       <Item>
         <Images>
           <p>600 x 300px</p>
@@ -34,13 +54,15 @@ const Product: React.FC = () => {
 
         <InfoContact>
           <p>
-            Por <strong>Vinícios Engelage</strong>
+            Por <strong>{post?.author}</strong>
           </p>
-          <h1>Samsung Galaxy A10s Dual SIM 32 GB Vermelho 2 GB RAM</h1>
+          <h1>{post?.name}</h1>
+
           <Price>
             <p>Preço: </p>
-            <span>R$ 810,50</span>
+            <span>R$ {post?.price?.toFixed(2)}</span>
           </Price>
+
           <Buttons>
             <button type="button">
               <FaWhatsapp />
@@ -52,6 +74,7 @@ const Product: React.FC = () => {
             </button>
           </Buttons>
         </InfoContact>
+
         <Description>
           <h4>Descrição</h4>
           <p>
@@ -66,7 +89,7 @@ const Product: React.FC = () => {
           </p>
         </Description>
       </Item>
-    </Container>
+    </Content>
   );
 };
 

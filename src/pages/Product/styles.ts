@@ -1,9 +1,15 @@
 import styled from 'styled-components';
-import { container } from '../../styles/global';
 
-export const Container = container;
+export const Content = styled.section`
+  background: #fff;
+  min-height: 100vh;
+`;
 
-export const Item = styled.section`
+export const Item = styled.div`
+  max-width: 1244px;
+  margin: 0 auto;
+  padding: 40px 15px;
+
   display: grid;
   box-sizing: border-box;
   grid-template-columns: minmax(100px, 600px) minmax(280px, 1fr);
@@ -11,8 +17,6 @@ export const Item = styled.section`
     'img info'
     'details details';
 
-  width: 100%;
-  margin: 40px 0;
   gap: 25px;
 
   color: #3e3e3e;
@@ -28,7 +32,7 @@ export const Item = styled.section`
 
 export const Images = styled.div`
   grid-area: img;
-  height: 300px;
+  min-height: 300px;
   background: #b00e23;
   position: relative;
 
@@ -82,16 +86,16 @@ export const Description = styled.div`
 
     display: block;
     margin-bottom: 40px;
-  }
 
-  h4::after {
-    content: '';
-    height: 3px;
-    width: 100%;
-    background: #0e346a;
-    position: absolute;
-    left: 0;
-    bottom: -8px;
+    &::after {
+      content: '';
+      height: 3px;
+      width: 100%;
+      background: #0e346a;
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+    }
   }
 
   p {
@@ -107,12 +111,6 @@ export const Buttons = styled.div`
   position: absolute;
   bottom: 0;
   margin-bottom: 0;
-
-  @media (max-width: 700px) {
-    position: relative;
-    margin-top: 20px;
-    justify-content: center;
-  }
 
   button {
     display: flex;
@@ -134,6 +132,20 @@ export const Buttons = styled.div`
     // background: #65ad2f;
     background: #8f8985;
 
+    &:hover {
+      background: #65ad2f;
+      transition: background 400ms ease;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:last-child:hover {
+      background: #1253a8;
+      transition: background 400ms ease;
+    }
+
     svg {
       margin: auto 0;
       margin-right: 10px;
@@ -141,18 +153,14 @@ export const Buttons = styled.div`
     }
   }
 
-  button:hover {
-    background: #65ad2f;
-    transition: background 400ms ease;
-  }
+  @media (max-width: 700px) {
+    position: relative;
+    margin-top: 20px;
+    justify-content: center;
 
-  // button:last-child {
-  //   background: #1253a8;
-  // }
-
-  button:last-child:hover {
-    background: #1253a8;
-    transition: background 400ms ease;
+    button {
+      margin-right: 0;
+    }
   }
 `;
 
