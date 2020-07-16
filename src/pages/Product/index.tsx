@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaWhatsapp, FaEnvelope } from 'react-icons/fa';
+//import { FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 import { useRouteMatch } from 'react-router-dom';
 import api from '../../services/api';
 import {
@@ -39,7 +39,7 @@ const Product: React.FC = () => {
       setPost(response.data);
       console.log(response.data);
     });
-  }, []);
+  }, [params.id]);
 
   return (
     <>

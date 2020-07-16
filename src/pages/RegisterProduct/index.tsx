@@ -12,6 +12,20 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 
 const RegisterProduct: React.FC = () => {
+  const handleCreateProduct = useCallback(async(data)=>{
+    const product = {
+      title: data.title,
+      description: data.description,
+      price: data.price,
+      type: data.type,
+      image: [data.image1, data.image2],
+      name: data.name,
+      course: data.course,
+      contact: data.contact
+    }
+
+    api.post('/items', product).then(()=>(alert("Produto Adicionado!")))
+  },[]);
   const handleSubmit = useCallback(async(data: object) =>{
     try{
       const schema = Yup.object().shape({
@@ -34,22 +48,7 @@ const RegisterProduct: React.FC = () => {
     }catch(err){
       alert(err);
     }
-  },[]);
-
-  const handleCreateProduct = useCallback(async(data)=>{
-    const product = {
-      title: data.title,
-      description: data.description,
-      price: data.price,
-      type: data.type,
-      image: [data.image1, data.image2],
-      name: data.name,
-      course: data.course,
-      contact: data.contact
-    }
-
-    api.post('/items', product).then(()=>(alert("Produto Adicionado!")))
-  },[]);
+  },[handleCreateProduct]);
   return(
     <>
       <Banner backIcon={false}/>

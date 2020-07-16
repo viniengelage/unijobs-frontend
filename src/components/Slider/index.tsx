@@ -23,7 +23,6 @@ const Slider: React.FC = () => {
   useEffect(() => {
     api.get('/items/?perPage=8&page=1').then(response => {
       setProducts(response.data.docs);
-      console.log(response.data);
     });
   }, []);
 

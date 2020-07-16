@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react';
-import {Link, useRouteMatch, useHistory, useLocation} from 'react-router-dom';
+import {Link, useRouteMatch, useHistory} from 'react-router-dom';
 import {FiChevronLeft, FiChevronRight} from 'react-icons/fi'
 
 import api from '../../services/api';
@@ -8,7 +8,6 @@ import {Container, Content, Pages} from './styles';
 
 import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
-import { number } from 'prop-types';
 
 interface Product {
   _id: string;
@@ -45,7 +44,7 @@ const Catalog: React.FC = () => {
     const nextPage = parseInt(params.page) + 1;
     setNextPage(nextPage.toString());
 
-  },[])
+  },[hasCategory, params.category, params.page])
 
   const history = useHistory();
 
