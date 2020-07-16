@@ -7,12 +7,13 @@ import { Container, Content } from './styles';
 type CategoriesProps = {
   icon: React.ComponentType<IconBaseProps>;
   title: string;
+  link: string;
 };
 
-const CategoriesCard: React.FC<CategoriesProps> = ({ icon: Icon, title }) => (
+const CategoriesCard: React.FC<CategoriesProps> = ({ icon: Icon, title, link }) => (
   <Container>
     <Content>
-      <Link to="/categoria">
+      <Link to={link}>
         <Icon size={72} />
         <span>{title}</span>
       </Link>

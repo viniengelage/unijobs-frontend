@@ -33,15 +33,12 @@ export const Item = styled.div`
 export const Images = styled.div`
   grid-area: img;
   min-height: 300px;
-  background: #b00e23;
+  background: #0e346a;
   position: relative;
 
-  p {
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    top: 50%;
-    color: #fff;
+  img {
+    width: 600px;
+    height: 300px;
   }
 
   @media (max-width: 700px) {
@@ -112,12 +109,12 @@ export const Buttons = styled.div`
   bottom: 0;
   margin-bottom: 0;
 
-  button {
+  div {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 250px;
+    flex: 1;
     padding: 15px;
     margin-right: 10px;
 
@@ -134,15 +131,6 @@ export const Buttons = styled.div`
 
     &:hover {
       background: #65ad2f;
-      transition: background 400ms ease;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    &:last-child:hover {
-      background: #1253a8;
       transition: background 400ms ease;
     }
 

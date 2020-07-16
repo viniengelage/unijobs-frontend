@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaWhatsapp, FaEnvelope } from 'react-icons/fa';
+import { useRouteMatch } from 'react-router-dom';
+import api from '../../services/api';
 import {
   Content,
   Item,
@@ -13,85 +15,60 @@ import {
 import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
 
-interface IItem {
-  name: string;
+interface Item {
+  _id: string;
+  title: string;
   description: string;
-  author: string;
-  categories: ICategory[];
-  investiment?: string;
-  price?: number;
-}
-
-interface ICategory {
-  name: string;
+  price: string;
   type: string;
-  icon: string;
+  image: string[];
+  name: string;
+  course: string;
+  contact: string;
+}
+interface RepositoryParams {
+  id: string;
 }
 
 const Product: React.FC = () => {
-  const [post, setPost] = useState<IItem>();
+  const [post, setPost] = useState<Item>();
+  const { params } = useRouteMatch<RepositoryParams>();
 
   useEffect(() => {
-    setPost({
-      name: 'Samsung Galaxy A10s Dual SIM 32 GB Vermelho 2 GB RAM',
-      description:
-        '- Desbloqueado. - Tela PLS de 6.2. ' +
-        '- Câmeras traseiras de 13Mpx/2Mpx. - Câmera frontal de 8Mpx.' +
-        '- Processador MediaTek MT6762 Helio P22 Octa-Core de 2GHz com 2GB de ' +
-        'RAM. \n' +
-        '- Memória interna 32GB. Adequado para cartão SD de 512GB.' +
-        '- Sistema operacional Android 9.0 Pie. - Com sensor de impressão' +
-        'digital.',
-      author: 'Vinícios Engelage',
-      categories: [],
-      price: 810.5,
+    api.get(`/items/${params.id}`).then(response => {
+      setPost(response.data);
+      console.log(response.data);
     });
   }, []);
 
   return (
     <>
-      <Banner />
+      <Banner backIcon />
       <Content>
         <Item>
           <Images>
-            <p>600 x 300px</p>
+            <img src={post?.image[1]} alt={post?.name} />
           </Images>
 
           <InfoContact>
             <p>
-              Por <strong>{post?.author}</strong>
+              Por <strong>{post?.name}</strong>
             </p>
-            <h1>{post?.name}</h1>
+            <h1>{post?.title}</h1>
 
             <Price>
               <p>Preço: </p>
-              <span>R$ {post?.price?.toFixed(2)}</span>
+              <span>R$ {post?.price}</span>
             </Price>
 
             <Buttons>
-              <button type="button">
-                <FaWhatsapp />
-                Enviar Mensagem
-              </button>
-              <button type="button">
-                <FaEnvelope />
-                Enviar Mensagem
-              </button>
+              <div>{post?.contact}</div>
             </Buttons>
           </InfoContact>
 
           <Description>
             <h4>Descrição</h4>
-            <p>
-              - Desbloqueado. - Tela PLS de 6.2. <br />- Câmeras traseiras de
-              13Mpx/2Mpx. - Câmera frontal de 8Mpx. <br />
-              - Processador MediaTek MT6762 Helio P22 Octa-Core de 2GHz com 2GB
-              de RAM. <br />
-              - Bateria de 4000mAh. <br />
-              - Memória interna 32GB. Adequado para cartão SD de 512GB. <br />
-              - Sistema operacional Android 9.0 Pie. - Com sensor de impressão
-              digital. <br />
-            </p>
+            <p>{post?.description}</p>
           </Description>
         </Item>
       </Content>

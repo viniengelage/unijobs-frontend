@@ -14,17 +14,17 @@ import aboutUnijobs from '../../assets/about-unijobs.png';
 const LandingPage: React.FC = () => {
   return (
     <>
-      <Banner />
+      <Banner backIcon={false} />
       <HeaderSlider />
       <Container>
         <Title>
-          Adicionados recentemente <Link to="/produtos">ver tudo</Link>
+          Adicionados recentemente <Link to="/catalog/1">ver tudo</Link>
         </Title>
         <Slider />
         <Title>Categorias</Title>
         <Sider>
-          <CategoriesCard icon={IoMdCart} title="Produtos" />
-          <CategoriesCard icon={IoMdBuild} title="Serviços" />
+          <CategoriesCard icon={IoMdCart} title="Produtos" link="/categories/produto"/>
+          <CategoriesCard icon={IoMdBuild} title="Serviços" link="/categories/servico"/>
         </Sider>
         <Title>Sobre a UniJobs</Title>
         <Imagem src={aboutUnijobs} alt="Sobre a UniJobs" />

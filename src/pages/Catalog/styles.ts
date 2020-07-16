@@ -1,11 +1,19 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: 20px auto;
   display: flex;
+  margin: 20px auto;
+  justify-content: center;
+  flex-wrap: wrap;
 `;
 
 export const Content = styled.div`
+  margin-left: 20px;
+
+  & + div{
+      margin-bottom: 20px;
+  }
+
   background: #ffff;
   display: flex;
   flex-direction: column;
@@ -73,6 +81,24 @@ export const Content = styled.div`
       line-height: 22px;
       text-transform: capitalize;
       color: #0e346a;
+    }
+  }
+`;
+
+export const Pages = styled.div`
+  display: flex;
+  justify-content: center;
+
+  button{
+    background: none;
+    border: none;
+  }
+
+  svg{
+    color: #0e346a;
+
+    &:hover{
+      color: #65ad2f;
     }
   }
 `;

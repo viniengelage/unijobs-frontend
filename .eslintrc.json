@@ -36,6 +36,8 @@
       "import/prefer-default-export": "off",
       "react/jsx-one-expression-per-line": "off",
       "prettier/prettier": "error",
+      "treatUndefinedAsUnspecified": false,
+      "consistent-return": "off",
       "import/extensions": [
         "error",
         "ignorePackages",
