@@ -11,7 +11,7 @@ const Routes: React.FC = () => (
     <Route path="/item/:id+" component={Product} />
     <Route path="/catalog/:page+" component={Catalog} />
     <Route path="/categories/:category+" component={Catalog} />
-    <Route path="/register-products" component={RegisterProduct} />
+    <Route path="/register" component={RegisterProduct} />
   </Switch>
 );
 
