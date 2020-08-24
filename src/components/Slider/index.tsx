@@ -3,26 +3,21 @@ import { Link } from 'react-router-dom';
 import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
 
-import { FiChevronRight } from 'react-icons/fi';
+import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import { Container, Content } from './styles';
+import { IItem } from '../../services/types'
 import api from '../../services/api';
+import FakeItem from '../../services/product';
 
-
-interface Product {
-  _id: string;
-  title: string;
-  description: string;
-  price: string;
-  type: string;
-  image: string[];
-}
 
 const Slider: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<IItem[]>([]);
 
   useEffect(() => {
     api.get('/items/?perPage=8&page=1').then(response => {
       setProducts(response.data.docs);
+    }).catch(e => {
+      setProducts([FakeItem])
     });
   }, []);
 
@@ -30,7 +25,7 @@ const Slider: React.FC = () => {
     <Carousel
       infinite
       slidesPerPage={4}
-      // arrowLeft={<FiChevronLeft size={60} color="#0E346A" />}
+      arrowLeft={<FiChevronLeft size={60} color="#0E346A" />}
       arrowRight={<FiChevronRight size={60} color="#0E346A" />}
       addArrowClickHandler
       breakpoints={{

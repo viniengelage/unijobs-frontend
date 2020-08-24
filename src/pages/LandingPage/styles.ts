@@ -8,22 +8,29 @@ export const Container = styled.div`
   max-width: 1244px;
   margin: 0 auto;
   padding: 15px;
+  // background: #EBEBEB;
 `;
 
 export const Title = styled.h2`
+  display: block;
+  width: 100%;
   font-style: normal;
   font-weight: bold;
-  font-size: 26px;
+  font-size: 1.4em;
   line-height: 49px;
-  color: #0e346a;
+  color: #444;
   margin: 20px auto;
   a {
     font-style: italic;
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
-    color: #65ad2f;
+    color: #1259c3;
     text-decoration: none;
+    margin-left: 12px;
+  }
+  a:hover {
+    color: #65ad2f;
   }
 `;
 

@@ -18,7 +18,7 @@ const LandingPage: React.FC = () => {
       <HeaderSlider />
       <Container>
         <Title>
-          Adicionados recentemente <Link to="/catalog/1">ver tudo</Link>
+          Adicionados recentemente <Link to="/catalog/1">Ver tudo</Link>
         </Title>
         <Slider />
         <Title>Categorias</Title>
