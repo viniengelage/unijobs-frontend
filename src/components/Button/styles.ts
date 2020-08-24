@@ -12,6 +12,12 @@ export const Container = styled.button`
   font-weight: 500;
   margin-top: 16px;
   transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg{
+    margin: auto 5px;
+  }
 
   &:hover {
     background: ${shade(0.2, '#0e346a')};
