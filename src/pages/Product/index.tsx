@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { FaWhatsapp } from 'react-icons/fa';
+import { IItem } from '../../services/types';
 import {
   Content,
   Item,
@@ -10,12 +11,13 @@ import {
   Buttons,
   Price,
 } from './styles';
+
 import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
 
 import ProductItem from '../../services/product';
 import api from '../../services/api';
-import { IItem } from '../../services/types';
+
 
 
 interface RepositoryParams {
@@ -33,6 +35,9 @@ const Product: React.FC = () => {
       setPost(ProductItem);
     })
   }, [params.id]);
+
+  //Remove tudo exceto números
+  const contactLink = post?.contact.replace(/[^\d]+/g, '');
 
   return (
     <>
@@ -55,7 +60,7 @@ const Product: React.FC = () => {
             </Price>
             <Buttons>
               <a
-                href="http://wa.me/5545999381359"
+                href={`http://wa.me/55${contactLink}`}
                 target="_blank"
                 rel="noopener noreferrer" >
 
