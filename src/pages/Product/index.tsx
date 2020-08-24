@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-//import { FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 import { useRouteMatch } from 'react-router-dom';
-import api from '../../services/api';
+import { FaWhatsapp } from 'react-icons/fa';
 import {
   Content,
   Item,
@@ -11,34 +10,28 @@ import {
   Buttons,
   Price,
 } from './styles';
-
 import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
 
-interface Item {
-  _id: string;
-  title: string;
-  description: string;
-  price: string;
-  type: string;
-  image: string[];
-  name: string;
-  course: string;
-  contact: string;
-}
+import ProductItem from '../../services/product';
+import api from '../../services/api';
+import { IItem } from '../../services/types';
+
+
 interface RepositoryParams {
   id: string;
 }
 
 const Product: React.FC = () => {
-  const [post, setPost] = useState<Item>();
+  const [post, setPost] = useState<IItem>();
   const { params } = useRouteMatch<RepositoryParams>();
 
   useEffect(() => {
     api.get(`/items/${params.id}`).then(response => {
       setPost(response.data);
-      console.log(response.data);
-    });
+    }).catch(e => {
+      setPost(ProductItem);
+    })
   }, [params.id]);
 
   return (
@@ -60,9 +53,15 @@ const Product: React.FC = () => {
               <p>Preço: </p>
               <span>R$ {post?.price}</span>
             </Price>
-
             <Buttons>
-              <div>{post?.contact}</div>
+              <a
+                href="http://wa.me/5545999381359"
+                target="_blank"
+                rel="noopener noreferrer" >
+
+                <FaWhatsapp size={25} style={{ marginRight: 12 }} />
+                {post?.contact}
+              </a>
             </Buttons>
           </InfoContact>
 
