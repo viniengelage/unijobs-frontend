@@ -23,8 +23,8 @@ const LandingPage: React.FC = () => {
         <Slider />
         <Title>Categorias</Title>
         <Sider>
-          <CategoriesCard icon={IoMdCart} title="Produtos" link="/categories/produto"/>
-          <CategoriesCard icon={IoMdBuild} title="Serviços" link="/categories/servico"/>
+          <CategoriesCard icon={IoMdCart} title="Produtos" link="/categories/produto" />
+          <CategoriesCard icon={IoMdBuild} title="Serviços" link="/categories/servico" />
         </Sider>
         <Title>Sobre a UniJobs</Title>
         <Imagem src={aboutUnijobs} alt="Sobre a UniJobs" />
