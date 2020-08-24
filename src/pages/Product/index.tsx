@@ -15,7 +15,7 @@ import {
 import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
 
-import ProductItem from '../../services/product';
+import FakeItem from '../../services/product';
 import api from '../../services/api';
 
 
@@ -32,7 +32,7 @@ const Product: React.FC = () => {
     api.get(`/items/${params.id}`).then(response => {
       setPost(response.data);
     }).catch(e => {
-      setPost(ProductItem);
+      setPost(FakeItem);
     })
   }, [params.id]);
 
