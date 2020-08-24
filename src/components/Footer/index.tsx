@@ -2,13 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiFacebook, FiTwitter, FiYoutube, FiInstagram } from 'react-icons/fi';
 
-import { Container, Navigation, Midias, Copyright } from './styles';
+import { Container, LogoIMG, Navigation, Midias, Copyright } from './styles';
 import Logo from '../../assets/logo-uniamerica.png';
 
 const Footer: React.FC = () => (
   <>
     <Container>
-      <img src={Logo} alt="Uniamérica" />
+      <LogoIMG href="http://www.uniamerica.br/" target="_blank">
+        <img src={Logo} alt="Uniamérica" />
+      </LogoIMG>
       <Navigation>
         <li><Link to="/link">Ajuda e contato</Link></li>
         <li><Link to="/link">Mapa do site</Link></li>
@@ -16,10 +18,18 @@ const Footer: React.FC = () => (
         <li><Link to="/link">Vender na Unijobs</Link></li>
       </Navigation>
       <Midias>
-        <FiFacebook size={45} type="outline" />
-        <FiTwitter size={45} />
-        <FiYoutube size={45} />
-        <FiInstagram size={45} />
+        <a href="https://www.facebook.com/UniAmericaUA" target="_blank">
+          <FiFacebook size={45} type="outline" />
+        </a>
+        <a href="https://twitter.com/uniamerica" target="_blank">
+          <FiTwitter size={45} />
+        </a>
+        <a href="https://www.youtube.com/user/uniamerica" target="_blank">
+          <FiYoutube size={45} />
+        </a>
+        <a href="https://www.instagram.com/uniamerica.br/" target="_blank">
+          <FiInstagram size={45} />
+        </a>
       </Midias>
     </Container>
     <Copyright>
