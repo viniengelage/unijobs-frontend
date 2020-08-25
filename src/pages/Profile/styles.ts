@@ -8,27 +8,48 @@ import { shade } from 'polished';
 export const ContainerRoot = styled.div`
   background: #FBFBFB;
   display: flex;
-  justify-content:center;
-  padding: 50px;
+`;
+
+export const Sidebar = styled.div`
+  width: fit-content;
+  height: 90vh;
+  background: #F7F7F7;
+  border: 1px solid #DDDDDD;
+  padding: 30px 0 0 0; 
+`;
+
+export const A= styled.a`
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 26px;
+margin: 30px;
+
+display: flex;
+align-items: center;
+
+color: #555555;
+`;
+
+export const FormGrid = styled.div`
+  height: fit-content;
+  padding:40px; 
+  display:grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap:10px;
 
 `;
 
 export const Formbox = styled.div`
-  width: 925px;
-  height: fit-content;
+  width: 100%;
+  height: 300px;
   background: #FFFFFF;
   border: 0.8px solid #DDDDDD;
-  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 10px rgba(34, 34, 34, 0.05);
   border-radius: 10px;
   padding-bottom:30px;
-
-  @media(max-width: 950px) {
-  width: 650px;
-  }
-
-  @media(max-width: 670px) {
-  width: 480px;
-  }
+  display:flex;
+  flex-direction: column;
 `;
 
 export const Title = styled.div`
@@ -61,11 +82,10 @@ color: #767676;
 `;
 
 export const Input = styled.input`
-  width: 871px;
   height:42px;
   padding: 8px 12px;
-  margin-left: 27px;
   vertical-align:top;
+  margin: auto 27px;
 
   background: #FFFFFF;
   border: 1px solid #BABABA;
@@ -77,48 +97,10 @@ export const Input = styled.input`
   font-size: 14px;
   line-height: 26px;
   color: #444444;
-    
-  input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
-  input[type=number] {
-    -moz-appearance: textfield;
-    appearance: textfield;
-  }
-  @media(max-width: 950px) {
-  width: 590px;
-  }
-  @media(max-width: 670px) {
-  width: 425px;
-  }
+  flex: 1;
+
 `;
 
-export const TextArea = styled.textarea`
-  width: 871px;
-  height:250px;
-  resize: none;
-  padding: 8px 12px;
-  margin-left: 27px;
-  vertical-align:top;
-
-  background: #FFFFFF;
-  border: 1px solid #BABABA;
-  box-sizing: border-box;
-  border-radius: 5px;
-
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 26px;
-  color: #444444;
-  
-  @media(max-width: 950px) {
-  width: 590px;
-  }
-  @media(max-width: 670px) {
-  width: 425px;
-  }
-`;
 
 export const Button = styled.button`
   align-items: center;
@@ -144,21 +126,18 @@ export const Button = styled.button`
   }
 `;
 
-export const Select = styled.select`
-  width: 200px;
-  height:42px;
-  padding: 8px 12px;
-  margin-left: 27px;
-  vertical-align:top;
-
+export const Foot = styled.div`
+  height: 77px;
   background: #FFFFFF;
-  border: 1px solid #BABABA;
-  box-sizing: border-box;
-  border-radius: 5px;
-
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
-  line-height: 26px;
-  color: #444444;
+  font-size: 12px;
+  line-height: 15px;
+  padding: 34px 0 28px 98px;
+
+  display: flex;
+  align-items: center;
+
+  color: #555555;
+
 `;
