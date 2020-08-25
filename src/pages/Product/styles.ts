@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const Content = styled.section`
   background: #fff;
   height: 100vh;
+  @media (max-width: 1000px) {
+    height: 100%;
+  }
 `;
 
 export const Item = styled.div`
