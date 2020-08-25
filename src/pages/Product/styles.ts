@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Content = styled.section`
   background: #fff;
+  height: 100vh;
 `;
 
 export const Item = styled.div`
