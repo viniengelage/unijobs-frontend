@@ -39,7 +39,12 @@ export const Sider = styled.div`
 `;
 
 export const Imagem = styled.img`
-  max-width: 1280px;
-  max-height: 600px;
+  width: 100%;
   border-radius: 3px;
+
+  @media (max-width: 400px) {
+    height: 240px;
+    object-fit: cover;
+    object-position: 0 0;
+  }
 `;
