@@ -17,9 +17,9 @@ export const Title = styled.h2`
   font-style: normal;
   font-weight: bold;
   font-size: 1.4em;
-  line-height: 49px;
   color: #444;
-  margin: 20px auto;
+  margin: 30px auto;
+
   a {
     font-style: italic;
     font-weight: 500;
@@ -28,9 +28,20 @@ export const Title = styled.h2`
     color: #1259c3;
     text-decoration: none;
     margin-left: 12px;
+
+    &:hover {
+      color: #65ad2f;
+    }
+
   }
-  a:hover {
-    color: #65ad2f;
+
+  @media (max-width: 450px) {
+    text-align: center;
+
+    a {
+      display: block;
+      margin: 12px 0 0;
+    }
   }
 `;
 
@@ -41,6 +52,7 @@ export const Sider = styled.div`
 export const Imagem = styled.img`
   width: 100%;
   border-radius: 3px;
+  margin-bottom: 30px;
 
   @media (max-width: 400px) {
     height: 240px;
