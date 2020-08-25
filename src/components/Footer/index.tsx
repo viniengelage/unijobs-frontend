@@ -8,7 +8,7 @@ import Logo from '../../assets/logo-uniamerica.png';
 const Footer: React.FC = () => (
   <>
     <Container>
-      <LogoIMG href="http://www.uniamerica.br/" target="_blank">
+      <LogoIMG href="http://www.uniamerica.br/" target="_blank" rel="noopener noreferrer">
         <img src={Logo} alt="Uniamérica" />
       </LogoIMG>
       <Navigation>
@@ -18,16 +18,16 @@ const Footer: React.FC = () => (
         <li><Link to="/link">Vender na Unijobs</Link></li>
       </Navigation>
       <Midias>
-        <a href="https://www.facebook.com/UniAmericaUA" target="_blank">
+        <a href="https://www.facebook.com/UniAmericaUA" target="_blank" rel="noopener noreferrer">
           <FiFacebook size={45} type="outline" />
         </a>
-        <a href="https://twitter.com/uniamerica" target="_blank">
+        <a href="https://twitter.com/uniamerica" target="_blank" rel="noopener noreferrer">
           <FiTwitter size={45} />
         </a>
-        <a href="https://www.youtube.com/user/uniamerica" target="_blank">
+        <a href="https://www.youtube.com/user/uniamerica" target="_blank" rel="noopener noreferrer">
           <FiYoutube size={45} />
         </a>
-        <a href="https://www.instagram.com/uniamerica.br/" target="_blank">
+        <a href="https://www.instagram.com/uniamerica.br/" target="_blank" rel="noopener noreferrer">
           <FiInstagram size={45} />
         </a>
       </Midias>
