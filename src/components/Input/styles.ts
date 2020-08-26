@@ -8,16 +8,21 @@ interface ContainerProps {
 export const Container = styled.div<ContainerProps>`
   display: flex;
   align-items: center;
-
-  width: 350px;
+  color: #444444;  
+  padding: 5px 12px;
+  width: 100%;
   height:40px;
-  border:2px solid #0e346a;
-  border-radius: 2px;
-  color: #0e346a;
+  margin-top:8px;
 
-  & + div {
-    margin-top: 8px;
-  }
+  background: #FFFFFF;
+  border: 1px solid #BABABA;
+  box-sizing: border-box;
+  border-radius: 5px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 26px;
 
   ${props =>
     props.isFocused &&
@@ -32,27 +37,34 @@ export const Container = styled.div<ContainerProps>`
       color: #65ad2f;
       border-color: #65ad2f;
     `}
-
+  
   input {
     background: transparent;
     border: 0;
-    color: #0e346a;
-
-    &::placeholder {
-      color:  #0e346a;
-    }
+    width: 100%;
   }
   input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
-
   }
   input[type=number] {
     -moz-appearance: textfield;
     appearance: textfield;
-
   }
   svg {
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 5px;
+    width:20px;
+    height:20px;
+  }
+`;
+
+export const InputBlock = styled.div `
+  margin: 20px 27px 0 27px;
+  
+  label {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 26px;
+    color: #767676;
   }
 `;
