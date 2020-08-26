@@ -21,8 +21,8 @@ const Login: React.FC = () => {
         <Lateral />
         <ContainerForm>
           <FormLinks>
-            <LinkForm to="#/">Entrar</LinkForm>
-            <LinkForm to="#/">Registre-se</LinkForm>
+            <LinkForm to="login">Entrar</LinkForm>
+            <LinkForm to="registeruser">Registre-se</LinkForm>
           </FormLinks>
           <Form onSubmit={handleSubmit}>
             <Input name="ra" type="number" label="Ra do Aluno" placeholder="Digite seu RA" />
