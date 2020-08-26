@@ -30,8 +30,7 @@ const RegisterProduct: React.FC = () => {
         title: Yup.string().required(),
         description: Yup.string().required(),
         price: Yup.number().required(),
-        image1: Yup.string().required(),
-        image2: Yup.string().required(),
+        images: Yup.string().required(),
         type: Yup.string().required(),
       })
 

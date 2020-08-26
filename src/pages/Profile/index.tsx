@@ -1,27 +1,24 @@
 import React, {useCallback} from 'react';
+import {Link} from 'react-router-dom';
 import {Form} from '@unform/web';
 //import {IoMdCube,IoMdCode,IoMdPricetag, IoMdFolder,IoMdDocument, IoMdPeople, IoMdSchool, IoIosMail} from 'react-icons/io';
 import * as Yup from 'yup';
 
-import api from '../../services/api'
-
-import {ContainerRoot, Sidebar, FormGrid, Title, Label, Input, Formbox, A, Button, Foot} from './styles';
+import {ContainerRoot, Sidebar, FormGrid, Title, Label, Input, Formbox, Buttons, Foot} from './styles';
 import Banner from '../../components/Banner';
 //import Input from '../../components/Input';
 //import Button from '../../components/Button';
 
 const Profile: React.FC = () => {
   const handleCreateProfile = useCallback(async(data)=>{
-    const product = {
-      name: data.name,
-      ra: data.ra,
-      number: data.number,
-      email: data.email,
-      password: data.password,
-      profileimage: data.profileimages,
-    }
-
-    //api.post('/profile', profile).then(()=>(alert("Perfil Salvo!")))
+    // const profile = {
+    //   name: data.name,
+    //   ra: data.ra,
+    //   number: data.number,
+    //   email: data.email,
+    //   password: data.password,
+    //   profileimage: data.profileimages,
+    // }
   },[]);
 
   const handleSubmit = useCallback(async(data: object) =>{
@@ -49,13 +46,13 @@ const Profile: React.FC = () => {
     <div style={{width:'100vw', height:'100vh'}}>
       <Banner backIcon={true}/>
       <ContainerRoot>
-        <Sidebar>
-        <A>Perfil</A>
-        <A>Produtos</A>
-        <A>Serviços</A>
-        <A>Meus Anúncios</A>
+        <Sidebar> 
+        <Link to="/">Perfil</Link>
+        <Link to="/">Produtos</Link>
+        <Link to="/">Serviços</Link>
+        <Link to="/">Meus Anúncios</Link>
         </Sidebar>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} style={{width:'100%'}}>
           <FormGrid>
           <Formbox >
             <Title>Imagem de perfil</Title>
@@ -75,24 +72,26 @@ const Profile: React.FC = () => {
             <Label>Telefone Principal</Label>
             <span></span><Input name="title"type='text'/>
             <Label>Email</Label>
-            <span></span><Input name="title"type='text'/>
+            <span></span><Input name="title"type='email'/>
           </Formbox>  
 
           <Formbox >
             <Title>Senha</Title>
             <Label>Nova Senha</Label>
-            <span></span><Input name="title"type='text'/>
+            <span></span><Input name="title"type='password'/>
             <Label>Repita a senha</Label>
-            <span></span><Input name="title"type='text'/>
+            <span></span><Input name="title"type='password'/>
           </Formbox>
 
           </FormGrid>
-          <Button type="submit">Salvar</Button>
-          <Button type="button" style={{background:'#F5F6F7',border:'1px solid #CCD0D5',color:'#767676'}}>Cancelar</Button>
+          <Buttons>
+            <button type="submit">Salvar</button>
+            <button type="button">Cancelar</button>
+          </Buttons>
           
         </Form>
+        <Foot>2020 Unijobs. Todos os direitos reservados.</Foot>
       </ContainerRoot>
-      <Foot>2020 Unijobs. Todos os direitos reservados.</Foot>
     </div>
       
     </>
