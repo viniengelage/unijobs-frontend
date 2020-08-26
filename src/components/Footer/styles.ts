@@ -36,6 +36,7 @@ export const Navigation = styled.ul`
        text-decoration: none;
        color: #555;
        font-weight: 500;
+       transition: color 200ms;
      }
      a:hover{
        color: #65AD2F;
