@@ -1,14 +1,15 @@
 import React, {useCallback} from 'react';
 import {Form} from '@unform/web';
-//import {IoMdCube,IoMdCode,IoMdPricetag, IoMdFolder,IoMdDocument, IoMdPeople, IoMdSchool, IoIosMail} from 'react-icons/io';
 import * as Yup from 'yup';
 
 import api from '../../services/api'
 
-import {ContainerRoot, Title, Label, Input, Formbox, Button, Select, TextArea} from './styles';
+import {ContainerRoot, Title, Formbox, Button} from './styles';
 import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
-//import Input from '../../components/Input';
+import Input from '../../components/Input';
+import Select from '../../components/Select';
+import TextArea from '../../components/TextArea';
 //import Button from '../../components/Button';
 
 const RegisterProduct: React.FC = () => {
@@ -46,35 +47,30 @@ const RegisterProduct: React.FC = () => {
   },[handleCreateProduct]);
   return(
     <>
-    <div style={{width:'100vw', height:'100vh'}}>
+    <div style={{width:'100vw'}}>
       <Banner backIcon={true}/>
       <ContainerRoot>
         <Form onSubmit={handleSubmit} >
           <Formbox >
             <Title>Adicionar Produto</Title>
-            
-            <Label>Titulo</Label>
-            <Input name="title"type='text'/>
+             
+            <Input label="Título" name="title"type='text'/>
 
-            <div className="infos" style={{display:'flex'}}>
-              <div>
-                <Label>Preço</Label>
-                <Input name="price" type="number" style={{width:'200px'}}/>
-              </div>
-              <div>
-                <Label>Categoria:</Label>
-                  <Select>
-                    <option value="0">Produto</option>
-                    <option value="1">Serviço</option>
-                  </Select>
-              </div>
+            <div style={{display:'flex'}}>
+              <Input label="Preço" name="price" type="number" style={{width:'200px'}}/>
+              <Select 
+                label="Categoria" 
+                name="type" 
+                options={[
+                  { value: '0', label: 'Produto' },
+                  { value: '1', label: 'Serviço' },
+                ]}
+                />
             </div> 
             
-            <Label>Imagens</Label>
-            <Input name="images" type="file" multiple/>
+            <Input label="Imagens" name="images" type="file" multiple/>
 
-            <Label>Descrição</Label>
-            <TextArea name="description" />
+            <TextArea label="Descrição" name="description"/>
             
             <Button type="submit">Salvar</Button>
             <Button type="button" style={{background:'#F5F6F7',border:'1px solid #CCD0D5',color:'#767676'}}>Cancelar</Button>

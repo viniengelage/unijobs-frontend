@@ -1,12 +1,12 @@
 import React, {useCallback} from 'react';
 import {Link} from 'react-router-dom';
 import {Form} from '@unform/web';
-//import {IoMdCube,IoMdCode,IoMdPricetag, IoMdFolder,IoMdDocument, IoMdPeople, IoMdSchool, IoIosMail} from 'react-icons/io';
+import {IoMdCall,IoMdLock, IoMdPeople, IoIosMail} from 'react-icons/io';
 import * as Yup from 'yup';
 
-import {ContainerRoot, Sidebar, FormGrid, Title, Label, Input, Formbox, Buttons, Foot} from './styles';
+import {ContainerRoot, Sidebar, FormGrid, Formbox, Buttons, Foot} from './styles';
 import Banner from '../../components/Banner';
-//import Input from '../../components/Input';
+import Input from '../../components/Input';
 //import Button from '../../components/Button';
 
 const Profile: React.FC = () => {
@@ -47,40 +47,34 @@ const Profile: React.FC = () => {
       <Banner backIcon={true}/>
       <ContainerRoot>
         <Sidebar> 
-        <Link to="/">Perfil</Link>
-        <Link to="/">Produtos</Link>
-        <Link to="/">Serviços</Link>
-        <Link to="/">Meus Anúncios</Link>
+          <Link to="/">Perfil</Link>
+          <Link to="/">Produtos</Link>
+          <Link to="/">Serviços</Link>
+          <Link to="/">Meus Anúncios</Link>
         </Sidebar>
         <Form onSubmit={handleSubmit} style={{width:'100%'}}>
           <FormGrid>
           <Formbox >
-            <Title>Imagem de perfil</Title>
-            <Input name="images" type="file"/>
+            <legend>Imagem de perfil</legend>
+            <Input label="Carregar Imagem" name="images" type="file"/>
           </Formbox>  
           
           <Formbox >
-            <Title>Sobre Mim</Title>
-            <Label>Nome Completo</Label>
-            <span></span><Input name="title"type='text'/>
-            <Label>R.A</Label>
-            <span></span><Input name="title"type='text'/>
+            <legend>Sobre Mim</legend>
+            <Input label="Nome Completo" name="title"type='text' icon={IoMdPeople}/>
+            <Input label="R.A" icon={IoMdPeople} name="title"type='text'/>
           </Formbox>   
 
           <Formbox >
-            <Title>Detalhes de Contato</Title>
-            <Label>Telefone Principal</Label>
-            <span></span><Input name="title"type='text'/>
-            <Label>Email</Label>
-            <span></span><Input name="title"type='email'/>
+            <legend>Detalhes de Contato</legend>
+            <Input label="Telefone Principal" icon={IoMdCall} name="title"type='text'/>
+            <Input label="Email" icon={IoIosMail} name="title"type='email'/>
           </Formbox>  
 
           <Formbox >
-            <Title>Senha</Title>
-            <Label>Nova Senha</Label>
-            <span></span><Input name="title"type='password'/>
-            <Label>Repita a senha</Label>
-            <span></span><Input name="title"type='password'/>
+            <legend>Senha</legend>
+            <Input label="Nova Senha" icon={IoMdLock} name="title"type='password'/>
+            <Input label="Repita a senha" icon={IoMdLock} name="title"type='password'/>
           </Formbox>
 
           </FormGrid>
