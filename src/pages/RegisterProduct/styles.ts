@@ -96,6 +96,7 @@ export const Input = styled.input`
 export const TextArea = styled.textarea`
   width: 871px;
   height:250px;
+  resize: none;
   padding: 8px 12px;
   margin-left: 27px;
   vertical-align:top;
