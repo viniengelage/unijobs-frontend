@@ -1,5 +1,4 @@
 import React, {useCallback} from 'react';
-import {Link} from 'react-router-dom';
 import {Form} from '@unform/web';
 import {IoMdCall,IoMdLock, IoMdPeople, IoIosMail} from 'react-icons/io';
 import * as Yup from 'yup';
