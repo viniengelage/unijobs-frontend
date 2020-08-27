@@ -5,6 +5,7 @@ export const Container = styled.div`
   flex-direction:column;
   width:250px;
   margin: 20px 27px 0 10px;
+  font-family: Roboto;
 
   label {
     font-style: normal;

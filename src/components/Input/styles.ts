@@ -19,10 +19,6 @@ export const Container = styled.div<ContainerProps>`
   box-sizing: border-box;
   border-radius: 5px;
 
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 26px;
 
   ${props =>
     props.isFocused &&
@@ -42,6 +38,11 @@ export const Container = styled.div<ContainerProps>`
     background: transparent;
     border: 0;
     width: 100%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 26px;
   }
   input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -59,6 +60,7 @@ export const Container = styled.div<ContainerProps>`
 
 export const InputBlock = styled.div `
   margin: 20px 27px 0 27px;
+  font-family: Roboto;
   
   label {
     font-style: normal;

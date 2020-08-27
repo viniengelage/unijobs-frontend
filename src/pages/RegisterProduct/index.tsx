@@ -10,7 +10,7 @@ import Footer from '../../components/Footer';
 import Input from '../../components/Input';
 import Select from '../../components/Select';
 import TextArea from '../../components/TextArea';
-//import Button from '../../components/Button';
+import Sidebar from '../../components/Sidebar';
 
 const RegisterProduct: React.FC = () => {
   const handleCreateProduct = useCallback(async(data)=>{
@@ -50,6 +50,7 @@ const RegisterProduct: React.FC = () => {
     <div style={{width:'100vw'}}>
       <Banner backIcon={true}/>
       <ContainerRoot>
+        <Sidebar />
         <Form onSubmit={handleSubmit} >
           <Formbox >
             <Title>Adicionar Produto</Title>

@@ -7,26 +7,48 @@ import { shade } from 'polished';
 
 export const ContainerRoot = styled.div`
   background: #FBFBFB;
-  display: flex;
+  display: grid;
   justify-content:center;
-  padding: 30px 50px;
   min-height: calc(100vh - 250px);
+  grid-template-columns: minmax(100px, 280px) minmax(280px, 1fr);
+  grid-template-areas:
+    'sidebar formbox'
+    'footer footer';
+  gap: 0;
+
+  Footer {
+    grid-area: footer;
+  }
+
+  Sidebar {
+    grid-area: sidebar;
+  }
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'sidebar'
+      'formgrid'
+      'footer';
+  }
 `;
 
 export const Formbox = styled.div`
-  width: 925px;
+  grid-area: formgrid; 
+  width: 620px;
   height: fit-content;
   background: #FFFFFF;
   border: 0.8px solid #DDDDDD;
   box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  margin: 30px auto;
 
-  @media(max-width: 950px) {
-  width: 650px;
+  @media(max-width: 650px) {
+    width: 500px;
   }
 
-  @media(max-width: 670px) {
-    width: 480px;
+  @media(min-width: 1281px){
+    width: 925px;
   }
 `;
 

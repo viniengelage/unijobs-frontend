@@ -27,48 +27,24 @@ export const ContainerRoot = styled.div`
       'formgrid'
       'footer';
   } 
-`;
 
-export const Sidebar = styled.aside`
-  grid-area: sidebar;
-  background: #F7F7F7;
-  border: 1px solid #DDDDDD;
-  padding: 30px 0 0 0; 
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  min-height: calc(100vh - 138px);
-
-  a{
-  text-decoration: none;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 26px;
-  padding: 10px 30px;
-  align-items: center;
-
-  color: #555555;
-  
-  &:hover{
-    color: #51AB0E; 
+  Footer {
+    grid-area: footer;
   }
-  }
-  @media(max-width:800px){
-    flex-direction: row;
-    justify-content: center;
-    padding: 15px 0;
+
+  Sidebar {
+      grid-area: sidebar;
   }
 `;
 
 export const FormGrid = styled.div`
   grid-area: formgrid;
   height: fit-content;
-  padding:40px;
+  padding: 20px 40px 20px 40px;
   width:100%; 
   display:grid; 
   grid-template-columns: 1fr 1fr; 
-  gap:10px;
+  gap:15px;
 
   @media(max-width:1000px){
     grid-template-columns: 1fr;
@@ -91,8 +67,9 @@ export const Formbox = styled.div`
   legend {
     background: #F5F6F8;
     border-bottom: 0.8px solid #DDDDDD;
-    padding:30px;
+    padding:25px 30px;
 
+    font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 26px;
@@ -120,7 +97,7 @@ export const Buttons = styled.button`
   color: #FFFFFF;
   width: 150px;
   margin-right: 20px;
-  margin-bottom:30px;
+  margin-bottom:20px;
   transition: background 0.2s;
 
   font-family: Roboto;
@@ -143,20 +120,4 @@ export const Buttons = styled.button`
   }
   }
   
-`;
-
-export const Foot = styled.div`
-  grid-area: footer;
-  height: 77px;
-  background: #FFFFFF;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 15px;
-  padding: 34px 0 28px 98px;
-
-  display: flex;
-  align-items: center;
-
-  color: #555555;
 `;
