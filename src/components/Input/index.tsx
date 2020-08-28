@@ -11,7 +11,6 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 
 import { Container, InputBlock } from './styles';
-import { truncateSync } from 'fs';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
