@@ -28,13 +28,13 @@ export const ContainerRoot = styled.div`
       'footer';
   } 
 
-  Footer {
-    grid-area: footer;
-  }
-
   Sidebar {
       grid-area: sidebar;
   }
+`;
+
+export const Foot = styled.div`
+  grid-area: footer;
 `;
 
 export const FormGrid = styled.div`

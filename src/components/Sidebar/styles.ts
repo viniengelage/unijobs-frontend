@@ -6,8 +6,9 @@ export const Container = styled.aside`
   padding: 30px 0 0 0; 
   display: flex;
   width: 100%;
+  height: 100%;
   flex-direction: column;
-  min-height: calc(100vh - 300px);
+  min-height: calc(100vh - 250px);
 
   a{
   font-family: Roboto;

@@ -1,10 +1,11 @@
 import React, {useCallback} from 'react';
 import {Form} from '@unform/web';
 import * as Yup from 'yup';
+import CurrencyInput from 'react-currency-input';
 
-import api from '../../services/api'
+import api from '../../services/api';
 
-import {ContainerRoot, Title, Formbox, Button} from './styles';
+import {ContainerRoot, Title, Formbox, Buttons} from './styles';
 import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
 import Input from '../../components/Input';
@@ -52,13 +53,21 @@ const RegisterProduct: React.FC = () => {
       <ContainerRoot>
         <Sidebar />
         <Form onSubmit={handleSubmit} >
+          <Title>Adicionar Produto</Title>
           <Formbox >
-            <Title>Adicionar Produto</Title>
-             
-            <Input label="Título" name="title"type='text'/>
+            <Input label="Título" help="O título deverá conter no máximo 60 caracteres" name="title"type='text'/>
 
-            <div style={{display:'flex'}}>
-              <Input label="Preço" name="price" type="number" style={{width:'200px'}}/>
+            <div id="PrecoCat" >
+                <Select 
+                  style={{maxWidth:'250px'}}
+                  label="Preço" 
+                  name="type" 
+                  options={[
+                    { value: 'Fixo', label: 'Preço Fixo' },
+                    { value: 'Variavel', label: 'A partir de' },
+                  ]}
+                />
+                <CurrencyInput id="Preco" prefix="R$" decimalSeparator="," thousandSeparator="." />
               <Select 
                 label="Categoria" 
                 name="type" 
@@ -66,15 +75,17 @@ const RegisterProduct: React.FC = () => {
                   { value: '0', label: 'Produto' },
                   { value: '1', label: 'Serviço' },
                 ]}
-                />
+              />
             </div> 
             
-            <Input label="Imagens" name="images" type="file" multiple/>
+            <Input label="Imagens" help="Insira uma imagem" name="images" type="file" multiple/>
 
             <TextArea label="Descrição" name="description"/>
             
-            <Button type="submit">Salvar</Button>
-            <Button type="button" style={{background:'#F5F6F7',border:'1px solid #CCD0D5',color:'#767676'}}>Cancelar</Button>
+            <Buttons>
+              <button type="submit">Salvar</button>
+              <button type="button">Cancelar</button>
+            </Buttons>
           </Formbox>
         </Form>
       </ContainerRoot>

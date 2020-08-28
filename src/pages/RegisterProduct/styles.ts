@@ -1,15 +1,10 @@
 import styled from 'styled-components';
 import { shade } from 'polished';
 
-/*export const name = styled.div`
-  
-`;*/
-
 export const ContainerRoot = styled.div`
   background: #FBFBFB;
   display: grid;
   justify-content:center;
-  min-height: calc(100vh - 250px);
   grid-template-columns: minmax(100px, 280px) minmax(280px, 1fr);
   grid-template-areas:
     'sidebar formbox'
@@ -40,8 +35,26 @@ export const Formbox = styled.div`
   background: #FFFFFF;
   border: 0.8px solid #DDDDDD;
   box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  margin: 30px auto;
+  border-radius: 0 0 10px 10px;
+  margin: 0px auto 30px auto;
+
+  #PrecoCat {
+    display: flex;
+    width:100%
+  }
+
+  #Preco {
+    color: #444444;  
+    padding: 5px 12px;
+    height:40px;
+    margin-top:49px;
+    background: #FFFFFF;
+    border: 1px solid #BABABA;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+
 
   @media(max-width: 650px) {
     width: 500px;
@@ -53,10 +66,13 @@ export const Formbox = styled.div`
 `;
 
 export const Title = styled.div`
+  width: 620px;
   background: #F5F6F8;
-  border-bottom: 0.8px solid #DDDDDD;
+  border: 0.8px solid #DDDDDD;
+  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 10px 10px 0 0;
+  margin:30px auto 0 auto;
   padding:30px;
-  display: flex;
   justify-content:left;
 
   font-style: normal;
@@ -65,10 +81,24 @@ export const Title = styled.div`
   line-height: 26px;
   color:#555555;
   
+  @media(max-width: 650px) {
+    width: 500px;
+  }
+
+  @media(min-width: 1281px){
+    width: 925px;
+  }
 `;
 
-export const Button = styled.button`
-  align-items: center;
+export const Buttons = styled.button`
+  width:100%;
+  background: none;
+  border: 0;
+  text-align: left;
+  padding: 10px 40px 0 27px;
+  justify-content: flex-start;
+
+  button{
   text-align: center;
   background: #51AB0E;
   height: 50px;
@@ -77,16 +107,28 @@ export const Button = styled.button`
   padding: 0 16px;
   color: #FFFFFF;
   width: 150px;
-  margin: 20px 27px;
-  transition: background-color 0.2s;
+  margin-right: 20px;
+  margin-bottom:20px;
+  transition: background 0.2s;
 
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
-  line-height: 19px;
-
+  line-height: 19px; 
+  
   &:hover {
     background: ${shade(0.2, '#51AB0E')};
   }
+
+  &:last-child{
+    background:#F5F6F7;
+    border:1px solid #CCD0D5;
+    color:#767676;
+    &:hover {
+    background: ${shade(0.2, '#CCD0D5')};
+    }
+  }
+  }
+  
 `;

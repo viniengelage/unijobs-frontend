@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
+interface ContainerProps {
+  isFocused: boolean;
+  isFilled: boolean;
+}
+
 export const Container = styled.div`
-  margin: 20px 27px 0 27px;
-  font-family: Roboto;
+  margin: 15px 27px 0 27px;
   
   label {
     font-style: normal;
@@ -26,7 +30,7 @@ export const Container = styled.div`
     box-sizing: border-box;
     border-radius: 5px;
     
-    font-family: Roboto;
+    font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;

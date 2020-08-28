@@ -3,7 +3,7 @@ import {Form} from '@unform/web';
 import {IoMdCall,IoMdLock, IoMdPeople, IoIosMail} from 'react-icons/io';
 import * as Yup from 'yup';
 
-import {ContainerRoot, FormGrid, Formbox, Buttons} from './styles';
+import {ContainerRoot, FormGrid, Formbox, Buttons, Foot} from './styles';
 import Banner from '../../components/Banner';
 import Input from '../../components/Input';
 import Footer from '../../components/Footer';
@@ -57,7 +57,7 @@ const Profile: React.FC = () => {
           <Formbox >
             <legend>Sobre Mim</legend>
             <Input label="Nome Completo" name="title"type='text' icon={IoMdPeople}/>
-            <Input label="R.A" icon={IoMdPeople} name="title"type='text'/>
+            <Input label="R.A" help="Digite seu Registro Academico da UniAmérica" icon={IoMdPeople} name="title"type='text'/>
           </Formbox>   
 
           <Formbox >
@@ -79,7 +79,7 @@ const Profile: React.FC = () => {
           </Buttons>
           
         </Form>
-        <Footer />
+        <Foot><Footer /></Foot>
       </ContainerRoot>
     </div>
       
