@@ -1,13 +1,13 @@
 import React, {useCallback} from 'react';
-import {Link} from 'react-router-dom';
 import {Form} from '@unform/web';
 import {IoMdCall,IoMdLock, IoMdPeople, IoIosMail} from 'react-icons/io';
 import * as Yup from 'yup';
 
-import {ContainerRoot, Sidebar, FormGrid, Formbox, Buttons, Foot} from './styles';
+import {ContainerRoot, FormGrid, Formbox, Buttons, Foot} from './styles';
 import Banner from '../../components/Banner';
 import Input from '../../components/Input';
-//import Button from '../../components/Button';
+import Footer from '../../components/Footer';
+import Sidebar from '../../components/Sidebar';
 
 const Profile: React.FC = () => {
   const handleCreateProfile = useCallback(async(data)=>{
@@ -46,12 +46,7 @@ const Profile: React.FC = () => {
     <div style={{width:'100vw', height:'100vh'}}>
       <Banner backIcon={true}/>
       <ContainerRoot>
-        <Sidebar> 
-          <Link to="/">Perfil</Link>
-          <Link to="/">Produtos</Link>
-          <Link to="/">Serviços</Link>
-          <Link to="/">Meus Anúncios</Link>
-        </Sidebar>
+        <Sidebar />
         <Form onSubmit={handleSubmit} style={{width:'100%'}}>
           <FormGrid>
           <Formbox >
@@ -62,7 +57,7 @@ const Profile: React.FC = () => {
           <Formbox >
             <legend>Sobre Mim</legend>
             <Input label="Nome Completo" name="title"type='text' icon={IoMdPeople}/>
-            <Input label="R.A" icon={IoMdPeople} name="title"type='text'/>
+            <Input label="R.A" help="Digite seu Registro Academico da UniAmérica" icon={IoMdPeople} name="title"type='text'/>
           </Formbox>   
 
           <Formbox >
@@ -84,7 +79,7 @@ const Profile: React.FC = () => {
           </Buttons>
           
         </Form>
-        <Foot>2020 Unijobs. Todos os direitos reservados.</Foot>
+        <Foot><Footer /></Foot>
       </ContainerRoot>
     </div>
       

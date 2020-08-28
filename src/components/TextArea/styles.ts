@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: 20px 27px 0 27px;
+  margin: 15px 27px 0 27px;
   
   label {
     font-style: normal;
@@ -24,8 +24,8 @@ export const Container = styled.div`
     border: 1px solid #BABABA;
     box-sizing: border-box;
     border-radius: 5px;
-
-    font-family: Roboto;
+    
+    font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
