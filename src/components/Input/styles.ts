@@ -61,6 +61,11 @@ export const Container = styled.div<ContainerProps>`
    padding: 10px 10px 10px 0; 
    background: none;
    color: #444444;
+   :focus{
+    box-shadow:none;
+    outline: none;  
+   }
+   
   }
 `;
 
