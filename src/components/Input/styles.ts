@@ -61,16 +61,13 @@ export const Container = styled.div<ContainerProps>`
    padding: 10px 10px 10px 0; 
    background: none;
    color: #444444;
-   :focus{
-    box-shadow:none;
-    outline: none;  
-   }
-   
+   box-shadow:none;
+   outline: none;  
   }
 `;
 
 export const InputBlock = styled.div `
-  margin: 15px 27px 0px 27px;
+  /* margin: 15px 27px 0px 27px; */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -80,7 +77,7 @@ export const InputBlock = styled.div `
     font-style: normal;
     font-weight: bold;
     font-size: 16px;
-    line-height: 35px;
+    line-height: 21px;
     color: #767676;
     display: flex;
     width:100%;
