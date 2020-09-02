@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: 15px 27px 0 27px;
+  /* margin: 15px 27px 0 27px; */
   
   label {
     font-style: normal;

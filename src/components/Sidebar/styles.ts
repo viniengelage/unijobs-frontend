@@ -8,10 +8,10 @@ export const Container = styled.aside`
   width: 100%;
   height: 100%;
   flex-direction: column;
+  flex-wrap: wrap;
   min-height: calc(100vh - 250px);
 
   a{
-  font-family: Roboto;
   text-decoration: none;
   font-style: normal;
   font-weight: bold;
@@ -32,6 +32,7 @@ export const Container = styled.aside`
 
   @media(max-width:801px){
     min-height: 40px;
+    height:100%;
     flex-direction: row;
     justify-content: center;
     padding: 15px 0;

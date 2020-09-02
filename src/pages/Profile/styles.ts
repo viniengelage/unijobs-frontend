@@ -40,7 +40,7 @@ export const Foot = styled.div`
 export const FormGrid = styled.div`
   grid-area: formgrid;
   height: fit-content;
-  padding: 20px 40px 20px 40px;
+  padding: 20px;
   width:100%; 
   display:grid; 
   grid-template-columns: 1fr 1fr; 
@@ -60,7 +60,6 @@ export const Formbox = styled.div`
   border: 0.8px solid #DDDDDD;
   box-shadow: 2px 2px 10px rgba(34, 34, 34, 0.05);
   border-radius: 10px;
-  padding-bottom:30px;
   display:flex;
   flex-direction: column;
 
@@ -69,14 +68,20 @@ export const Formbox = styled.div`
     border-bottom: 0.8px solid #DDDDDD;
     padding:25px 30px;
 
-    font-family: Roboto;
     font-style: normal;
     font-weight: bold;
-    font-size: 26px;
-    line-height: 26px;
+    font-size: 1.2em;
     color:#555555;
   }
 
+`;
+
+export const InputBox = styled.div`
+    padding: 25px 30px;
+
+    >:last-child{
+      margin-top: 15px;
+    }
 `;
 
 export const Buttons = styled.button`
@@ -84,10 +89,8 @@ export const Buttons = styled.button`
   background: none;
   border: 0;
   text-align: left;
-  padding: 0 40px;
 
   button{
-  align-items: center;
   text-align: center;
   background: #51AB0E;
   height: 50px;
@@ -97,10 +100,9 @@ export const Buttons = styled.button`
   color: #FFFFFF;
   width: 150px;
   margin-right: 20px;
-  margin-bottom:20px;
+  margin-top:10px;
   transition: background 0.2s;
 
-  font-family: Roboto;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -119,5 +121,17 @@ export const Buttons = styled.button`
     }
   }
   }
-  
+
+  @media(max-width:650px){
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @media(max-width:509px){
+    button {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
 `;

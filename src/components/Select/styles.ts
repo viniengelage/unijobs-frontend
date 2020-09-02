@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction:column;
-  margin: 15px 27px 0 27px;
+  width:100%;
 
   label {
     font-style: normal;

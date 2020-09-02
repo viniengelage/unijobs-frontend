@@ -5,7 +5,7 @@ import CurrencyInput from 'react-currency-input';
 
 import api from '../../services/api';
 
-import {ContainerRoot, Title, Formbox, Buttons} from './styles';
+import {ContainerRoot, Formarea, Title, Formbox, Buttons, Flex, CategoriaArea, PrecoArea, InputArea} from './styles';
 import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
 import Input from '../../components/Input';
@@ -53,40 +53,47 @@ const RegisterProduct: React.FC = () => {
       <ContainerRoot>
         <Sidebar />
         <Form onSubmit={handleSubmit} >
+          <Formarea>
           <Title>Adicionar Produto</Title>
           <Formbox >
             <Input label="Título" help="O título deverá conter no máximo 60 caracteres" name="title"type='text'/>
-
-            <div id="PrecoCat" >
+            
+            <Flex>
+              <PrecoArea>
                 <Select 
-                  style={{maxWidth:'250px'}}
                   label="Preço" 
                   name="type" 
                   options={[
                     { value: 'Fixo', label: 'Preço Fixo' },
                     { value: 'Variavel', label: 'A partir de' },
-                  ]}
-                />
-                <CurrencyInput id="Preco" prefix="R$" decimalSeparator="," thousandSeparator="." />
-              <Select 
-                label="Categoria" 
-                name="type" 
-                options={[
-                  { value: '0', label: 'Produto' },
-                  { value: '1', label: 'Serviço' },
-                ]}
-              />
-            </div> 
-            
-            <Input label="Imagens" help="Insira uma imagem" name="images" type="file" multiple/>
+                  ]}/>
+                <CurrencyInput id="Preco" prefix="R$ " decimalSeparator="," thousandSeparator="." />
+              </PrecoArea>
+              <CategoriaArea>
+                <Select 
+                  label="Categoria" 
+                  name="type" 
+                  options={[
+                    { value: '0', label: 'Produto' },
+                    { value: '1', label: 'Serviço' },
+                  ]}/>
+              </CategoriaArea>
+            </Flex>
 
-            <TextArea label="Descrição" name="description"/>
+            <InputArea>
+              <Input label="Imagens" help="Insira uma imagem" name="images" type="file" multiple/>
+            </InputArea>
+
+            <InputArea>
+              <TextArea label="Descrição" name="description"/>
+            </InputArea>
             
             <Buttons>
               <button type="submit">Salvar</button>
               <button type="button">Cancelar</button>
             </Buttons>
           </Formbox>
+          </Formarea>
         </Form>
       </ContainerRoot>
       <Footer />
