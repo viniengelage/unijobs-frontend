@@ -26,13 +26,25 @@ export const ProductItem = styled.section`
     &:hover::after{
         background: orange;
     }
-
+    @media(max-width: 768px) {
+      flex-direction: column;
+      &::after{
+        border-radius: 4px 4px 0px 0px;
+        height: 5px;
+        width: 100%;
+      }
+    }
 `;
 
 export const ProductImage = styled.img`
   width: 13rem;
   object-fit: cover;
   border-radius: 4px 0px 0px 4px;
+  @media(max-width: 768px) {
+    width: 100%;
+    height: 15rem;
+    border-radius: 4px 4px 0px 0px;
+  }
 `;
 
 export const ProductContent = styled.section`
@@ -87,4 +99,4 @@ export const ProductPrice = styled.h3`
     font-family: Roboto;
     font-size: 1.5rem;
     color: #0C3A7B;
-`
+`;

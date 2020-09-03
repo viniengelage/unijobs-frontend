@@ -44,14 +44,10 @@ const Slider: React.FC = () => {
       arrowRight={<FiChevronRight size={60} color="#0E346A" />}
       addArrowClickHandler
       breakpoints={{
-        640: {
-          slidesPerPage: 1,
-          arrows: false,
-        },
         900: {
           slidesPerPage: 1,
           arrows: false,
-        },
+        }
       }}
     >
       {/* {products.map(product => ( */}
