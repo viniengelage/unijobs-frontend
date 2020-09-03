@@ -3,7 +3,7 @@ import { Form } from '@unform/web';
 import { Container, ContainerForm, Lateral, FormLinks, LinkForm, ForgotPassword } from './styles';
 
 import Input from '../../components/Input';
-import Banner from '../../components/Banner';
+import Banner from '../../components/Banner/Logout';
 import Button from '../../components/Button';
 
 interface ButtonsProps {
