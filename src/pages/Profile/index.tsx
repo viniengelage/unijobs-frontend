@@ -8,6 +8,7 @@ import Banner from '../../components/Banner';
 import Input from '../../components/Input';
 import Footer from '../../components/Footer';
 import Menu from '../../components/Sidebar';
+import Button from '../../components/Button';
 
 const Profile: React.FC = () => {
   const handleCreateProfile = useCallback(async(data)=>{
@@ -82,8 +83,8 @@ const Profile: React.FC = () => {
             </Formbox>
 
             <Buttons>
-              <button type="submit">Salvar</button>
-              <button type="button">Cancelar</button>
+              <Button type="submit">Salvar</Button>
+              <Button type="button">Cancelar</Button>
             </Buttons>
           </FormGrid>
         </Form>

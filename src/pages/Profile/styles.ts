@@ -90,36 +90,13 @@ export const Buttons = styled.button`
   border: 0;
   text-align: left;
 
-  button{
-  text-align: center;
-  background: #51AB0E;
-  height: 50px;
-  border-radius: 10px;
-  border: 0;
-  padding: 0 16px;
-  color: #FFFFFF;
-  width: 150px;
-  margin-right: 20px;
-  margin-top:10px;
-  transition: background 0.2s;
-
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 19px; 
-  
-  &:hover {
-    background: ${shade(0.2, '#51AB0E')};
-  }
-
-  &:last-child{
+  >:last-child{
     background:#F5F6F7;
     border:1px solid #CCD0D5;
     color:#767676;
     &:hover {
     background: ${shade(0.2, '#CCD0D5')};
     }
-  }
   }
 
   @media(max-width:650px){

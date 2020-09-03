@@ -1,8 +1,9 @@
 import React from 'react';
 import { Form } from '@unform/web';
-import { Container, ContainerForm, Lateral, FormLinks, LinkForm, Button } from './styles';
+import { Container, ContainerForm, Lateral, FormLinks, LinkForm} from './styles';
 
 import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 import Banner from '../../components/Banner';
 const RegisterUser: React.FC = () => {
@@ -25,7 +26,7 @@ const RegisterUser: React.FC = () => {
             <Input name="telephone" type="tel" label="Telefone ou Celular" placeholder="Digite seu Telefone ou Celular" />
             <Input name="ra" type="number" label="Ra do Aluno" placeholder="Digite seu RA" />
             <Input name="password" type="password" label="Senha do Aluno" placeholder="Digite sua Senha" />
-            <Button>Cadastrar-se</Button>
+            <Button type="submit" style={{width:"100%"}}>Cadastrar-se</Button>
           </Form>
         </ContainerForm>
       </Container>

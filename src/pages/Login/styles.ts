@@ -80,33 +80,6 @@ export const ForgotPassword = styled(Link)`
   }
 `;
 
-export const Button = styled.button`
-  width:100%;
-  text-align: center;
-  background: #51AB0E;
-  height: 50px;
-  border-radius: 10px;
-  border: 0;
-  padding: 0 16px;
-  color: #FFFFFF;
-  margin-right: 20px;
-  margin-top:10px;
-  transition: background 0.2s;
-
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 19px; 
-  
-  &:hover {
-    background: ${shade(0.2, '#51AB0E')};
-  }
-
-  @media(max-width:509px){
-      width: 100%;
-      margin-right: 0;
-  }
-`;
 
 export const Select = styled.select`
   width: 200px;
