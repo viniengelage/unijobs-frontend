@@ -5,7 +5,8 @@ import { Container, ContainerForm, Lateral, FormLinks, LinkForm} from './styles'
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-import Banner from '../../components/Banner';
+import Banner from '../../components/Banner/Logout';
+
 const RegisterUser: React.FC = () => {
   function handleSubmit() {
     console.log("show");
