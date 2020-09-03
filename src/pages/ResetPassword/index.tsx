@@ -10,7 +10,7 @@ interface ButtonsProps {
   active: boolean;
 }
 
-const Login: React.FC = () => {
+const ResetPassword: React.FC = () => {
   function handleSubmit() {
     console.log("show");
   }
@@ -25,10 +25,9 @@ const Login: React.FC = () => {
             <LinkForm to="registeruser">Registre-se</LinkForm>
           </FormLinks>
           <Form onSubmit={handleSubmit}>
-            <Input name="ra" type="number" label="Ra do Aluno" placeholder="Digite seu RA" />
-            <Input name="password" type="password" label="Senha do Aluno" placeholder="Digite sua Senha" />
-            <Button>Entrar</Button>
-            <ForgotPassword to="forgot">Esqueceu sua senha?</ForgotPassword>
+            <Input name="password" type="password" label="Nova Senha" placeholder="Digite sua nova Senha" />
+            <Input name="confirmpassword" type="password" label="Confirme sua Nova Senha" placeholder="Confirme sua nova Senha" />
+            <Button>Trocar Senha</Button>
           </Form>
         </ContainerForm>
       </Container>
@@ -36,4 +35,4 @@ const Login: React.FC = () => {
   )
 }
 
-export default Login;
+export default ResetPassword;
