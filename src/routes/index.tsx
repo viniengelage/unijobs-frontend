@@ -5,6 +5,7 @@ import Product from '../pages/Product';
 import Catalog from '../pages/Catalog';
 import RegisterProduct from '../pages/RegisterProduct';
 import Login from '../pages/Login';
+import ForgotPassword from '../pages/ForgotPassword';
 import ResetPassword from '../pages/ResetPassword';
 
 const Routes: React.FC = () => (
@@ -15,7 +16,8 @@ const Routes: React.FC = () => (
     <Route path="/categories/:category+" component={Catalog} />
     <Route path="/register" component={RegisterProduct} />
     <Route path="/login" component={Login} />
-    <Route path="/forgot" component={ResetPassword} />
+    <Route path="/forgot" component={ForgotPassword} />
+    <Route path="/resetpassword" component={ResetPassword} />
   </Switch>
 );
 
