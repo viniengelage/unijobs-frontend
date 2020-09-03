@@ -83,6 +83,7 @@ export const InputBlock = styled.div `
     width:100%;
     position: relative;
     align-items: center;
+    margin-top:15px;
   }
 
   i {

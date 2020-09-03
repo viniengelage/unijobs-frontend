@@ -51,7 +51,6 @@ export const FormLinks = styled.section`
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 20px;
 `
 
 export const LinkForm = styled(Link)`
@@ -81,23 +80,6 @@ export const ForgotPassword = styled(Link)`
   }
 `;
 
-export const Button = styled.button`
-  align-items: center;
-  text-align: center;
-  background: #51AB0E;
-  height: 50px;
-  border-radius: 10px;
-  border: 0;
-  color: #FFFFFF;
-  width: 100%;
-  transition: background-color 0.2s;
-  font-style: normal;
-  font-size: 16px;
-
-  &:hover {
-    background: ${shade(0.2, '#51AB0E')};
-  }
-`;
 
 export const Select = styled.select`
   width: 200px;

@@ -7,7 +7,8 @@ import {ContainerRoot, FormGrid, Formbox, Buttons, Foot, InputBox} from './style
 import Banner from '../../components/Banner';
 import Input from '../../components/Input';
 import Footer from '../../components/Footer';
-import Sidebar from '../../components/Sidebar';
+import Menu from '../../components/Sidebar';
+import Button from '../../components/Button';
 
 const Profile: React.FC = () => {
   const handleCreateProfile = useCallback(async(data)=>{
@@ -41,12 +42,13 @@ const Profile: React.FC = () => {
     }
     
   },[handleCreateProfile]);
+
   return(
     <>
     <div style={{width:'100vw', height:'100vh'}}>
       <Banner backIcon={true}/>
       <ContainerRoot>
-        <Sidebar />
+        <Menu />
         <Form onSubmit={handleSubmit} >
           <FormGrid>
             <Formbox >
@@ -81,8 +83,8 @@ const Profile: React.FC = () => {
             </Formbox>
 
             <Buttons>
-              <button type="submit">Salvar</button>
-              <button type="button">Cancelar</button>
+              <Button type="submit">Salvar</Button>
+              <Button type="button">Cancelar</Button>
             </Buttons>
           </FormGrid>
         </Form>

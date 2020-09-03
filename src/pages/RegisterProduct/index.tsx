@@ -12,6 +12,7 @@ import Input from '../../components/Input';
 import Select from '../../components/Select';
 import TextArea from '../../components/TextArea';
 import Sidebar from '../../components/Sidebar';
+import Button from '../../components/Button';
 
 const RegisterProduct: React.FC = () => {
   const handleCreateProduct = useCallback(async(data)=>{
@@ -89,8 +90,8 @@ const RegisterProduct: React.FC = () => {
             </InputArea>
             
             <Buttons>
-              <button type="submit">Salvar</button>
-              <button type="button">Cancelar</button>
+              <Button type="submit">Salvar</Button>
+              <Button type="button">Cancelar</Button>
             </Buttons>
           </Formbox>
           </Formarea>
