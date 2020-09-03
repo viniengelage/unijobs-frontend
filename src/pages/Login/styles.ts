@@ -51,7 +51,6 @@ export const FormLinks = styled.section`
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 20px;
 `
 
 export const LinkForm = styled(Link)`
@@ -82,20 +81,30 @@ export const ForgotPassword = styled(Link)`
 `;
 
 export const Button = styled.button`
-  align-items: center;
+  width:100%;
   text-align: center;
   background: #51AB0E;
   height: 50px;
   border-radius: 10px;
   border: 0;
+  padding: 0 16px;
   color: #FFFFFF;
-  width: 100%;
-  transition: background-color 0.2s;
-  font-style: normal;
-  font-size: 16px;
+  margin-right: 20px;
+  margin-top:10px;
+  transition: background 0.2s;
 
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px; 
+  
   &:hover {
     background: ${shade(0.2, '#51AB0E')};
+  }
+
+  @media(max-width:509px){
+      width: 100%;
+      margin-right: 0;
   }
 `;
 

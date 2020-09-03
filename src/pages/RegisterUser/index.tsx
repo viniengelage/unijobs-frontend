@@ -2,7 +2,7 @@ import React from 'react';
 import { Form } from '@unform/web';
 import { Container, ContainerForm, Lateral, FormLinks, LinkForm, Button } from './styles';
 
-import Input from './components/Input';
+import Input from '../../components/Input';
 
 import Banner from '../../components/Banner';
 const RegisterUser: React.FC = () => {

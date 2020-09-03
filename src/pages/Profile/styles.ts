@@ -49,7 +49,7 @@ export const FormGrid = styled.div`
   @media(max-width:1000px){
     grid-template-columns: 1fr;
   }
-  @media(min-width:1280px){
+  @media(min-width:1450px){
     width:1150px;
   }
 `;
@@ -77,10 +77,10 @@ export const Formbox = styled.div`
 `;
 
 export const InputBox = styled.div`
-    padding: 25px 30px;
+    padding: 10px 30px 35px 30px;
 
     >:last-child{
-      margin-top: 15px;
+      margin-top: 10px;
     }
 `;
 

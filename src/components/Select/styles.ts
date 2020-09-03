@@ -11,6 +11,7 @@ export const Container = styled.div`
     font-size: 16px;
     line-height: 26px;
     color: #767676;
+    margin-top: 15px;
   }
 
   select {

@@ -44,7 +44,7 @@ export const Formbox = styled.div`
   border: 0.8px solid #DDDDDD;
   box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
   border-radius: 0 0 10px 10px;
-  padding: 30px;
+  padding: 15px 30px 30px 30px;
 
   #Preco {
     max-width: 250px;
@@ -78,7 +78,7 @@ export const Flex = styled.div`
 `;
 
 export const CategoriaArea = styled.div`
-  margin: 15px 0 0 20px;
+  margin: 0 0 0 20px;
   width: 50%;
 
   @media(max-width:880px){
@@ -88,12 +88,10 @@ export const CategoriaArea = styled.div`
 `;
 
 export const InputArea = styled.div`
-  margin: 15px 0;
   width: 100%;
 `;
 
 export const PrecoArea = styled.div`
-  margin: 15px 0;
   display: flex;
   align-items: flex-end;
 
