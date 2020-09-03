@@ -15,7 +15,7 @@ export default function Input({ name, type, label, placeholder}: { name: string,
   return (
     <>
       <Label>{label}: </Label>
-      <Field ref={inputRef} defaultValue={defaultValue} placeholder={placeholder} />
+      <Field ref={inputRef} type={type} defaultValue={defaultValue} placeholder={placeholder} />
     </>
   );
 }
