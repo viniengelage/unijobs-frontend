@@ -1,16 +1,13 @@
 import React from 'react';
 import { Form } from '@unform/web';
-import { Container, ContainerForm, Lateral, FormLinks, LinkForm, ForgotPassword } from './styles';
+import { Container, ContainerForm, Lateral, FormLinks, LinkForm} from './styles';
 
 import Input from '../../components/Input';
-import Banner from '../../components/Banner/Logout';
 import Button from '../../components/Button';
 
-interface ButtonsProps {
-  active: boolean;
-}
+import Banner from '../../components/Banner/Logout';
 
-const Login: React.FC = () => {
+const RegisterUser: React.FC = () => {
   function handleSubmit() {
     console.log("show");
   }
@@ -25,12 +22,12 @@ const Login: React.FC = () => {
             <LinkForm to="registeruser">Registre-se</LinkForm>
           </FormLinks>
           <Form onSubmit={handleSubmit}>
-            <Input name="ra" type="number" label="RA do Aluno" placeholder="Digite seu RA" />
+            <Input name="fullname" type="text" label="Nome Completo" placeholder="Digite seu Nome Completo" />
+            <Input name="email" type="email" label="E-mail" placeholder="Digite seu E-mail" />
+            <Input name="telephone" type="tel" label="Telefone ou Celular" placeholder="Digite seu Telefone ou Celular" />
+            <Input name="ra" type="number" label="Ra do Aluno" placeholder="Digite seu RA" />
             <Input name="password" type="password" label="Senha do Aluno" placeholder="Digite sua Senha" />
-            <Button>Entrar</Button>
-            <ForgotPassword to="forgot">Esqueceu sua senha?</ForgotPassword>
-            <Button type="submit" style={{width:"100%"}}>Entrar</Button>
-            <ForgotPassword to="#/">Esqueceu sua senha?</ForgotPassword>
+            <Button type="submit" style={{width:"100%"}}>Cadastrar-se</Button>
           </Form>
         </ContainerForm>
       </Container>
@@ -38,4 +35,4 @@ const Login: React.FC = () => {
   )
 }
 
-export default Login;
+export default RegisterUser;

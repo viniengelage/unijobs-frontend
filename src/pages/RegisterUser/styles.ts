@@ -22,6 +22,7 @@ export const ContainerForm = styled.section`
   background: #FFF;
   padding: 40px;
   z-index: 1;
+  box-shadow: 0 0 6px -3px #000;
   @media only screen and (max-width: 800px) {
     width: 100vw;
   }
@@ -66,36 +67,4 @@ export const LinkForm = styled(Link)`
   &:hover{
     background: ${shade(0.04, '#FFF')};
   }
-`;
-export const ForgotPassword = styled(Link)`
-  width: 100%;
-  color: #0e346a;
-  text-decoration: none;
-  display: flex;
-  margin: 30px auto;
-  justify-content: center;
-  flex: 1;
-  &:hover{
-    text-decoration: underline;
-  }
-`;
-
-
-export const Select = styled.select`
-  width: 200px;
-  height:42px;
-  padding: 8px 12px;
-  margin-left: 27px;
-  vertical-align:top;
-
-  background: #FFFFFF;
-  border: 1px solid #BABABA;
-  box-sizing: border-box;
-  border-radius: 5px;
-
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 26px;
-  color: #444444;
 `;

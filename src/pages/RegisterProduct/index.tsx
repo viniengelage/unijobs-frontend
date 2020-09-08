@@ -1,14 +1,17 @@
 import React, {useCallback} from 'react';
 import {Form} from '@unform/web';
-import {IoMdCube,IoMdCode,IoMdPricetag, IoMdFolder,IoMdDocument, IoMdPeople, IoMdSchool, IoIosMail} from 'react-icons/io';
 import * as Yup from 'yup';
+import CurrencyInput from 'react-currency-input';
 
-import api from '../../services/api'
+import api from '../../services/api';
 
-import {Container} from './styles';
+import {ContainerRoot, Formarea, Title, Formbox, Buttons, Flex, CategoriaArea, PrecoArea, InputArea} from './styles';
 import Banner from '../../components/Banner';
-
+import Footer from '../../components/Footer';
 import Input from '../../components/Input';
+import Select from '../../components/Select';
+import TextArea from '../../components/TextArea';
+import Sidebar from '../../components/Sidebar';
 import Button from '../../components/Button';
 
 const RegisterProduct: React.FC = () => {
@@ -18,26 +21,20 @@ const RegisterProduct: React.FC = () => {
       description: data.description,
       price: data.price,
       type: data.type,
-      image: [data.image1, data.image2],
-      name: data.name,
-      course: data.course,
-      contact: data.contact
+      image: data.images,
     }
 
     api.post('/items', product).then(()=>(alert("Produto Adicionado!")))
   },[]);
+
   const handleSubmit = useCallback(async(data: object) =>{
     try{
       const schema = Yup.object().shape({
         title: Yup.string().required(),
         description: Yup.string().required(),
         price: Yup.number().required(),
-        image1: Yup.string().required(),
-        image2: Yup.string().required(),
+        images: Yup.string().required(),
         type: Yup.string().required(),
-        name: Yup.string().required(),
-        course: Yup.string().required(),
-        contact: Yup.string().required(),
       })
 
       await schema.validate(data, {
@@ -48,27 +45,61 @@ const RegisterProduct: React.FC = () => {
     }catch(err){
       alert(err);
     }
+    
   },[handleCreateProduct]);
   return(
     <>
-      <Banner backIcon={false}/>
-      <Container>
+    <div style={{width:'100vw'}}>
+      <Banner backIcon={true}/>
+      <ContainerRoot>
+        <Sidebar />
         <Form onSubmit={handleSubmit} >
-          <Input name="title" icon={IoMdCube} placeholder="Titulo do produto"/>
-          <Input name="description" icon={IoMdCode} placeholder="Descrição do produto"/>
-          <Input name="price" type="number" icon={IoMdPricetag} placeholder="Preço"/>
-          <Input name="image1" type="text" icon={IoMdFolder} placeholder="Link Imagem 1"/>
-          <Input name="image2" type="text" icon={IoMdFolder} placeholder="Link Imagem 2"/>
-          <Input name="type" icon={IoMdDocument} placeholder="Tipo"/>
-          <div style={{marginBottom: '10px', marginTop: '-2px'}}>
-            <span>Use apenas <strong>"produto"</strong> ou <strong>"servico"</strong> sem letras <strong>maisculas</strong> ou <strong>ç</strong>.</span>
-          </div>
-          <Input name="name" icon={IoMdPeople} placeholder="Nome do usuário"/>
-          <Input name="course" icon={IoMdSchool} placeholder="Curso"/>
-          <Input name="contact" icon={IoIosMail} placeholder="Contato"/>
-          <Button type="submit">Cadastrar Produto</Button>
+          <Formarea>
+          <Title>Adicionar Produto</Title>
+          <Formbox >
+            <Input label="Título" help="O título deverá conter no máximo 60 caracteres" name="title"type='text'/>
+            
+            <Flex>
+              <PrecoArea>
+                <Select 
+                  label="Preço" 
+                  name="type" 
+                  options={[
+                    { value: 'Fixo', label: 'Preço Fixo' },
+                    { value: 'Variavel', label: 'A partir de' },
+                  ]}/>
+                <CurrencyInput id="Preco" prefix="R$ " decimalSeparator="," thousandSeparator="." />
+              </PrecoArea>
+              <CategoriaArea>
+                <Select 
+                  label="Categoria" 
+                  name="type" 
+                  options={[
+                    { value: '0', label: 'Produto' },
+                    { value: '1', label: 'Serviço' },
+                  ]}/>
+              </CategoriaArea>
+            </Flex>
+
+            <InputArea>
+              <Input label="Imagens" help="Insira uma imagem" name="images" type="file" multiple/>
+            </InputArea>
+
+            <InputArea>
+              <TextArea label="Descrição" name="description"/>
+            </InputArea>
+            
+            <Buttons>
+              <Button type="submit">Salvar</Button>
+              <Button type="button">Cancelar</Button>
+            </Buttons>
+          </Formbox>
+          </Formarea>
         </Form>
-      </Container>
+      </ContainerRoot>
+      <Footer />
+    </div>
+      
     </>
   );
 }

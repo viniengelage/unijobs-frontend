@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { IoMdCart, IoMdBuild } from 'react-icons/io';
-import Banner from '../../components/Banner';
-import Slider from '../../components/Slider';
+import Banner from '../../components/Banner/Logout';
+import SliderProducts from '../../components/SliderProducts';
 import HeaderSlider from '../../components/HeaderSlider';
 import CategoriesCard from '../../components/CategoriesCard';
 import Footer from '../../components/Footer';
@@ -18,13 +18,13 @@ const LandingPage: React.FC = () => {
       <HeaderSlider />
       <Container>
         <Title>
-          Adicionados recentemente <Link to="/catalog/1">ver tudo</Link>
+          Adicionados recentemente <Link to="/catalog/1">Ver tudo</Link>
         </Title>
-        <Slider />
+        <SliderProducts />
         <Title>Categorias</Title>
         <Sider>
-          <CategoriesCard icon={IoMdCart} title="Produtos" link="/categories/produto"/>
-          <CategoriesCard icon={IoMdBuild} title="Serviços" link="/categories/servico"/>
+          <CategoriesCard icon={IoMdCart} title="Produtos" link="/categories/produto" />
+          <CategoriesCard icon={IoMdBuild} title="Serviços" link="/categories/servico" />
         </Sider>
         <Title>Sobre a UniJobs</Title>
         <Imagem src={aboutUnijobs} alt="Sobre a UniJobs" />
