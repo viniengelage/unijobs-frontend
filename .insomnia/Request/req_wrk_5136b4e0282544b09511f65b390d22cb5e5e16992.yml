@@ -1,0 +1,43 @@
+_id: req_wrk_5136b4e0282544b09511f65b390d22cb5e5e16992
+type: Request
+parentId: fld_wrk_5136b4e0282544b09511f65b390d22cb44d25b5d
+modified: 1600980837344
+created: 1600980835610
+url: "{{ base_url }}/items/id"
+name: Altera os dados de um item.
+description: ""
+method: PATCH
+body:
+  mimeType: application/json
+  text: |-
+    [
+      {
+        "id": null,
+        "title": "string",
+        "description": "string",
+        "category": "string",
+        "item_type": "string",
+        "item_category": "string",
+        "price": 0,
+        "thumbnail_id": 0,
+        "thumbnail_url": "string",
+        "image_id": 0,
+        "image_url": "string"
+      }
+    ]
+parameters: []
+headers:
+  - name: token
+    disabled: false
+    value: available
+  - name: Content-Type
+    value: application/json
+authentication: {}
+metaSortKey: -1600980835610
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

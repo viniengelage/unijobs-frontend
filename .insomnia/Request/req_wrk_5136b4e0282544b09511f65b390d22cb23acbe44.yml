@@ -1,0 +1,40 @@
+_id: req_wrk_5136b4e0282544b09511f65b390d22cb23acbe44
+type: Request
+parentId: fld_wrk_5136b4e0282544b09511f65b390d22cb57f2b181
+modified: 1600980837357
+created: 1600976713103
+url: "{{ base_url }}/users"
+name: Cria um novo usuário
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    [
+      {
+        "id": null,
+        "name": "string",
+        "email": "string",
+        "academic_record": 0,
+        "course": "string",
+        "password": "string",
+        "password_confirmation": "string",
+        "phone": 0,
+        "user_type": "string",
+        "avatar": 0,
+        "avatar_url": "string"
+      }
+    ]
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication: {}
+metaSortKey: -1600976713103
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
