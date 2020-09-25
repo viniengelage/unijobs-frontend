@@ -22,15 +22,32 @@ https://flickity.metafizzy.co
   height: 100%;
 }
 
+/*
+** correção mostra apenas uma
+** imagem no carrosel
+*/
+
+.flickity-slider img {
+  opacity: 0;
+}
+
+.flickity-slider .is-selected {
+  opacity: 1;
+}
+
+/*
+** fim da correção
+*/
+
 /* draggable */
 
 .flickity-enabled.is-draggable {
   -webkit-tap-highlight-color: transparent;
-  tap-highlight-color: transparent;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  width: 100%;
 }
 
 .flickity-enabled.is-draggable .flickity-viewport {

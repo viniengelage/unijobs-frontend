@@ -38,5 +38,10 @@ export const Content = styled.div`
       line-height: 29px;
       color: #65ad2f;
     }
+    @media(max-width:470px){
+    width: 150px;
+    height: 150px;
   }
+  }
+  
 `;

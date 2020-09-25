@@ -2,7 +2,10 @@ import styled from 'styled-components';
 
 export const Content = styled.section`
   background: #fff;
-  min-height: 100vh;
+  height: 100vh;
+  @media (max-width: 1000px) {
+    height: 100%;
+  }
 `;
 
 export const Item = styled.div`
@@ -12,7 +15,7 @@ export const Item = styled.div`
 
   display: grid;
   box-sizing: border-box;
-  grid-template-columns: minmax(100px, 600px) minmax(280px, 1fr);
+  grid-template-columns: minmax(100px, 650px) minmax(280px, 1fr);
   grid-template-areas:
     'img info'
     'details details';
@@ -32,17 +35,12 @@ export const Item = styled.div`
 
 export const Images = styled.div`
   grid-area: img;
-  min-height: 300px;
-  background: #0e346a;
   position: relative;
 
   img {
-    width: 600px;
+    width: 100%;
     height: 300px;
-  }
-
-  @media (max-width: 700px) {
-    height: 315px;
+    object-fit: cover;
   }
 `;
 
@@ -51,10 +49,9 @@ export const InfoContact = styled.div`
   position: relative;
 
   h1 {
-    // color: #1253a8;
     font-weight: 500;
     font-size: 1.4em;
-    font-weight: 500;
+    font-weight: 700;
     display: block;
     margin: 10px 0;
   }
@@ -63,10 +60,14 @@ export const InfoContact = styled.div`
     font-style: italic;
     font-weight: 400;
     font-size: 12px;
+    color: #888
   }
 
   @media (max-width: 700px) {
     height: 100%;
+    p {
+      text-align: center;
+    }
   }
 `;
 
@@ -107,16 +108,15 @@ export const Buttons = styled.div`
   width: 100%;
   position: absolute;
   bottom: 0;
-  margin-bottom: 0;
+  margin-bottom: 4px;
 
-  div {
+  a {
     display: flex;
     align-items: center;
     justify-content: center;
 
     flex: 1;
     padding: 15px;
-    margin-right: 10px;
 
     border-radius: 3px;
     border: 1px solid #ddd;
@@ -125,19 +125,13 @@ export const Buttons = styled.div`
     text-align: left;
     font-weight: 700;
     font-size: 1em;
+    text-decoration: none;
 
-    // background: #65ad2f;
-    background: #8f8985;
+    background: #65ad2f;
 
     &:hover {
-      background: #65ad2f;
-      transition: background 400ms ease;
-    }
-
-    svg {
-      margin: auto 0;
-      margin-right: 10px;
-      font-size: 21px;
+      opacity: .9;
+      transition: opacity 400ms ease;
     }
   }
 
@@ -160,7 +154,7 @@ export const Price = styled.div`
   background: #f8f8f8;
   width: 100%;
   margin: 15px 0;
-  margin-bottom: 120px;
+  // margin-bottom: 120px;
 
   p {
     display: block;
