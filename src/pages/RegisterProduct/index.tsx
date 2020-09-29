@@ -1,9 +1,8 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import CurrencyInput from 'react-currency-input';
 
-import { Redirect } from 'react-router-dom';
 import api from '../../services/api';
 
 import {
@@ -24,7 +23,6 @@ import Select from '../../components/Select';
 import TextArea from '../../components/TextArea';
 import Sidebar from '../../components/Sidebar';
 import Button from '../../components/Button';
-import { useAuth } from '../../hooks/auth';
 
 const RegisterProduct: React.FC = () => {
   const handleCreateProduct = useCallback(async data => {
