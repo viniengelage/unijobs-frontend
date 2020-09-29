@@ -6,8 +6,9 @@ import Catalog from '../pages/Catalog';
 import RegisterProduct from '../pages/RegisterProduct';
 import RegisterUser from '../pages/RegisterUser';
 import Login from '../pages/Login';
-import Profile from '../pages/Profile';
-
+import ForgotPassword from '../pages/ForgotPassword';
+import ResetPassword from '../pages/ResetPassword';
+import Profile from '../pages/Profile'
 
 const Routes: React.FC = () => (
   <Switch>
@@ -18,6 +19,8 @@ const Routes: React.FC = () => (
     <Route path="/register" component={RegisterProduct} />
     <Route path="/registeruser" component={RegisterUser} />
     <Route path="/login" component={Login} />
+    <Route path="/forgot" component={ForgotPassword} />
+    <Route path="/resetpassword" component={ResetPassword} />
     <Route path="/profile" component={Profile} />
   </Switch>
 );
