@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
@@ -11,6 +11,8 @@ import {
   FormLinks,
   LinkForm,
 } from './styles';
+
+import Courses from '../../services/courses';
 
 import Input from '../../components/Input';
 import Select from '../../components/Select';
@@ -137,11 +139,11 @@ const RegisterUser: React.FC = () => {
               label="Ra do Aluno"
               placeholder="Digite seu RA"
             />
-            <Input
-              name="course"
-              type="text"
-              label="Curso"
-              placeholder="Selecione seu curso"
+            <Select
+              name="user_type"
+              options={Courses}
+              label="Selecione seu curso"
+              placeholder="Selecione"
             />
             <Input
               name="password"
