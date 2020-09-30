@@ -1,0 +1,422 @@
+_id: spc_9c4f955358c34d239005449ca7ff4072
+type: ApiSpec
+parentId: wrk_5136b4e0282544b09511f65b390d22cb
+modified: 1600989452778
+created: 1600976699136
+fileName: API UniJobs
+contents: >-
+  openapi: 3.0.0
+
+  info:
+    description: "Documentação da API da aplicação UniJobs"
+    version: 1.0.0
+    title: UniJobs
+    termsOfService: http://unijobs.uniamerica.br
+    contact:
+      website: https://github.com/viniengelage
+      email: viniciosvalensuela@gmail.com
+  tags:
+    - name: Users
+      description: Rotas de usuário
+    - name: Sessions
+      description: Autenticação de usuário
+    - name: Items
+      description: Criação de itens
+    - name: Files
+      description: Upload de arquivos
+    - name: Services
+      description: Lista de serviços
+    - name: Products
+      description: Lista de produtos
+  paths:
+    /users:
+      post:
+        tags:
+          - Users
+        summary: Cria um novo usuário
+        description: ""
+        operationId: createNewUser
+        requestBody:
+          $ref: "#/components/requestBodies/User"
+      patch:
+        tags:
+          - Users
+        summary: Altera os dados do usuário
+        operationId: updateUser
+        parameters:
+          - name: Token
+            in: header
+            description: Fornecer token do usuário.
+            required: true
+            explode: true
+            schema:
+              type: array
+              items:
+                type: string
+                default: available
+        requestBody:
+          $ref: "#/components/requestBodies/User"
+    /users/findById:
+      get:
+        tags:
+          - Users
+        summary: Econtra um usuário pelo ID
+        description: Multiple status values can be provided with comma separated strings
+        operationId: findUserById
+        parameters:
+          - name: status
+            in: query
+            description: Status values that need to be considered for filter
+            required: true
+            explode: true
+            schema:
+              type: array
+              items:
+                type: string
+                enum:
+                  - available
+                  - pending
+                  - sold
+                default: available
+      delete:
+        tags:
+          - Users
+        summary: Deleta um usuário pelo ID
+        description: Multiple status values can be provided with comma separated strings
+        operationId: findPetsByStatus
+        parameters:
+          - name: token
+            in: header
+            description: Fornecer token do usuário.
+            required: true
+            explode: true
+            schema:
+              type: array
+              items:
+                type: string
+                default: available
+    /sessions:
+      post:
+        tags:
+          - Sessions
+        summary: Cria um token JWT
+        description: ""
+        operationId: createToken
+        requestBody:
+          $ref: "#/components/requestBodies/Session"
+    /items:
+      post:
+        tags:
+          - Items
+        summary: Cria um novo item
+        description: ""
+        operationId: createNewItem
+        parameters:
+          - name: token
+            in: header
+            description: Fornecer token do usuário.
+            required: true
+            explode: true
+            schema:
+              type: array
+              items:
+                type: string
+                default: available
+        requestBody:
+          $ref: "#/components/requestBodies/Item"
+    /items/id:
+      get:
+       tags:
+          - Items
+       summary: Busca por um item
+       operationId: createNewItem
+       parameters:
+          - name: id
+            in: params
+            description: Id do item.
+            required: true
+            explode: true
+            schema:
+              type: array
+              items:
+                type: string
+                default: available
+      patch:
+       tags:
+          - Items
+       summary: Altera os dados de um item.
+       operationId: createNewItem
+       parameters:
+          - name: token
+            in: header
+            description: Fornecer token do usuário.
+            required: true
+            explode: true
+            schema:
+              type: array
+              items:
+                type: string
+                default: available
+          - name: id
+            in: params
+            description: Id do item.
+            required: true
+            explode: true
+            schema:
+              type: array
+              items:
+                type: string
+                default: available
+       requestBody:
+          $ref: "#/components/requestBodies/Item"
+      delete:
+       tags:
+          - Items
+       summary: Deleta um item pelo id
+       operationId: createNewItem
+       parameters:
+          - name: token
+            in: header
+            description: Fornecer token do usuário.
+            required: true
+            explode: true
+            schema:
+              type: array
+              items:
+                type: string
+                default: available
+          - name: id
+            in: params
+            description: Id do item.
+            required: true
+            explode: true
+            schema:
+              type: array
+              items:
+                type: string
+                default: available
+       requestBody:
+          $ref: "#/components/requestBodies/Item"
+    /files:
+      post:
+        tags:
+          - Files
+        summary: Deleta um item pelo id
+        operationId: createNewItem
+        parameters:
+          - name: token
+            in: header
+            description: Fornecer token do usuário.
+            required: true
+            explode: true
+            schema:
+              type: array
+              items:
+                type: string
+                default: available
+        requestBody:
+          $ref: "#/components/requestBodies/File"
+    /files/id:
+     get:
+        tags:
+          - Files
+        summary: Retorna o arquivo
+        operationId: findFileById
+        parameters:
+          - name: id
+            in: params
+            description: Id do item.
+            required: true
+            explode: true
+            schema:
+              type: array
+              items:
+                type: string
+                default: available
+    /file_info/id:
+      get:
+        tags:
+          - Files
+        summary: Retorna as informações sobre o arquivo
+        operationId: findInfosById
+        parameters:
+          - name: id
+            in: params
+            description: Id do item.
+            required: true
+            explode: true
+            schema:
+              type: array
+              items:
+                type: string
+                default: available
+    /products/page:
+      get:
+        tags:
+          - Products
+        summary: Retorna uma lista de produtos
+        operationId: findProductCategory
+        parameters:
+          - name: page
+            in: params
+            description: Página do produto
+            required: true
+    /products/category/page:
+      get:
+        tags:
+          - Products
+        summary: Retorna uma categoria de produtos
+        operationId: findProductCategory
+        parameters:
+          - name: category
+            in: params
+            description: Categoria do produto
+            required: true
+          - name: page
+            in: params
+            description: Página do produto
+            required: true
+    /services/page:
+      get:
+        tags:
+          - Services
+        summary: Retorna uma lista de serviços
+        operationId: findServiceCategory
+        parameters:
+          - name: page
+            in: params
+            description: Página do serviço
+            required: true
+    /services/category/page:
+       get:
+         tags:
+           - Services
+         summary: Retorna uma categoria de serviços
+         operationId: findServiceCategory
+         parameters:
+          - name: category
+            in: params
+            description: Categoria do serviço
+            required: true
+          - name: page
+            in: params
+            description: Página do serviço
+            required: true
+  externalDocs:
+    description: Find out more about Swagger
+    url: http://swagger.io
+  servers:
+    - url: https://unijobs.unimaerica.br/api
+  components:
+    requestBodies:
+      User:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/User"
+        description: JSON de ciração do usuário
+        required: true
+      Session:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Session"
+          application/xml:
+            schema:
+              $ref: "#/components/schemas/Session"
+        description: JSON para criação de um token
+        required: true
+      Item:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/Item"
+        description: JSON para criação de um item
+        required: true
+      File:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/File"
+        description: JSON para criação de um item
+        required: true
+    schemas:
+      User:
+        type: object
+        properties:
+          id:
+            type: uuid
+            format: uuid_v4()
+          name:
+            type: string
+          email:
+            type: string
+          academic_record:
+            type: number
+          course:
+            type: string
+          password:
+            type: string
+          password_confirmation:
+            type: string
+          phone:
+            type: number
+          user_type:
+            type: string
+          avatar:
+            type: integer
+          avatar_url:
+            type: string
+        xml:
+          name: User
+      Session:
+        type: object
+        properties:
+          email:
+            type: string
+          password:
+            type: string
+        xml:
+          name: Session
+      Item:
+        type: object
+        properties:
+          id:
+            type: uuid
+            format: uuid_v4()
+          title:
+            type: string
+          description:
+            type: string
+          category:
+            type: string
+          item_type:
+            type: string
+          item_category:
+            type: string
+          price:
+            type: number
+          thumbnail_id:
+            type: integer
+          thumbnail_url:
+            type: string
+          image_id:
+            type: integer
+          image_url:
+            type: string
+        xml:
+          name: Item
+      File:
+        type: object
+        properties:
+          file:
+            type: multipart-fom
+        xml:
+          name: File
+contentType: yaml

@@ -1,0 +1,14 @@
+_id: env_env_8de37613c52c2e6af00324d497b4f9cc64279996_sub
+type: Environment
+parentId: env_8de37613c52c2e6af00324d497b4f9cc64279996
+modified: 1600980837365
+created: 1600976713112
+name: OpenAPI env
+data:
+  scheme: https
+  base_path: /api
+  host: unijobs.unimaerica.br
+dataPropertyOrder: null
+color: null
+isPrivate: false
+metaSortKey: 1600976713112

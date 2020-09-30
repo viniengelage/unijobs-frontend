@@ -12,7 +12,12 @@ export interface IItem {
   updatedAt: string,
   createdAt: string,
 }
-
+// Response attributes in the courses
+export interface ICourses {
+    _id: string;
+    value: string;
+    label: string;
+}
 
 
 // Retired from the da page of products | backup

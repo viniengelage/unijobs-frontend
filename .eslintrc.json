@@ -29,6 +29,8 @@
         "prettier"
     ],
     "rules": {
+      "camelcase":"off",
+      "react/jsx-props-no-spreading":"off",
       "react/prop-types": "off",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "off",
@@ -36,8 +38,9 @@
       "import/prefer-default-export": "off",
       "react/jsx-one-expression-per-line": "off",
       "prettier/prettier": "error",
-      "treatUndefinedAsUnspecified": false,
+      "treatUndefinedAsUnspecified": "off",
       "consistent-return": "off",
+      "no-unused-expressions":"off",
       "import/extensions": [
         "error",
         "ignorePackages",
