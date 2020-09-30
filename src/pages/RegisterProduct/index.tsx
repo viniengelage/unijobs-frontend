@@ -28,23 +28,26 @@ import Button from '../../components/Button';
 const RegisterProduct: React.FC = () => {
   const { addToast } = useToast();
 
-  const handleCreateProduct = useCallback(async data => {
-    const product = {
-      title: data.title,
-      description: data.description,
-      price: data.price,
-      type: data.type,
-      image: data.images,
-    };
+  const handleCreateProduct = useCallback(
+    async data => {
+      const product = {
+        title: data.title,
+        description: data.description,
+        price: data.price,
+        type: data.type,
+        image: data.images,
+      };
 
-    api.post('/items', product).then(() =>
-      addToast({
-        type: 'sucess',
-        title: 'Produto Adicionado!',
-        description: 'Parabéns',
-      }),
-    );
-  }, []);
+      api.post('/items', product).then(() =>
+        addToast({
+          type: 'sucess',
+          title: 'Produto Adicionado!',
+          description: 'Parabéns',
+        }),
+      );
+    },
+    [addToast],
+  );
 
   const handleSubmit = useCallback(
     async (data: object) => {
