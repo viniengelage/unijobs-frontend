@@ -3,6 +3,7 @@ import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import CurrencyInput from 'react-currency-input';
 
+import { useToast } from '../../hooks/toast';
 import api from '../../services/api';
 
 import {
@@ -25,6 +26,8 @@ import Sidebar from '../../components/Sidebar';
 import Button from '../../components/Button';
 
 const RegisterProduct: React.FC = () => {
+  const { addToast } = useToast();
+
   const handleCreateProduct = useCallback(async data => {
     const product = {
       title: data.title,
@@ -34,7 +37,13 @@ const RegisterProduct: React.FC = () => {
       image: data.images,
     };
 
-    api.post('/items', product).then(() => alert('Produto Adicionado!'));
+    api.post('/items', product).then(() =>
+      addToast({
+        type: 'sucess',
+        title: 'Produto Adicionado!',
+        description: 'Parabéns',
+      }),
+    );
   }, []);
 
   const handleSubmit = useCallback(
