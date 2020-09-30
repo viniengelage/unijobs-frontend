@@ -12,12 +12,16 @@ import {
   LinkForm,
 } from './styles';
 
+import Courses from '../../services/courses';
+
 import Input from '../../components/Input';
+import Select from '../../components/Select';
 import Button from '../../components/Button';
 import Banner from '../../components/Banner/Logout';
 import api from '../../services/api';
 
 import { useToast } from '../../hooks/toast';
+
 
 interface SignUpFormData {
   email: string;
@@ -85,6 +89,8 @@ const RegisterUser: React.FC = () => {
     },
     [addToast, history],
   );
+
+
   return (
     <>
       <Banner backIcon />
@@ -120,17 +126,24 @@ const RegisterUser: React.FC = () => {
               label="Vendedor ou Comprador"
               placeholder="Selecione"
             />
+            <Select
+              name="user_type"
+              options={[{"value": "vendedor", "label": "Vendedor"}, {"value": "comprador", "label": "Comprador"}]}
+              label="Vendedor ou Comprador"
+              placeholder="Selecione"
+            />
+            
             <Input
               name="academic_record"
               type="number"
               label="Ra do Aluno"
               placeholder="Digite seu RA"
             />
-            <Input
-              name="course"
-              type="text"
-              label="Curso"
-              placeholder="Selecione seu curso"
+            <Select
+              name="user_type"
+              options={Courses}
+              label="Selecione seu curso"
+              placeholder="Selecione"
             />
             <Input
               name="password"

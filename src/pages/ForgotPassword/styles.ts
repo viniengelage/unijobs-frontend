@@ -18,11 +18,10 @@ export const ContainerForm = styled.section`
   display: flex;
   flex-direction: column;
   width: 40vw;
-  min-height: 100vh;
+  height: 100vh;
   background: #FFF;
   padding: 40px;
   z-index: 1;
-  box-shadow: 0 0 6px -3px #000;
   @media only screen and (max-width: 800px) {
     width: 100vw;
   }
@@ -34,12 +33,11 @@ export const ContainerForm = styled.section`
 
 export const Lateral = styled.aside`
   background-image: url('./assets/buy.png');
-  background-position-y: 50%;
-  background-attachment: fixed;
+  background-position: 5px 30px;
   background-repeat: no-repeat;
-  background-size: auto;
-  min-height: 100vh;
+  height: 100vh;
   width: 60vw;
+  height: calc(100vh-60px);
   @media only screen and (max-width: 768px) {
     display: none;
   }
@@ -53,6 +51,7 @@ export const FormLinks = styled.section`
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  margin-bottom: 20px;
 `
 
 export const LinkForm = styled(Link)`
@@ -68,4 +67,53 @@ export const LinkForm = styled(Link)`
   &:hover{
     background: ${shade(0.04, '#FFF')};
   }
+`;
+export const BackLink = styled(Link)`
+  width: 100%;
+  color: #0e346a;
+  text-decoration: none;
+  display: flex;
+  margin: 30px auto;
+  justify-content: center;
+  flex: 1;
+  &:hover{
+    text-decoration: underline;
+  }
+`;
+
+export const Button = styled.button`
+  align-items: center;
+  text-align: center;
+  background: #51AB0E;
+  height: 50px;
+  border-radius: 10px;
+  border: 0;
+  color: #FFFFFF;
+  width: 100%;
+  transition: background-color 0.2s;
+  font-style: normal;
+  font-size: 16px;
+
+  &:hover {
+    background: ${shade(0.2, '#51AB0E')};
+  }
+`;
+
+export const Select = styled.select`
+  width: 200px;
+  height:42px;
+  padding: 8px 12px;
+  margin-left: 27px;
+  vertical-align:top;
+
+  background: #FFFFFF;
+  border: 1px solid #BABABA;
+  box-sizing: border-box;
+  border-radius: 5px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 26px;
+  color: #444444;
 `;
