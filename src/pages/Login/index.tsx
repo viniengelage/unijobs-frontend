@@ -99,12 +99,23 @@ const Login: React.FC = () => {
             <Button type="submit" style={{ width: '100%' }}>
               Entrar
             </Button>
-          <Form onSubmit={handleSubmit}>
-            <Input name="ra" type="number" label="RA do Aluno" placeholder="Digite seu RA" />
-            <Input name="password" type="password" label="Senha do Aluno" placeholder="Digite sua Senha" />
+            <Input
+              name="ra"
+              type="number"
+              label="RA do Aluno"
+              placeholder="Digite seu RA"
+            />
+            <Input
+              name="password"
+              type="password"
+              label="Senha do Aluno"
+              placeholder="Digite sua Senha"
+            />
             <Button>Entrar</Button>
             <ForgotPassword to="forgot">Esqueceu sua senha?</ForgotPassword>
-            <Button type="submit" style={{width:"100%"}}>Entrar</Button>
+            <Button type="submit" style={{ width: '100%' }}>
+              Entrar
+            </Button>
             <ForgotPassword to="#/">Esqueceu sua senha?</ForgotPassword>
           </Form>
         </ContainerForm>

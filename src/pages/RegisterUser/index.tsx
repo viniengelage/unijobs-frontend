@@ -22,7 +22,6 @@ import api from '../../services/api';
 
 import { useToast } from '../../hooks/toast';
 
-
 interface SignUpFormData {
   email: string;
   name: string;
@@ -78,6 +77,8 @@ const RegisterUser: React.FC = () => {
         if (error instanceof Yup.ValidationError) {
           const errors = getValidationErrors(error);
 
+          console.log(errors);
+
           formRef.current?.setErrors(errors);
         }
         addToast({
@@ -89,7 +90,6 @@ const RegisterUser: React.FC = () => {
     },
     [addToast, history],
   );
-
 
   return (
     <>
@@ -120,19 +120,16 @@ const RegisterUser: React.FC = () => {
               label="Telefone ou Celular"
               placeholder="Digite seu Telefone ou Celular"
             />
-            <Input
-              name="user_type"
-              type="string"
-              label="Vendedor ou Comprador"
-              placeholder="Selecione"
-            />
             <Select
               name="user_type"
-              options={[{"value": "vendedor", "label": "Vendedor"}, {"value": "comprador", "label": "Comprador"}]}
+              options={[
+                { value: 'vendedor', label: 'Vendedor' },
+                // { value: 'comprador', label: 'Comprador' },
+              ]}
               label="Vendedor ou Comprador"
               placeholder="Selecione"
             />
-            
+
             <Input
               name="academic_record"
               type="number"
