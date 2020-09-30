@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
@@ -13,11 +13,13 @@ import {
 } from './styles';
 
 import Input from '../../components/Input';
+import Select from '../../components/Select';
 import Button from '../../components/Button';
 import Banner from '../../components/Banner/Logout';
 import api from '../../services/api';
 
 import { useToast } from '../../hooks/toast';
+
 
 interface SignUpFormData {
   email: string;
@@ -85,6 +87,8 @@ const RegisterUser: React.FC = () => {
     },
     [addToast, history],
   );
+
+
   return (
     <>
       <Banner backIcon />
@@ -120,6 +124,13 @@ const RegisterUser: React.FC = () => {
               label="Vendedor ou Comprador"
               placeholder="Selecione"
             />
+            <Select
+              name="user_type"
+              options={[{"value": "vendedor", "label": "Vendedor"}, {"value": "comprador", "label": "Comprador"}]}
+              label="Vendedor ou Comprador"
+              placeholder="Selecione"
+            />
+            
             <Input
               name="academic_record"
               type="number"
