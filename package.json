@@ -27,6 +27,8 @@
     "react-icons": "^3.10.0",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.4.1",
+    "react-spinkit": "^3.0.0",
+    "react-spinners": "^0.9.0",
     "react-spring": "^8.0.27",
     "styled-components": "^5.1.1",
     "typescript": "~3.7.2",

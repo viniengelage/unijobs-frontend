@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
@@ -20,6 +20,9 @@ import Button from '../../components/Button';
 import { useAuth } from '../../hooks/auth';
 import { useToast } from '../../hooks/toast';
 
+
+import Loading from '../../components/Loading';
+
 interface ButtonsProps {
   active: boolean;
 }
@@ -30,6 +33,9 @@ interface SignInFormData {
 }
 
 const Login: React.FC = () => {
+  const [loading, setLoading] = useState(false);
+
+
   const history = useHistory();
 
   const formRef = useRef<FormHandles>(null);
@@ -37,8 +43,10 @@ const Login: React.FC = () => {
   const { signIn } = useAuth();
   const { addToast } = useToast();
 
+
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {
+      setLoading(true);
       try {
         formRef.current?.setErrors({});
         const schema = Yup.object().shape({
@@ -56,7 +64,7 @@ const Login: React.FC = () => {
           email: data.email,
           password: data.password,
         });
-
+        setLoading(false);
         history.push('/');
       } catch (error) {
         if (error instanceof Yup.ValidationError) {
@@ -64,6 +72,7 @@ const Login: React.FC = () => {
 
           formRef.current?.setErrors(errors);
         }
+        setLoading(false);
         addToast({
           type: 'error',
           title: 'Erro na autenticação',
@@ -75,6 +84,7 @@ const Login: React.FC = () => {
   );
   return (
     <>
+      <Loading loading={loading} />
       <Banner backIcon />
       <Container>
         <Lateral />
