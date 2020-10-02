@@ -120,12 +120,6 @@ const RegisterUser: React.FC = () => {
               label="Telefone ou Celular"
               placeholder="Digite seu Telefone ou Celular"
             />
-            <Input
-              name="user_type"
-              type="string"
-              label="Vendedor ou Comprador"
-              placeholder="Selecione"
-            />
             <Select
               name="user_type"
               options={[{"value": "vendedor", "label": "Vendedor"}, {"value": "comprador", "label": "Comprador"}]}
