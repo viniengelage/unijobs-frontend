@@ -16,7 +16,7 @@ const ForgotPassword: React.FC = () => {
   }
   return (
     <>
-      <Banner backIcon={true} />
+      <Banner backIcon />
       <Container>
         <Lateral />
         <ContainerForm>
