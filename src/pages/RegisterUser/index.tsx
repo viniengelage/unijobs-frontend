@@ -17,7 +17,7 @@ import Courses from '../../services/courses';
 import Input from '../../components/Input';
 import Select from '../../components/Select';
 import Button from '../../components/Button';
-import Banner from '../../components/Banner/Logout';
+import Banner from '../../components/Banner';
 import api from '../../services/api';
 
 import { useToast } from '../../hooks/toast';

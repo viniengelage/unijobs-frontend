@@ -12,7 +12,7 @@ import {
   Price,
 } from './styles';
 
-import Banner from '../../components/Banner/Logout';
+import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
 
 import FakeItem from '../../services/product';

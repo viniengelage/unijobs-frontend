@@ -27,7 +27,7 @@
     "react-flickity-component": "3.3.2",
     "react-icons": "^3.10.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.3",
     "react-spring": "^8.0.27",
     "react-transition-group": "1",
     "styled-components": "^5.1.1",
