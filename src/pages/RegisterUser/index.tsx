@@ -95,6 +95,7 @@ const RegisterUser: React.FC = () => {
     },
     [addToast, history],
   );
+  document.body.style.overflow = "hidden";
 
   return (
     <>
@@ -143,7 +144,7 @@ const RegisterUser: React.FC = () => {
               placeholder="Digite seu RA"
             />
             <Select
-              name="user_type"
+              name="course"
               options={Courses}
               label="Selecione seu curso"
               placeholder="Selecione"
