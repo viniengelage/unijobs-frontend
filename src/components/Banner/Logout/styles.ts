@@ -5,7 +5,7 @@ import searchIcon from '../../../assets/search.svg';
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  padding: 0 35px;
+  padding: 0 35px 0 55px;
   justify-content: space-between;
 
   flex-wrap: wrap;
@@ -30,13 +30,13 @@ export const Header = styled.header`
   }
   button {
     position: absolute;
-    left: 2%;
     background: none;
     outline: none;
     border: 0;
+    left: 0.5%;
     svg {
       color: #ffffff;
-      stroke-width: 1px;
+      stroke-width: 3px;
     }
   }
 

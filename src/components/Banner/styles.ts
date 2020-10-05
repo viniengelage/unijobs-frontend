@@ -10,7 +10,7 @@ export const Header = styled.header`
   flex-wrap: wrap;
   align-content: center;
   justify-items: center;
-
+  padding: 0 35px 0 55px;
   height: 60px;
 
   background: #0e346a;
@@ -22,13 +22,13 @@ export const Header = styled.header`
   }
   button {
     position: absolute;
-    left: 2%;
     background: none;
     outline: none;
     border: 0;
+    left: 0.5%;
     svg {
       color: #ffffff;
-      stroke-width: 1px;
+      stroke-width: 3px;
     }
   }
 
@@ -58,3 +58,4 @@ export const Header = styled.header`
     }
   }
 `;
+
