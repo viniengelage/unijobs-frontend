@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
@@ -19,6 +19,7 @@ import Select from '../../components/Select';
 import Button from '../../components/Button';
 import Banner from '../../components/Banner/Logout';
 import api from '../../services/api';
+import Loading from '../../components/Loading';
 
 import { useToast } from '../../hooks/toast';
 
@@ -33,6 +34,7 @@ interface SignUpFormData {
 }
 
 const RegisterUser: React.FC = () => {
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
 
   const formRef = useRef<FormHandles>(null);
@@ -46,6 +48,8 @@ const RegisterUser: React.FC = () => {
   const handleSubmit = useCallback(
     async (data: SignUpFormData) => {
       try {
+        setLoading(true);
+
         formRef.current?.setErrors({});
         const schema = Yup.object().shape({
           name: Yup.string().required(),
@@ -87,12 +91,14 @@ const RegisterUser: React.FC = () => {
           description: 'Ocorreu um erro ao se cadastrar, cheque as credenciais',
         });
       }
+      setLoading(false);
     },
     [addToast, history],
   );
 
   return (
     <>
+      <Loading loading={loading} />
       <Banner backIcon />
       <Container>
         <Lateral />
@@ -124,7 +130,7 @@ const RegisterUser: React.FC = () => {
               name="user_type"
               options={[
                 { value: 'vendedor', label: 'Vendedor' },
-                // { value: 'comprador', label: 'Comprador' },
+                { value: 'comprador', label: 'Comprador' },
               ]}
               label="Vendedor ou Comprador"
               placeholder="Selecione"
