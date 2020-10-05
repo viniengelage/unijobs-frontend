@@ -45,19 +45,3 @@ export const Title = styled.h2`
     }
   }
 `;
-
-export const Sider = styled.div`
-  display: flex;
-`;
-
-export const Imagem = styled.img`
-  width: 100%;
-  border-radius: 3px;
-  margin-bottom: 30px;
-
-  @media (max-width: 400px) {
-    height: 240px;
-    object-fit: cover;
-    object-position: 0 0;
-  }
-`;
