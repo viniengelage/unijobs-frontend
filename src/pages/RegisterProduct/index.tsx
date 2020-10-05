@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import CurrencyInput from 'react-currency-input';
@@ -24,10 +24,11 @@ import Select from '../../components/Select';
 import TextArea from '../../components/TextArea';
 import Sidebar from '../../components/Sidebar';
 import Button from '../../components/Button';
+import Loading from '../../components/Loading';
 
 const RegisterProduct: React.FC = () => {
   const { addToast } = useToast();
-
+  const [loading, setLoading] = useState(false);
   const handleCreateProduct = useCallback(
     async data => {
       const product = {
@@ -51,6 +52,7 @@ const RegisterProduct: React.FC = () => {
 
   const handleSubmit = useCallback(
     async (data: object) => {
+      setLoading(true);
       try {
         const schema = Yup.object().shape({
           title: Yup.string().required(),
@@ -68,11 +70,13 @@ const RegisterProduct: React.FC = () => {
       } catch (err) {
         alert(err);
       }
+      setLoading(false);
     },
     [handleCreateProduct],
   );
   return (
     <>
+      <Loading loading={loading} />
       <div style={{ width: '100vw' }}>
         <Banner backIcon />
         <ContainerRoot>

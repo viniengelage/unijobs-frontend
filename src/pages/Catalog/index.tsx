@@ -8,6 +8,7 @@ import { Container, Content, Pages } from './styles';
 
 import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
+import Loading from '../../components/Loading';
 
 interface Product {
   _id: string;
@@ -27,29 +28,35 @@ const Catalog: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [page, setNextPage] = useState('');
   const { params } = useRouteMatch<RepositoryParams>();
+  const [loading, setLoading] = useState(false);
 
   const hasCategory = params.category;
 
   useEffect(() => {
+    setLoading(true);
     if (hasCategory) {
       api
         .get(`/categories/${params.category}?perPage=12&page=${params.page}`)
         .then(response => {
           setProducts(response.data.docs);
         });
+        setLoading(false);
     } else {
       api.get(`/items?perPage=12&page=${params.page}`).then(response => {
         setProducts(response.data.docs);
       });
+      setLoading(false);
     }
     const nextPage = parseInt(params.page) + 1;
     setNextPage(nextPage.toString());
+    setLoading(false);
   }, [hasCategory, params.category, params.page]);
 
   const history = useHistory();
 
   return (
     <>
+      <Loading loading={loading} />
       <Banner backIcon />
       <Container>
         {products.map(product => (

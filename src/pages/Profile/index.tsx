@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import {Form} from '@unform/web';
 import {IoMdCall,IoMdLock, IoMdPeople, IoIosMail} from 'react-icons/io';
 import * as Yup from 'yup';
@@ -9,8 +9,10 @@ import Input from '../../components/Input';
 import Footer from '../../components/Footer';
 import Menu from '../../components/Sidebar';
 import Button from '../../components/Button';
+import Loading from '../../components/Loading';
 
 const Profile: React.FC = () => {
+  const [loading, setLoading] = useState(false);
   const handleCreateProfile = useCallback(async(data)=>{
     // const profile = {
     //   name: data.name,
@@ -23,6 +25,7 @@ const Profile: React.FC = () => {
   },[]);
 
   const handleSubmit = useCallback(async(data: object) =>{
+    setLoading(true);
     try{
       const schema = Yup.object().shape({
         name: Yup.string().required(),
@@ -40,11 +43,12 @@ const Profile: React.FC = () => {
     }catch(err){
       alert(err);
     }
-    
+    setLoading(false);
   },[handleCreateProfile]);
 
   return(
     <>
+    <Loading loading={loading} />
     <div style={{width:'100vw', height:'100vh'}}>
       <Banner backIcon={true}/>
       <ContainerRoot>
