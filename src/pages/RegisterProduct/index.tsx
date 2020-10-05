@@ -13,9 +13,7 @@ import {
   Formbox,
   Buttons,
   Flex,
-  CategoriaArea,
   PrecoArea,
-  InputArea,
 } from './styles';
 import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
@@ -88,48 +86,53 @@ const RegisterProduct: React.FC = () => {
                   type="text"
                 />
 
+                <PrecoArea>
+                  <Select
+                    label="Preço"
+                    name="type"
+                    options={[
+                      { value: 'Fixo', label: 'Preço Fixo' },
+                      { value: 'Variavel', label: 'A partir de' },
+                    ]}
+                  />
+                  <CurrencyInput
+                    id="Preco"
+                    prefix="R$ "
+                    decimalSeparator=","
+                    thousandSeparator="."
+                  />
+                </PrecoArea>
+
                 <Flex>
-                  <PrecoArea>
-                    <Select
-                      label="Preço"
-                      name="type"
-                      options={[
-                        { value: 'Fixo', label: 'Preço Fixo' },
-                        { value: 'Variavel', label: 'A partir de' },
-                      ]}
-                    />
-                    <CurrencyInput
-                      id="Preco"
-                      prefix="R$ "
-                      decimalSeparator=","
-                      thousandSeparator="."
-                    />
-                  </PrecoArea>
-                  <CategoriaArea>
-                    <Select
-                      label="Categoria"
-                      name="type"
-                      options={[
-                        { value: '0', label: 'Produto' },
-                        { value: '1', label: 'Serviço' },
-                      ]}
-                    />
-                  </CategoriaArea>
+                  <Select
+                    label="Tipo"
+                    name="type"
+                    options={[
+                      { value: '0', label: 'Produto' },
+                      { value: '1', label: 'Serviço' },
+                    ]}
+                  />
+                  <Select
+                    label="Categoria"
+                    name="type"
+                    options={[
+                      { value: '0', label: 'Produto' },
+                      { value: '1', label: 'Serviço' },
+                    ]}
+                  />
                 </Flex>
 
-                <InputArea>
+                <Flex>
                   <Input
                     label="Imagens"
-                    help="Insira uma imagem"
+                    help="Insira imagens do seu produto ou serviço"
                     name="images"
                     type="file"
-                    multiple
                   />
-                </InputArea>
+                  <Input name="images" type="file" />
+                </Flex>
 
-                <InputArea>
-                  <TextArea label="Descrição" name="description" />
-                </InputArea>
+                <TextArea label="Descrição" name="description" />
 
                 <Buttons>
                   <Button type="submit">Salvar</Button>
