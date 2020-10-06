@@ -18,11 +18,12 @@ export const ContainerForm = styled.section`
   display: flex;
   flex-direction: column;
   width: 40vw;
-  min-height: 100vh;
+  height: 90vh;
   background: #FFF;
   padding: 40px;
   z-index: 1;
-  box-shadow: 0 0 6px -3px #000;
+  overflow-y: scroll;
+  scroll-behavior: initial !important;
   @media only screen and (max-width: 800px) {
     width: 100vw;
   }

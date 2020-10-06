@@ -18,7 +18,7 @@ export const ContainerForm = styled.section`
   display: flex;
   flex-direction: column;
   width: 40vw;
-  height: 100vh;
+  height: 90vh;
   background: #fff;
   padding: 40px;
   z-index: 1;
