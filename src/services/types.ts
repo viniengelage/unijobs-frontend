@@ -14,7 +14,7 @@ export interface IItem {
 }
 // Response attributes in the courses
 export interface ICourses {
-    _id: string;
+    id: string;
     value: string;
     label: string;
 }

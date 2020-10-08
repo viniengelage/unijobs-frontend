@@ -123,8 +123,8 @@ const RegisterUser: React.FC = () => {
             <Select
               name="user_type"
               options={[
-                { value: 'vendedor', label: 'Vendedor' },
-                // { value: 'comprador', label: 'Comprador' },
+                { id: '1', value: 'vendedor', label: 'Vendedor' },
+                { id: '2', value: 'comprador', label: 'Comprador' },
               ]}
               label="Vendedor ou Comprador"
               placeholder="Selecione"
