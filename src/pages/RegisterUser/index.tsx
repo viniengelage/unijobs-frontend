@@ -14,8 +14,10 @@ import {
 
 import Courses from '../../services/courses';
 
+import Users from '../../services/users';
+
 import Input from '../../components/Input';
-import Select from '../../components/Select';
+import SelectField from '../../components/SelectField';
 import Button from '../../components/Button';
 import Banner from '../../components/Banner/Logout';
 import api from '../../services/api';
@@ -120,11 +122,11 @@ const RegisterUser: React.FC = () => {
               label="Telefone ou Celular"
               placeholder="Digite seu Telefone ou Celular"
             />
-            <Select
+            <SelectField
               name="user_type"
               options={[
-                { id: '1', value: 'vendedor', label: 'Vendedor' },
-                { id: '2', value: 'comprador', label: 'Comprador' },
+                { value: 'vendedor', label: 'Vendedor' },
+                { value: 'comprador', label: 'Comprador' },
               ]}
               label="Vendedor ou Comprador"
               placeholder="Selecione"
@@ -136,7 +138,7 @@ const RegisterUser: React.FC = () => {
               label="Ra do Aluno"
               placeholder="Digite seu RA"
             />
-            <Select
+            <SelectField
               name="user_type"
               options={Courses}
               label="Selecione seu curso"

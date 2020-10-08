@@ -20,7 +20,7 @@ import {
 import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
 import Input from '../../components/Input';
-import Select from '../../components/Select';
+import SelectField from '../../components/SelectField';
 import TextArea from '../../components/TextArea';
 import Sidebar from '../../components/Sidebar';
 import Button from '../../components/Button';
@@ -90,7 +90,7 @@ const RegisterProduct: React.FC = () => {
 
                 <Flex>
                   <PrecoArea>
-                    <Select
+                    <SelectField
                       label="Preço"
                       name="type"
                       options={[
@@ -106,7 +106,7 @@ const RegisterProduct: React.FC = () => {
                     />
                   </PrecoArea>
                   <CategoriaArea>
-                    <Select
+                    <SelectField
                       label="Categoria"
                       name="type"
                       options={[
