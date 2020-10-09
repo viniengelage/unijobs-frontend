@@ -14,8 +14,6 @@ import {
 
 import Courses from '../../services/courses';
 
-import Users from '../../services/users';
-
 import Input from '../../components/Input';
 import SelectField from '../../components/SelectField';
 import Button from '../../components/Button';

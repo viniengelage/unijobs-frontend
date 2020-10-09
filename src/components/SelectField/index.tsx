@@ -1,4 +1,4 @@
-import React, { SelectHTMLAttributes } from 'react';
+import React, { useState, SelectHTMLAttributes } from 'react';
 import { Container } from './styles';
 
 import Select from 'react-select';
@@ -13,11 +13,11 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   }>;
 }
 const SelectField: React.FC<SelectProps> = ({ label, name, options, ...rest }) => {
-
+  const [selectedOption, setSelectedOption] = useState('');
   return (
     <Container>
       <label htmlFor={name}>{label}</label>
-        <Select name={name} options={options} {...rest} />
+        <Select defaultValue={selectedOption} onChange={setSelectedOption} name={name} options={options} {...rest} />
     </Container>
   );
 };
