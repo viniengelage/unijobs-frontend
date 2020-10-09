@@ -14,10 +14,11 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 const SelectField: React.FC<SelectProps> = ({ label, name, options, ...rest }) => {
   const [selectedOption, setSelectedOption] = useState('');
+  console.log(selectedOption);
   return (
     <Container>
       <label htmlFor={name}>{label}</label>
-        <Select defaultValue={selectedOption} onChange={setSelectedOption} name={name} options={options} {...rest} />
+        <Select defaultValue={selectedOption} value={selectedOption} onChange={setSelectedOption} name={name} options={options} {...rest} />
     </Container>
   );
 };
