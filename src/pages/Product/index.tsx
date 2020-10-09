@@ -14,6 +14,7 @@ import {
 
 import Banner from '../../components/Banner/Logout';
 import Footer from '../../components/Footer';
+import Loading from '../../components/Loading';
 
 import FakeItem from '../../services/product';
 import api from '../../services/api';
@@ -25,15 +26,18 @@ interface RepositoryParams {
 }
 
 const Product: React.FC = () => {
+  const [loading, setLoading] = useState(false);
   const [post, setPost] = useState<IItem>();
   const { params } = useRouteMatch<RepositoryParams>();
 
   useEffect(() => {
+    setLoading(true);
     api.get(`/items/${params.id}`).then(response => {
       setPost(response.data);
     }).catch(e => {
       setPost(FakeItem);
     })
+    setLoading(false);
   }, [params.id]);
 
   //Remove tudo exceto números
@@ -41,6 +45,7 @@ const Product: React.FC = () => {
 
   return (
     <>
+      <Loading loading={loading} />
       <Banner backIcon />
       <Content>
         <Item>

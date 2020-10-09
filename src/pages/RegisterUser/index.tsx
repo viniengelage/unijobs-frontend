@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
@@ -15,10 +15,11 @@ import {
 import Courses from '../../services/courses';
 
 import Input from '../../components/Input';
-import Select from '../../components/Select';
+import SelectField from '../../components/SelectField';
 import Button from '../../components/Button';
 import Banner from '../../components/Banner/Logout';
 import api from '../../services/api';
+import Loading from '../../components/Loading';
 
 import { useToast } from '../../hooks/toast';
 
@@ -33,6 +34,7 @@ interface SignUpFormData {
 }
 
 const RegisterUser: React.FC = () => {
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
 
   const formRef = useRef<FormHandles>(null);
@@ -46,6 +48,8 @@ const RegisterUser: React.FC = () => {
   const handleSubmit = useCallback(
     async (data: SignUpFormData) => {
       try {
+        setLoading(true);
+
         formRef.current?.setErrors({});
         const schema = Yup.object().shape({
           name: Yup.string().required(),
@@ -87,12 +91,14 @@ const RegisterUser: React.FC = () => {
           description: 'Ocorreu um erro ao se cadastrar, cheque as credenciais',
         });
       }
+      setLoading(false);
     },
     [addToast, history],
   );
 
   return (
     <>
+      <Loading loading={loading} />
       <Banner backIcon />
       <Container>
         <Lateral />
@@ -120,11 +126,11 @@ const RegisterUser: React.FC = () => {
               label="Telefone ou Celular"
               placeholder="Digite seu Telefone ou Celular"
             />
-            <Select
+            <SelectField
               name="user_type"
               options={[
                 { value: 'vendedor', label: 'Vendedor' },
-                // { value: 'comprador', label: 'Comprador' },
+                { value: 'comprador', label: 'Comprador' },
               ]}
               label="Vendedor ou Comprador"
               placeholder="Selecione"
@@ -136,7 +142,7 @@ const RegisterUser: React.FC = () => {
               label="Ra do Aluno"
               placeholder="Digite seu RA"
             />
-            <Select
+            <SelectField
               name="user_type"
               options={Courses}
               label="Selecione seu curso"
