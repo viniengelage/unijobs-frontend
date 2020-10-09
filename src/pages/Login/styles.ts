@@ -18,7 +18,7 @@ export const ContainerForm = styled.section`
   display: flex;
   flex-direction: column;
   width: 40vw;
-  height: 100vh;
+  height: 90vh;
   background: #fff;
   padding: 40px;
   z-index: 1;
@@ -33,11 +33,12 @@ export const ContainerForm = styled.section`
 
 export const Lateral = styled.aside`
   background-image: url('./assets/buy.png');
-  background-position: 5px 30px;
+  background-position-y: 50%;
+  background-attachment: fixed;
   background-repeat: no-repeat;
-  height: 100vh;
+  background-size: auto;
+  min-height: 100vh;
   width: 60vw;
-  height: calc(100vh-60px);
   @media only screen and (max-width: 768px) {
     display: none;
   }

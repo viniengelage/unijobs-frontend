@@ -95,6 +95,7 @@ const RegisterUser: React.FC = () => {
     },
     [addToast, history],
   );
+  document.body.style.overflow = "hidden";
 
   return (
     <>
