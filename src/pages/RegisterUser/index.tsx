@@ -29,6 +29,7 @@ interface SignUpFormData {
   academic_record: number;
   phone: number;
   user_type: string;
+  couse: string;
   password: string;
   password_confirmation: string;
 }
@@ -82,6 +83,7 @@ const RegisterUser: React.FC = () => {
           const errors = getValidationErrors(error);
 
           console.log(errors);
+          console.log('passou aq');
 
           formRef.current?.setErrors(errors);
         }
@@ -95,7 +97,7 @@ const RegisterUser: React.FC = () => {
     },
     [addToast, history],
   );
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow = 'hidden';
 
   return (
     <>
