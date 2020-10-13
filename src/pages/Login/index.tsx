@@ -14,7 +14,7 @@ import {
 } from './styles';
 
 import Input from '../../components/Input';
-import Banner from '../../components/Banner/Logout';
+import Banner from '../../components/Banner';
 import Button from '../../components/Button';
 
 import { useAuth } from '../../hooks/auth';

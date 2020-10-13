@@ -17,7 +17,7 @@ import Courses from '../../services/courses';
 import Input from '../../components/Input';
 import SelectField from '../../components/SelectField';
 import Button from '../../components/Button';
-import Banner from '../../components/Banner/Logout';
+import Banner from '../../components/Banner';
 import api from '../../services/api';
 import Loading from '../../components/Loading';
 

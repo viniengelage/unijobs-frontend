@@ -1,5 +1,5 @@
 import React from 'react';
-import Banner from '../../components/Banner/Logout';
+import Banner from '../../components/Banner';
 import SliderWho from '../../components/SliderWho';
 import HeaderSlider from '../../components/HeaderSlider';
 import Footer from '../../components/Footer';

@@ -5,6 +5,7 @@ import searchIcon from '../../assets/search.svg';
 export const Header = styled.header`
   display: flex;
   align-items: center;
+  padding: 0 35px;
   justify-content: center;
 
   flex-wrap: wrap;
@@ -15,14 +16,21 @@ export const Header = styled.header`
 
   background: #0e346a;
 
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    margin: 0 15px;
+  }
+
   img {
     display: flex;
     align-items: center;
     justify-content: center;
   }
   button {
-    position: absolute;
-    left: 2%;
+    width: 200px;
+    text-align: left;
     background: none;
     outline: none;
     border: 0;
@@ -55,6 +63,16 @@ export const Header = styled.header`
 
     &:focus {
       color: #0e346a;
+    }
+  }
+
+  @media (max-width: 470px) {
+    justify-content: center;
+    padding: 15px 15px;
+    height: fit-content;
+
+    img {
+      margin-bottom: 20px;
     }
   }
 `;
