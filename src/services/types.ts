@@ -9,8 +9,8 @@ export interface IItem {
   name: string;
   course: string;
   contact: string;
-  updatedAt: string,
-  createdAt: string,
+  updatedAt: string;
+  createdAt: string;
 }
 // Response attributes in the courses
 export interface ICourses {
@@ -22,7 +22,6 @@ export interface IUsers {
   value: string;
   label: string;
 }
-
 
 // Retired from the da page of products | backup
 interface Item {

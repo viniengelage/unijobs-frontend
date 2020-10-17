@@ -39,77 +39,62 @@ const Courses: ICourses[] = [
     label: 'Comunicação Social - Mídias Digitais',
   },
   {
-
     value: 'publicidade',
     label: 'Comunicação Social - Publicidade e Propaganda',
   },
   {
-
     value: 'direito',
     label: 'Direito',
   },
   {
-
     value: 'educacao-fisica',
     label: 'Educação Física',
   },
   {
-
     value: 'enfermagem',
     label: 'Enfermagem',
   },
   {
-
     value: 'eng-civil',
     label: 'Engenharia Civil',
   },
   {
-
     value: 'eng-eletrica',
     label: 'Engenharia Elétrica',
   },
   {
-
     value: 'eng-mecanica',
     label: 'Engenharia Mecânica',
   },
   {
-
     value: 'eng-producao',
     label: 'Engenharia de Produção',
   },
   {
-
     value: 'eng-software',
     label: 'Engenharia de Software',
   },
   {
-
     value: 'farmacia',
     label: 'Farmácia',
   },
   {
-
     value: 'fisioterapia',
     label: 'Fisioterapia',
   },
   {
-
     value: 'medicina-veterinaria',
     label: 'Medicina Veterinária',
   },
   {
-
     value: 'nutricao',
     label: 'Nutrição',
   },
   {
-
     value: 'pedagogia',
     label: 'Pedagogia',
   },
   {
-
     value: 'psicologia',
     label: 'Psicologia',
   },

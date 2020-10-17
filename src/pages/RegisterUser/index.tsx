@@ -15,7 +15,7 @@ import {
 import Courses from '../../services/courses';
 
 import Input from '../../components/Input';
-import SelectField from '../../components/SelectField';
+import Select from '../../components/SelectTeste';
 import Button from '../../components/Button';
 import Banner from '../../components/Banner/Logout';
 import api from '../../services/api';
@@ -48,6 +48,7 @@ const RegisterUser: React.FC = () => {
 
   const handleSubmit = useCallback(
     async (data: SignUpFormData) => {
+      console.log(data);
       try {
         setLoading(true);
 
@@ -60,7 +61,7 @@ const RegisterUser: React.FC = () => {
           academic_record: Yup.number().required('Apenas números são aceitos'),
           course: Yup.string().required('Escolha seu curso'),
           phone: Yup.number().required('Digite um telefone válido'),
-          user_type: Yup.string().required('Escolha um'),
+          user_type: Yup.string().required('Vendedor ou Comprador'),
           password: Yup.string().required('Senha obrigatória'),
           password_confirmation: Yup.string().required('Confirme sua senha'),
         });
@@ -129,27 +130,26 @@ const RegisterUser: React.FC = () => {
               label="Telefone ou Celular"
               placeholder="Digite seu Telefone ou Celular"
             />
-            <SelectField
+            <Select
               name="user_type"
               options={[
                 { value: 'vendedor', label: 'Vendedor' },
-                { value: 'comprador', label: 'Comprador' },
+                // { value: 'comprador', label: 'Comprador' },
               ]}
-              label="Vendedor ou Comprador"
-              placeholder="Selecione"
+              // label="Vendedor ou Comprador"
+              // placeholder="Selecione"
             />
-
             <Input
               name="academic_record"
               type="number"
               label="Ra do Aluno"
               placeholder="Digite seu RA"
             />
-            <SelectField
-              name="user_type"
+            <Select
+              name="course"
               options={Courses}
-              label="Selecione seu curso"
-              placeholder="Selecione"
+              // label="Selecione seu curso"
+              // placeholder="Selecione"
             />
             <Input
               name="password"
