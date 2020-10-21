@@ -2,6 +2,8 @@ import React, { useRef, useEffect } from 'react';
 import ReactSelect from 'react-select';
 import { useField } from '@unform/core';
 
+import { Container } from './styles';
+
 interface OptionType {
   [key: string]: any;
 }
@@ -23,23 +25,28 @@ const Select: React.FC<SelectProps> = ({ name, options, ...rest }) => {
     registerField({
       name: fieldName,
       ref: selectRef.current,
-      getValue: ref => ref.state.value,
       setValue: (ref, value) => {
         ref.select.setValue(value || null);
       },
       clearValue: ref => {
         ref.select.clearValue();
       },
+      getValue: rest.isMulti
+        ? ref =>
+            ref.state.value?.map((option: OptionType) => option.value) || []
+        : ref => (ref.state.value ? ref.state.value.value : ''),
     });
-  }, [fieldName, registerField]);
+  }, [fieldName, registerField, rest.isMulti]);
 
   return (
-    <ReactSelect
-      ref={selectRef}
-      defaultValue={defaultValue}
-      options={options}
-      {...rest}
-    />
+    <Container>
+      <ReactSelect
+        ref={selectRef}
+        defaultValue={defaultValue}
+        options={options}
+        {...rest}
+      />
+    </Container>
   );
 };
 

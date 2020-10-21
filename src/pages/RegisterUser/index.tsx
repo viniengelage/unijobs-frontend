@@ -15,7 +15,7 @@ import {
 import Courses from '../../services/courses';
 
 import Input from '../../components/Input';
-import Select from '../../components/SelectTeste';
+import Select from '../../components/Select';
 import Button from '../../components/Button';
 import Banner from '../../components/Banner';
 import api from '../../services/api';
@@ -29,7 +29,7 @@ interface SignUpFormData {
   academic_record: number;
   phone: number;
   user_type: string;
-  couse: string;
+  course: string;
   password: string;
   password_confirmation: string;
 }

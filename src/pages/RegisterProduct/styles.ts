@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { shade } from 'polished';
 
 export const ContainerRoot = styled.div`
-  background: #FBFBFB;
+  background: #fbfbfb;
   display: grid;
   justify-content: center;
   grid-template-columns: minmax(100px, 260px) minmax(280px, 1fr);
@@ -40,32 +40,11 @@ export const Formbox = styled.div`
   grid-area: formgrid;
   width: 100%;
   height: fit-content;
-  background: #FFFFFF;
-  border: 0.8px solid #DDDDDD;
+  background: #ffffff;
+  border: 0.8px solid #dddddd;
   box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
   border-radius: 0 0 10px 10px;
   padding: 15px 30px 30px 30px;
-
-  #Preco {
-    max-width: 250px;
-    width: 100%;
-    color: #444444;
-    padding: 5px 12px;
-    height: 40px;
-    background: #FFFFFF;
-    border: 1px solid #BABABA;
-    box-sizing: border-box;
-    border-radius: 5px;
-    font-size: 14px;
-    text-align: right;
-    margin-left: 10px;
-
-    @media (max-width: 880px) {
-      margin: 0;
-      max-width: 100%;
-      margin-top: 10px;
-    }
-  }
 `;
 
 export const Flex = styled.div`
@@ -104,8 +83,8 @@ export const PrecoArea = styled.div`
 
 export const Title = styled.h2`
   width: 100%;
-  background: #F5F6F8;
-  border: 0.8px solid #DDDDDD;
+  background: #f5f6f8;
+  border: 0.8px solid #dddddd;
   box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
   border-radius: 10px 10px 0 0;
   padding: 30px;
@@ -124,8 +103,8 @@ export const Buttons = styled.button`
   text-align: left;
 
   > :last-child {
-    background:#F5F6F7;
-    border: 1px solid #CCD0D5;
+    background: #f5f6f7;
+    border: 1px solid #ccd0d5;
     color: #767676;
     &:hover {
       background: ${shade(0.2, '#CCD0D5')};

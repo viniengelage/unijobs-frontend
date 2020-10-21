@@ -20,7 +20,6 @@ import Button from '../../components/Button';
 import { useAuth } from '../../hooks/auth';
 import { useToast } from '../../hooks/toast';
 
-
 import Loading from '../../components/Loading';
 
 interface ButtonsProps {
@@ -35,14 +34,12 @@ interface SignInFormData {
 const Login: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
-
   const history = useHistory();
 
   const formRef = useRef<FormHandles>(null);
 
   const { signIn } = useAuth();
   const { addToast } = useToast();
-
 
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {
@@ -109,24 +106,7 @@ const Login: React.FC = () => {
             <Button type="submit" style={{ width: '100%' }}>
               Entrar
             </Button>
-            <Input
-              name="ra"
-              type="number"
-              label="RA do Aluno"
-              placeholder="Digite seu RA"
-            />
-            <Input
-              name="password"
-              type="password"
-              label="Senha do Aluno"
-              placeholder="Digite sua Senha"
-            />
-            <Button>Entrar</Button>
             <ForgotPassword to="forgot">Esqueceu sua senha?</ForgotPassword>
-            <Button type="submit" style={{ width: '100%' }}>
-              Entrar
-            </Button>
-            <ForgotPassword to="#/">Esqueceu sua senha?</ForgotPassword>
           </Form>
         </ContainerForm>
       </Container>

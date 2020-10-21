@@ -29,6 +29,8 @@
         "prettier"
     ],
     "rules": {
+      "no-underscore-dangle": "off",
+      "no-param-reassign": "off",
       "camelcase":"off",
       "react/jsx-props-no-spreading":"off",
       "react/prop-types": "off",
