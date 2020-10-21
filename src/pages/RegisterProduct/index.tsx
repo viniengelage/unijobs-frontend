@@ -37,40 +37,43 @@ const RegisterProduct: React.FC = () => {
   const [img1, setImg1] = useState<File>({} as File);
   const [img2, setImg2] = useState<File>({} as File);
 
-  async function handleCreateProduct(data: ItemProps) {
-    const imagem1 = new FormData();
-    imagem1.append('file', img1);
-    const apiImg1 = await api.post('/files', imagem1);
+  const handleCreateProduct = useCallback(
+    async (data: ItemProps) => {
+      const imagem1 = new FormData();
+      imagem1.append('file', img1);
+      const apiImg1 = await api.post('/files', imagem1);
 
-    const imagem2 = new FormData();
-    imagem2.append('file', img2);
-    const apiImg2 = await api.post('/files', imagem2);
+      const imagem2 = new FormData();
+      imagem2.append('file', img2);
+      const apiImg2 = await api.post('/files', imagem2);
 
-    const item = {
-      title: data.title,
-      description: data.description,
-      item_type: data.item_type,
-      item_category: data.item_category,
-      price: data.price,
-      thumbnail_id: apiImg1.data.id,
-      thumbnail_url: apiImg1.data.url,
-      image_id: apiImg2.data.id,
-      image_url: apiImg2.data.url,
-    };
+      const item = {
+        title: data.title,
+        description: data.description,
+        item_type: data.item_type,
+        item_category: data.item_category,
+        price: data.price,
+        thumbnail_id: apiImg1.data.id,
+        thumbnail_url: apiImg1.data.url,
+        image_id: apiImg2.data.id,
+        image_url: apiImg2.data.url,
+      };
 
-    if (!item) {
-      setLoading(true);
-    }
+      if (!item) {
+        setLoading(true);
+      }
 
-    await api.post('/items', item);
-    setLoading(false);
-    history.push('/');
-    addToast({
-      title: 'Produto criado',
-      description: 'Seu produto foi criado com sucesso!',
-      type: 'sucess',
-    });
-  }
+      await api.post('/items', item);
+      setLoading(false);
+      history.push('/');
+      addToast({
+        title: 'Produto criado',
+        description: 'Seu produto foi criado com sucesso!',
+        type: 'sucess',
+      });
+    },
+    [addToast, history, img1, img2],
+  );
 
   const handleImage1 = useCallback((event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
@@ -85,7 +88,7 @@ const RegisterProduct: React.FC = () => {
   }, []);
 
   const handleCurrencyMoney = useCallback(async (money: string) => {
-    const moneyFormated = Number(money.replace(/[^0-9\.-]+/g, ''));
+    const moneyFormated = Number(money.replace(/[^0-9.-]+/g, ''));
 
     return moneyFormated;
   }, []);
@@ -94,7 +97,6 @@ const RegisterProduct: React.FC = () => {
     async (data: ItemProps) => {
       setLoading(true);
       data.price = await handleCurrencyMoney(currency);
-      console.log(data.price);
       try {
         const schema = Yup.object().shape({
           title: Yup.string().required(),
@@ -114,7 +116,7 @@ const RegisterProduct: React.FC = () => {
         console.log(err);
       }
     },
-    [handleCreateProduct],
+    [handleCreateProduct, handleCurrencyMoney, currency],
   );
   return (
     <>
@@ -135,7 +137,8 @@ const RegisterProduct: React.FC = () => {
                   prefix="R$"
                   value={currency}
                   onChangeEvent={(event: ChangeEvent<HTMLInputElement>) =>
-                    setCurrency(event.target.value)}
+                    setCurrency(event.target.value)
+                  }
                 />
                 <Select
                   name="item_type"

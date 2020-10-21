@@ -27,7 +27,7 @@ const AuthProvider: React.FC = ({ children }) => {
     const token = localStorage.getItem('@UniJobs:token');
     const user = localStorage.getItem('@UniJobs:user');
     const refreshToken = localStorage.getItem('@UniJobs:refreshToken');
-    // api.defaults.headers.authorization = `Bearer ${token}`;
+    api.defaults.headers.authorization = `Bearer ${token}`;
 
     if (token && user && refreshToken) {
       return { token, refreshToken, user: JSON.parse(user) };

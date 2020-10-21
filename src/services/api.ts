@@ -4,7 +4,7 @@ const api = axios.create({
   baseURL: 'http://localhost:3333/api',
 });
 
-async function refreshToken(error: Error) {
+async function getRefreshToken(error: Error) {
   return new Promise((resolve, reject) => {
     try {
       const refresh_token = localStorage.getItem('@UniJobs:refreshToken');
@@ -13,13 +13,12 @@ async function refreshToken(error: Error) {
         api
           .post(`/refreshToken`, refresh_token)
           .then(async res => {
-            localStorage.setItem('@UniJobs:token', res.data.token.token);
-            localStorage.setItem(
-              '@UniJobs:refreshToken',
-              res.data.token.refreshToken,
-            );
-            // Fazer algo caso seja feito o refresh token
-            return resolve(error);
+            const { token, refreshToken } = res.data.token;
+
+            localStorage.setItem('@UniJobs:token', token);
+            localStorage.setItem('@UniJobs:refreshToken', refreshToken);
+
+            return resolve(res);
           })
           .catch(err => {
             // Fazer algo caso não seja feito o refresh token
@@ -40,7 +39,7 @@ api.interceptors.response.use(
   async error => {
     const token = localStorage.getItem('@UniJobs:refreshToken');
     if (error.response.status === 401 && token) {
-      const response = await refreshToken(error);
+      const response = await getRefreshToken(error);
       return response;
     }
   },
