@@ -1,5 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { shade } from 'polished';
+
+interface ContainerProps {
+  isFocused: boolean;
+  isFilled: boolean;
+}
 
 export const ContainerRoot = styled.div`
   background: #fbfbfb;
@@ -47,38 +52,42 @@ export const Formbox = styled.div`
   padding: 15px 30px 30px 30px;
 `;
 
-export const Flex = styled.div`
-  display: flex;
+export const PrecoArea = styled.div<ContainerProps>`
   width: 100%;
-
-  > * {
-    width: 50%;
-  }
-
-  > :last-child {
-    margin: 0 0 0 20px;
-  }
-
-  @media (max-width: 880px) {
-    flex-direction: column;
-    > * {
-      width: 100%;
-    }
-    > :last-child {
-      margin: 0;
-    }
-  }
-`;
-
-export const PrecoArea = styled.div`
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  height: 40px;
+  margin: 20px 0 0 0;
+  background: #ffffff;
+  border: 1px solid #bababa;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: #444444;
+  padding: 5px 12px;
   display: flex;
-  align-items: flex-end;
-  width: 50%;
+  align-items: center;
 
-  @media (max-width: 880px) {
-    flex-direction: column;
-    width: 100%;
+  * {
+    border: 0;
+    margin-right: 15px;
   }
+
+  ${props =>
+    props.isFocused &&
+    css`
+      color: #2684ff;
+      border-color: #2684ff;
+      box-shadow: 0 0 0 1px #2684ff;
+    `}
+
+  ${props =>
+    props.isFilled &&
+    css`
+      color: #2684ff;
+      border-color: #2684ff;
+      box-shadow: 0 0 0 1px #2684ff;
+    `}
 `;
 
 export const Title = styled.h2`

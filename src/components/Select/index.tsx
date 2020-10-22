@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import ReactSelect from 'react-select';
 import { useField } from '@unform/core';
 
@@ -20,6 +20,8 @@ const Select: React.FC<SelectProps> = ({ name, options, ...rest }) => {
   const { fieldName, defaultValue, registerField } = useField(name);
 
   const selectRef = useRef(null);
+  const [isFocused, setIsFocused] = useState(false);
+  const [isFilled, setIsFilled] = useState(false);
 
   useEffect(() => {
     registerField({
@@ -38,9 +40,21 @@ const Select: React.FC<SelectProps> = ({ name, options, ...rest }) => {
     });
   }, [fieldName, registerField, rest.isMulti]);
 
+  const handleInputFocus = useCallback(() => {
+    setIsFocused(true);
+  }, []);
+
+  const handleInputBlur = useCallback(() => {
+    setIsFocused(false);
+
+    setIsFilled(!!selectRef.current);
+  }, []);
+
   return (
-    <Container>
+    <Container isFilled={isFilled} isFocused={isFocused}>
       <ReactSelect
+        onFocus={handleInputFocus}
+        onBlur={handleInputBlur}
         ref={selectRef}
         defaultValue={defaultValue}
         options={options}
