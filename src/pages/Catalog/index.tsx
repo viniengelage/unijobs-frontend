@@ -4,20 +4,22 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 import api from '../../services/api';
 
-import { Container, Content, Pages } from './styles';
+import { Container, Content, Pages, Informations } from './styles';
 
 import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
 import Loading from '../../components/Loading';
+import FakeItem from '../../services/product';
+import { IItem } from '../../services/types';
 
-interface Product {
-  _id: string;
-  title: string;
-  description: string;
-  price: string;
-  type: string;
-  image: string[];
-}
+// interface Product {
+//   _id: string;
+//   title: string;
+//   description: string;
+//   price: string;
+//   type: string;
+//   image: string[];
+// }
 
 interface RepositoryParams {
   page: string;
@@ -25,7 +27,7 @@ interface RepositoryParams {
 }
 
 const Catalog: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<IItem[]>([]);
   const [page, setNextPage] = useState('');
   const { params } = useRouteMatch<RepositoryParams>();
   const [loading, setLoading] = useState(false);
@@ -39,12 +41,19 @@ const Catalog: React.FC = () => {
         .get(`/categories/${params.category}?perPage=12&page=${params.page}`)
         .then(response => {
           setProducts(response.data.docs);
+        })
+        .catch(e => {
+          setProducts([FakeItem, FakeItem, FakeItem]);
         });
-        setLoading(false);
+      setLoading(false);
     } else {
-      api.get(`/items?perPage=12&page=${params.page}`).then(response => {
-        setProducts(response.data.docs);
-      });
+      api
+        .get(`/items?perPage=12&page=${params.page}`).then(response => {
+          setProducts(response.data.docs);
+        })
+        .catch(e => {
+          setProducts([FakeItem, FakeItem, FakeItem]);
+        });
       setLoading(false);
     }
     const nextPage = parseInt(params.page) + 1;
@@ -63,9 +72,12 @@ const Catalog: React.FC = () => {
           <Content>
             <Link to={`/items/${product._id}`} key={product._id}>
               <img src={product.image[0]} alt="Produto" />
-              <h1>{product.title}</h1>
+              <Informations>
+                <span>{product.type}</span>
+                <h1>{product.title}</h1>
+                <p>{product.description}</p>
+              </Informations>
               <strong>R$ {product.price}</strong>
-              <span>{product.type}</span>
             </Link>
           </Content>
         ))}
