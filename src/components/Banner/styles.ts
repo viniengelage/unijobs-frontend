@@ -7,14 +7,9 @@ export const Header = styled.header`
   align-items: center;
   padding: 0 35px;
   justify-content: space-between;
-
-  flex-wrap: wrap;
-  align-content: center;
-  justify-items: center;
-
   height: 80px;
-
   background: #0e346a;
+  flex-wrap: wrap;
 
   a {
     text-decoration: none;
@@ -30,14 +25,14 @@ export const Header = styled.header`
     background: #65ad2f;
     box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
   }
-
   img {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 200px;
   }
   button {
-    width: 200px;
+    margin-right: 10%;
     text-align: left;
     background: none;
     outline: none;
@@ -89,13 +84,19 @@ export const Header = styled.header`
     background: #ffffff url(${searchIcon}) no-repeat center;
   }
 
-  @media (max-width: 470px) {
-    justify-content: center;
-    padding: 15px 15px;
+  @media (max-width: 740px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 15px 15px 30px 15px;
     height: fit-content;
 
     img {
       margin-bottom: 20px;
+    }
+
+    button {
+      margin-right: 0;
     }
   }
 `;
