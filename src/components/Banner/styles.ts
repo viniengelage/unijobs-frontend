@@ -6,13 +6,13 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   padding: 0 35px;
-  justify-content: center;
+  justify-content: space-between;
 
   flex-wrap: wrap;
   align-content: center;
   justify-items: center;
 
-  height: 60px;
+  height: 80px;
 
   background: #0e346a;
 
@@ -21,6 +21,14 @@ export const Header = styled.header`
     color: white;
     font-size: 1rem;
     margin: 0 15px;
+    color: #ffffff;
+    padding: 15px 25px;
+    border-radius: 50px;
+  }
+
+  .menu :first-child {
+    background: #65ad2f;
+    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
   }
 
   img {
@@ -40,20 +48,25 @@ export const Header = styled.header`
     }
   }
 
-  input {
+  .searchbar {
+    display: flex;
+    align-items: center;
+    width: 50%;
+  }
+
+  .searchbar input {
     display: flex;
     align-items: center;
 
-    margin-right: 100px;
-    background: #ffffff url(${searchIcon}) no-repeat 320px center;
-    height: 30px;
-    width: 350px;
+    margin: 0;
+    height: 40px;
+    width: 100%;
 
     padding-left: 10px;
 
     outline: none;
-    border: none;
-    border-radius: 5px;
+    border: 1px solid #dddddd;
+    border-radius: 5px 0 0 5px;
     /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
 
     font-style: italic;
@@ -64,6 +77,16 @@ export const Header = styled.header`
     &:focus {
       color: #0e346a;
     }
+  }
+
+  .searchbar span {
+    height: 40px;
+    width: 60px;
+    margin: 0 20px 0 0;
+    border: 1px solid #dddddd;
+    border-radius: 0 5px 5px 0;
+    border-left: 0;
+    background: #ffffff url(${searchIcon}) no-repeat center;
   }
 
   @media (max-width: 470px) {
