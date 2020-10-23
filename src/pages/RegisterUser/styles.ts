@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { shade } from 'polished';
 
 export const Container = styled.section`
-  background: #FBFBFB;
+  background: #fbfbfb;
   display: flex;
   justify-content: space-between;
   max-width: 1700px;
@@ -19,7 +19,7 @@ export const ContainerForm = styled.section`
   flex-direction: column;
   width: 40vw;
   height: 90vh;
-  background: #FFF;
+  background: #fff;
   padding: 40px;
   z-index: 1;
   overflow-y: scroll;
@@ -54,7 +54,7 @@ export const FormLinks = styled.section`
   width: 100%;
   display: flex;
   justify-content: flex-start;
-`
+`;
 
 export const LinkForm = styled(Link)`
   display: flex;
@@ -62,11 +62,11 @@ export const LinkForm = styled(Link)`
   height: 60px;
   justify-content: center;
   align-items: center;
-  color: #51AB0E;
+  color: #51ab0e;
   text-decoration: none;
   box-sizing: border-box;
   transition: background 200ms;
-  &:hover{
+  &:hover {
     background: ${shade(0.04, '#FFF')};
   }
 `;

@@ -132,6 +132,7 @@ const RegisterUser: React.FC = () => {
             />
             <Select
               name="user_type"
+              label="Você é vendedor ou comprador?"
               options={[
                 { value: 'vendedor', label: 'Vendedor' },
                 // { value: 'comprador', label: 'Comprador' },
@@ -147,6 +148,7 @@ const RegisterUser: React.FC = () => {
             />
             <Select
               name="course"
+              label="Escolha seu curso"
               options={Courses}
               // label="Selecione seu curso"
               // placeholder="Selecione"
@@ -154,7 +156,7 @@ const RegisterUser: React.FC = () => {
             <Input
               name="password"
               type="password"
-              label="Senha do Aluno"
+              label="Escolha sua senha"
               placeholder="Digite sua Senha"
             />
             <Input

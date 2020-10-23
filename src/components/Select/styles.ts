@@ -9,18 +9,7 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-  display: flex;
-  align-items: center;
-  color: #444444;
-  padding: 5px 12px;
   width: 100%;
-  height: 40px;
-  margin: 8px 0 0 0;
-
-  background: #ffffff;
-  border: 1px solid #bababa;
-  box-sizing: border-box;
-  border-radius: 5px;
 
   ${props =>
     props.isErrored &&
@@ -44,6 +33,7 @@ export const Container = styled.div<ContainerProps>`
 
 
   input {
+    margin-top: 5px;
     background: transparent;
     border: 0;
     width: 100%;
@@ -53,25 +43,8 @@ export const Container = styled.div<ContainerProps>`
   }
 
   svg {
-    margin-right: 5px;
     width: 20px;
     height: 20px;
-  }
-
-  input[type='file']::-webkit-file-upload-button {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    border: 0;
-    border-right: 1px solid #bababa;
-    cursor: pointer;
-    margin: 0;
-    padding: 10px 10px 10px 0;
-    background: none;
-    color: #444444;
-    box-shadow: none;
-    outline: none;
   }
 `;
 
@@ -93,6 +66,7 @@ export const InputBlock = styled.div`
     position: relative;
     align-items: center;
     margin-top: 15px;
+    margin-bottom: 10px;
   }
 
   i {
