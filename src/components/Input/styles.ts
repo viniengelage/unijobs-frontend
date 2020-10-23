@@ -31,15 +31,17 @@ export const Container = styled.div<ContainerProps>`
   ${props =>
     props.isFocused &&
     css`
-      color: #65ad2f;
-      border-color: #65ad2f;
+      color: #2684ff;
+      border-color: #2684ff;
+      box-shadow: 0 0 0 1px #2684ff;
     `}
 
   ${props =>
     props.isFilled &&
     css`
-      color: #65ad2f;
-      border-color: #65ad2f;
+      color: #2684ff;
+      border-color: #2684ff;
+      box-shadow: 0 0 0 1px #2684ff;
     `}
 
 
@@ -49,7 +51,7 @@ export const Container = styled.div<ContainerProps>`
     width: 100%;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   svg {
@@ -62,7 +64,7 @@ export const Container = styled.div<ContainerProps>`
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 16px;
     border: 0;
     border-right: 1px solid #bababa;
     cursor: pointer;

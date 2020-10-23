@@ -7,7 +7,14 @@ import CurrencyInput from 'react-currency-input';
 import { useToast } from '../../hooks/toast';
 import api from '../../services/api';
 
-import { ContainerRoot, Formarea, Title, Formbox, Buttons } from './styles';
+import {
+  ContainerRoot,
+  Formarea,
+  PrecoArea,
+  Title,
+  Formbox,
+  Buttons,
+} from './styles';
 import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
 import Input from '../../components/Input';
@@ -36,6 +43,8 @@ const RegisterProduct: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [img1, setImg1] = useState<File>({} as File);
   const [img2, setImg2] = useState<File>({} as File);
+  const [isFocused, setIsFocused] = useState(false);
+  const [isFilled, setIsFilled] = useState(false);
 
   const handleCreateProduct = useCallback(
     async (data: ItemProps) => {
@@ -118,6 +127,16 @@ const RegisterProduct: React.FC = () => {
     },
     [handleCreateProduct, handleCurrencyMoney, currency],
   );
+
+  const handleInputFocus = useCallback(() => {
+    setIsFocused(true);
+  }, []);
+
+  const handleInputBlur = useCallback(() => {
+    setIsFocused(false);
+    setIsFilled(true);
+  }, []);
+
   return (
     <>
       <Loading loading={loading} />
@@ -132,14 +151,19 @@ const RegisterProduct: React.FC = () => {
                 <Input name="title" placeholder="Titulo" type="text" />
                 <Input name="description" placeholder="Descrição" type="text" />
                 {/* <Input name="price" type="number" placeholder="Preço" /> */}
-                <CurrencyInput
-                  name="price"
-                  prefix="R$"
-                  value={currency}
-                  onChangeEvent={(event: ChangeEvent<HTMLInputElement>) =>
-                    setCurrency(event.target.value)
-                  }
-                />
+                <PrecoArea isFilled={isFilled} isFocused={isFocused}>
+                  <span>Preço</span>
+                  <CurrencyInput
+                    name="price"
+                    prefix="R$"
+                    value={currency}
+                    onFocus={handleInputFocus}
+                    onBlur={handleInputBlur}
+                    onChangeEvent={(event: ChangeEvent<HTMLInputElement>) =>
+                      setCurrency(event.target.value)
+                    }
+                  />
+                </PrecoArea>
                 <Select
                   name="item_type"
                   options={[

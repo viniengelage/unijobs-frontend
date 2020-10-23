@@ -35,15 +35,18 @@ const Banner: React.FC<BannerProps> = ({ backIcon }) => {
       <Link to="/">
         <img src={logo} alt="Logo UniJobs" />
       </Link>
-      {/* <input placeholder="Pesquise um item..." /> */}
+      {/* <div className="searchbar">
+        <input placeholder="Pesquise um item..." />
+        <span />
+      </div> */}
       {useAuth() ? (
-        <div>
-          <a href="/RegisterUser">Quero Vender</a>
+        <div className="menu">
+          <a href="/RegisterUser">Anunciar</a>
           <a href="/Login">Login</a>
         </div>
       ) : (
-        <div>
-          <a href="/RegisterUser">Quero Vender</a>
+        <div className="menu">
+          <a href="/RegisterUser">Anunciar</a>
           <Link to="/" onClick={handleClick}>
             Sair
           </Link>
