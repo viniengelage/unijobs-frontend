@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: `http://200.208.73.149:3333/api`,
+  baseURL: `http://localhost:3333/api`,
 });
 
 async function getRefreshToken(error: Error) {

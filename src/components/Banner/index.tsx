@@ -29,6 +29,8 @@ const Banner: React.FC<BannerProps> = ({ backIcon }) => {
     signOut();
   };
 
+  const isLogged = !!localStorage.getItem('@UniJobs:token');
+
   return (
     <Header>
       {renderBackIcon(backIcon)}
@@ -39,17 +41,17 @@ const Banner: React.FC<BannerProps> = ({ backIcon }) => {
         <input placeholder="Pesquise um item..." />
         <span />
       </div> */}
-      {useAuth() ? (
+      {isLogged ? (
         <div className="menu">
-          <a href="/RegisterUser">Anunciar</a>
-          <a href="/Login">Login</a>
+          <a href="/register">Anunciar</a>
+          <Link to="/login" onClick={handleClick}>
+            Sair
+          </Link>
         </div>
       ) : (
         <div className="menu">
-          <a href="/RegisterUser">Anunciar</a>
-          <Link to="/" onClick={handleClick}>
-            Sair
-          </Link>
+          <a href="/registerr">Anunciar</a>
+          <a href="/login">Login</a>
         </div>
       )}
     </Header>
