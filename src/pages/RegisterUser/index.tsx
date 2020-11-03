@@ -42,13 +42,8 @@ const RegisterUser: React.FC = () => {
 
   const { addToast } = useToast();
 
-  // const signUp = useCallback(async (data: SignUpFormData) => {
-  //   await api.post('/users', data);
-  // }, []);
-
   const handleSubmit = useCallback(
     async (data: SignUpFormData) => {
-      console.log(data);
       try {
         setLoading(true);
 
@@ -62,8 +57,11 @@ const RegisterUser: React.FC = () => {
           course: Yup.string().required('Escolha seu curso'),
           phone: Yup.number().required('Digite um telefone válido'),
           user_type: Yup.string().required('Vendedor ou Comprador'),
-          password: Yup.string().required('Senha obrigatória'),
-          password_confirmation: Yup.string().required('Confirme sua senha'),
+          password: Yup.string().required('Senha é necessária'),
+          password_confirmation: Yup.string().oneOf(
+            [Yup.ref('password'), undefined],
+            'Senhas devem ser iguais',
+          ),
         });
 
         await schema.validate(data, {
@@ -82,10 +80,6 @@ const RegisterUser: React.FC = () => {
       } catch (error) {
         if (error instanceof Yup.ValidationError) {
           const errors = getValidationErrors(error);
-
-          console.log(errors);
-          console.log('passou aq');
-
           formRef.current?.setErrors(errors);
         }
         addToast({
