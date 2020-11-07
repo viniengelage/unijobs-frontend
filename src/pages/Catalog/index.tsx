@@ -12,6 +12,7 @@ import Loading from '../../components/Loading';
 import FakeItem from '../../services/product';
 import { IItem } from '../../services/types';
 
+import ScrollToTopOnMount from '../../utils/ScrollToTopOnMount';
 // interface Product {
 //   _id: string;
 //   title: string;
@@ -65,6 +66,7 @@ const Catalog: React.FC = () => {
 
   return (
     <>
+    <ScrollToTopOnMount />
       <Loading loading={loading} />
       <Banner backIcon />
       <Container>

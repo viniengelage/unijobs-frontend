@@ -22,6 +22,7 @@ import api from '../../services/api';
 import Loading from '../../components/Loading';
 
 import { useToast } from '../../hooks/toast';
+import ScrollToTopOnMount from '../../utils/ScrollToTopOnMount';
 
 interface SignUpFormData {
   email: string;
@@ -96,6 +97,7 @@ const RegisterUser: React.FC = () => {
 
   return (
     <>
+      <ScrollToTopOnMount />
       <Loading loading={loading} />
       <Banner backIcon />
       <Container>

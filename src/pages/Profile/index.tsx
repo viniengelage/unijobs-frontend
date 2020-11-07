@@ -17,7 +17,7 @@ import Footer from '../../components/Footer';
 import Menu from '../../components/Sidebar';
 import Button from '../../components/Button';
 import Loading from '../../components/Loading';
-
+import ScrollToTopOnMount from '../../utils/ScrollToTopOnMount';
 const Profile: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const handleCreateProfile = useCallback(async data => {
@@ -58,6 +58,7 @@ const Profile: React.FC = () => {
 
   return (
     <>
+      <ScrollToTopOnMount />
       <Loading loading={loading} />
       <div style={{ width: '100vw', height: '100vh' }}>
         <Banner backIcon />

@@ -12,7 +12,7 @@ import {
   LinkForm,
   ForgotPassword,
 } from './styles';
-
+import ScrollToTopOnMount from '../../utils/ScrollToTopOnMount';
 import Input from '../../components/Input';
 import Banner from '../../components/Banner';
 import Button from '../../components/Button';
@@ -81,6 +81,7 @@ const Login: React.FC = () => {
   );
   return (
     <>
+      <ScrollToTopOnMount />
       <Loading loading={loading} />
       <Banner backIcon />
       <Container>
