@@ -13,6 +13,7 @@ interface OptionType {
 interface SelectProps {
   label?: string;
   name: string;
+  placeholder?: string;
   icon?: React.ComponentType<IconBaseProps>;
   help?: string;
   options: OptionType[];
@@ -24,6 +25,7 @@ type SelectdValue = OptionType | OptionType[] | null;
 const Select: React.FC<SelectProps> = ({
   label,
   name,
+  placeholder,
   icon: Icon,
   help,
   options,
@@ -96,6 +98,7 @@ const Select: React.FC<SelectProps> = ({
         <ReactSelect
           ref={selectRef}
           defaultValue={defaultValue}
+          placeholder={placeholder}
           options={options}
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
