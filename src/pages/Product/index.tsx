@@ -18,6 +18,7 @@ import Loading from '../../components/Loading';
 
 import FakeItem from '../../services/product';
 import api from '../../services/api';
+import ScrollToTopOnMount from '../../utils/ScrollToTopOnMount';
 
 
 
@@ -45,6 +46,7 @@ const Product: React.FC = () => {
 
   return (
     <>
+      <ScrollToTopOnMount />
       <Loading loading={loading} />
       <Banner backIcon />
       <Content>

@@ -10,10 +10,12 @@ import Footer from '../../components/Footer';
 
 import { Title, Container, Sider, Imagem } from './styles';
 import aboutUnijobs from '../../assets/about-unijobs.png';
+import ScrollToTopOnMount from '../../utils/ScrollToTopOnMount';
 
 const LandingPage: React.FC = () => {
   return (
     <>
+    <ScrollToTopOnMount />
       <Banner backIcon={false} />
       <HeaderSlider />
       <Container>

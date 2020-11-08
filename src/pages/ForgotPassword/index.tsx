@@ -5,7 +5,7 @@ import { Container, ContainerForm, Lateral, FormLinks, LinkForm, Button, BackLin
 import Input from './components/Input';
 
 import Banner from '../../components/Banner';
-
+import ScrollToTopOnMount from '../../utils/ScrollToTopOnMount';
 interface ButtonsProps {
   active: boolean;
 }
@@ -16,6 +16,7 @@ const ForgotPassword: React.FC = () => {
   }
   return (
     <>
+      <ScrollToTopOnMount />
       <Banner backIcon />
       <Container>
         <Lateral />

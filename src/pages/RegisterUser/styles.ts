@@ -18,7 +18,7 @@ export const ContainerForm = styled.section`
   display: flex;
   flex-direction: column;
   width: 40vw;
-  height: 90vh;
+  height: calc(100vh - 60px);
   background: #fff;
   padding: 40px;
   z-index: 1;
@@ -29,14 +29,15 @@ export const ContainerForm = styled.section`
   }
   @media only screen and (min-width: 1700px) {
     border-radius: 0px 20px 20px 0px;
-    height: 70vh;
+    overflow-y: auto;
+    scroll-behavior:auto;
   }
 `;
 
 export const Lateral = styled.aside`
   background-image: url('./assets/buy.png');
-  background-position-y: 50%;
-  background-attachment: fixed;
+  background-position-y: 30%;
+  background-attachment: scroll;
   background-repeat: no-repeat;
   background-size: auto;
   min-height: 100vh;
@@ -45,7 +46,6 @@ export const Lateral = styled.aside`
     display: none;
   }
   @media only screen and (min-width: 1700px) {
-    background-position: 10px;
     height: 70vh;
   }
 `;

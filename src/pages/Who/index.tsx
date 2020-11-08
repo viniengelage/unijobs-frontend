@@ -3,6 +3,7 @@ import Banner from '../../components/Banner';
 import SliderWho from '../../components/SliderWho';
 import HeaderSlider from '../../components/HeaderSlider';
 import Footer from '../../components/Footer';
+import ScrollToTopOnMount from '../../utils/ScrollToTopOnMount';
 
 
 import { Title, Container } from './styles';
@@ -10,6 +11,7 @@ import { Title, Container } from './styles';
 const Who: React.FC = () => {
     return (
       <>
+        <ScrollToTopOnMount />
         <Banner backIcon={false} />
         <HeaderSlider />
         <Container>

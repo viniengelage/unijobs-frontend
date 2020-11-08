@@ -4,6 +4,8 @@ import Routes from './routes';
 
 import GlobalStyles from './styles/global';
 
+
+
 import AppProvider from './hooks';
 
 const App: React.FC = () => {

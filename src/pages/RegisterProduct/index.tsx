@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import CurrencyInput from 'react-currency-input';
 import { useToast } from '../../hooks/toast';
 import api from '../../services/api';
+import ScrollToTopOnMount from '../../utils/ScrollToTopOnMount';
 
 import {
   ContainerRoot,
@@ -139,6 +140,7 @@ const RegisterProduct: React.FC = () => {
 
   return (
     <>
+      <ScrollToTopOnMount />
       <Loading loading={loading} />
       <div style={{ width: '100vw' }}>
         <Banner backIcon />

@@ -22,6 +22,7 @@ import api from '../../services/api';
 import Loading from '../../components/Loading';
 
 import { useToast } from '../../hooks/toast';
+import ScrollToTopOnMount from '../../utils/ScrollToTopOnMount';
 
 interface SignUpFormData {
   email: string;
@@ -96,6 +97,7 @@ const RegisterUser: React.FC = () => {
 
   return (
     <>
+      <ScrollToTopOnMount />
       <Loading loading={loading} />
       <Banner backIcon />
       <Container>
@@ -131,8 +133,7 @@ const RegisterUser: React.FC = () => {
                 { value: 'vendedor', label: 'Vendedor' },
                 // { value: 'comprador', label: 'Comprador' },
               ]}
-              // label="Vendedor ou Comprador"
-              // placeholder="Selecione"
+              placeholder="Você é vendedor ou comprador?"
             />
             <Input
               name="academic_record"
@@ -144,8 +145,7 @@ const RegisterUser: React.FC = () => {
               name="course"
               label="Escolha seu curso"
               options={Courses}
-              // label="Selecione seu curso"
-              // placeholder="Selecione"
+              placeholder="Selecione seu curso"
             />
             <Input
               name="password"

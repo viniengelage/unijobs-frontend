@@ -7,6 +7,7 @@ import { Header } from './styles';
 import logo from '../../assets/logo.svg';
 import { useAuth } from '../../hooks/auth';
 
+
 interface BannerProps {
   backIcon: boolean;
 }
