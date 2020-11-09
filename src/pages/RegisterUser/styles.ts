@@ -26,9 +26,11 @@ export const ContainerForm = styled.section`
   scroll-behavior: initial !important;
   @media only screen and (max-width: 800px) {
     width: 100vw;
+    height: calc(100vh - 150px);
   }
   @media only screen and (min-width: 1700px) {
     border-radius: 0px 20px 20px 0px;
+    height: calc(100vh - 120px);
     overflow-y: auto;
     scroll-behavior:auto;
   }
