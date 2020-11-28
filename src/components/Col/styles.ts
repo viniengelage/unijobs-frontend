@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import colSizes from '../../utils/colSizes';
 
 interface StyledProps {
@@ -24,55 +24,51 @@ export const StyledCol = styled.div<StyledProps>`
   // Extra small <576px - Default content size: 100% of screen
   ${props =>
     props.xs
-      ? `@media (max-width: 576px) {
+      ? css`@media (max-width: 576px) {
       -ms-flex: 0 0 ${colSizes[props.xs - 1]};
       flex: 0 0 ${colSizes[props.xs - 1]};
       max-width: ${colSizes[props.xs - 1]};
-    }`
-      : `@media (max-width: 576px) {
+    `
+      : css`@media (max-width: 576px) {
         -ms-flex: 0 0 ${colSizes[11]};
         flex: 0 0 ${colSizes[11]};
         max-width: ${colSizes[11]};
-      }`}
+      `}
 
   // Small >=576px
   ${props =>
-    props.sm
-      ? `@media (min-width: 576px) {
+    props.sm &&
+    css`@media (min-width: 576px) {
       -ms-flex: 0 0 ${colSizes[props.sm - 1]};
       flex: 0 0 ${colSizes[props.sm - 1]};
       max-width: ${colSizes[props.sm - 1]};
-    }`
-      : ''}
+    `}
 
 
   // Medium >=768px
   ${props =>
-    props.md
-      ? `@media (min-width: 768px) {
+    props.md &&
+    css`@media (min-width: 768px) {
       -ms-flex: 0 0 ${colSizes[props.md - 1]};
       flex: 0 0 ${colSizes[props.md - 1]};
       max-width: ${colSizes[props.md - 1]};
-    }`
-      : ''}
+    `}
 
   // Large >=992px
   ${props =>
-    props.lg
-      ? `@media (min-width: 992px) {
+    props.lg &&
+    css`@media (min-width: 992px) {
       -ms-flex: 0 0 ${colSizes[props.lg - 1]};
       flex: 0 0 ${colSizes[props.lg - 1]};
       max-width: ${colSizes[props.lg - 1]};
-    }`
-      : ''}
+    `}
 
   // Extra Large >=1200px
   ${props =>
-    props.xl
-      ? `@media (min-width: 1200px) {
+    props.xl &&
+    css`@media (min-width: 1200px) {
       -ms-flex: 0 0 ${colSizes[props.xl - 1]};
       flex: 0 0 ${colSizes[props.xl - 1]};
       max-width: ${colSizes[props.xl - 1]};
-    }`
-      : ''}
+    `}
 `;
