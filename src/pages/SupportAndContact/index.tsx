@@ -6,7 +6,6 @@ import Footer from '../../components/Footer';
 import Container from '../../components/Container';
 import Row from '../../components/Row';
 import Col from '../../components/Col';
-import ContactForm from './components/ContactForm';
 
 import {
   PageTitle,
@@ -44,10 +43,6 @@ const SupportAndContact: React.FC = () => {
                 <FaEnvelope color="#0e346a" size={30} />
                 <a href="mailto:unijobs@uniamerica.br">unijobs@uniamerica.br</a>
               </ContactInfo>
-            </Card>
-            <Card>
-              <SecondaryTitle>Mande uma mensagem</SecondaryTitle>
-              <ContactForm />
             </Card>
           </Col>
         </Row>
