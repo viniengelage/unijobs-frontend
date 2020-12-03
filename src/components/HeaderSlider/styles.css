@@ -14,6 +14,15 @@ https://flickity.metafizzy.co
   overflow: hidden;
   position: relative;
   height: 100%;
+  /* limita altura do viewport */
+  max-height: 500px;
+
+}
+
+@media (min-width: 1200px) {
+  .flickity-viewport {
+    max-height: 600px;
+  }
 }
 
 .flickity-slider {
@@ -29,6 +38,10 @@ https://flickity.metafizzy.co
 
 .flickity-slider img {
   opacity: 0;
+  /* imagem se adapta a altura limitada do flickity */
+  width: 100%;
+  height: auto;
+  transform: translateY(-25%);
 }
 
 .flickity-slider .is-selected {
