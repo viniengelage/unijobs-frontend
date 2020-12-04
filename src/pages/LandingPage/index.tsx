@@ -23,6 +23,20 @@ const LandingPage: React.FC = () => {
           Adicionados recentemente <Link to="/catalog/1">Ver tudo</Link>
         </Title>
         <SliderProducts />
+        <Title>Navegar por tipo de item</Title>
+        <Sider>
+          <CategoriesCard
+            icon={IoMdCart}
+            title="Produtos"
+            link="/categories/products/1"
+          />
+          <CategoriesCard
+            icon={IoMdBuild}
+            title="Serviços"
+            link="/categories/services/1"
+          />
+        </Sider>
+
         <Title>Categorias</Title>
         <Sider>
           <CategoriesCard
