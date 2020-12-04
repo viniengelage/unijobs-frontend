@@ -5,20 +5,23 @@ import '@brainhubeu/react-carousel/lib/style.css';
 
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import { Container, Content } from './styles';
-import { IItem } from '../../services/types'
+import { IItem } from '../../services/types';
 import api from '../../services/api';
 import FakeItem from '../../services/product';
-
 
 const Slider: React.FC = () => {
   const [products, setProducts] = useState<IItem[]>([]);
 
   useEffect(() => {
-    api.get('/items/?perPage=8&page=1').then(response => {
-      setProducts(response.data.docs);
-    }).catch(e => {
-      setProducts([FakeItem])
-    });
+    api
+      .get('/items/1')
+      .then(response => {
+        console.log(response);
+        setProducts(response.data.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
   }, []);
 
   return (
@@ -42,8 +45,8 @@ const Slider: React.FC = () => {
       {products.map(product => (
         <Container>
           <Content>
-            <Link to={`/item/${product._id}`} key={product._id}>
-              <img src={product.image[1]} alt="Produto" />
+            <Link to={`/item/${product.id}`} key={product.id}>
+              <img src={product.image_url} alt="Produto" />
               <h1>{product.title}</h1>
               <strong>R$ {product.price}</strong>
               <span>{product.type}</span>

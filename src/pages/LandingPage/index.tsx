@@ -15,7 +15,7 @@ import ScrollToTopOnMount from '../../utils/ScrollToTopOnMount';
 const LandingPage: React.FC = () => {
   return (
     <>
-    <ScrollToTopOnMount />
+      <ScrollToTopOnMount />
       <Banner backIcon={false} />
       <HeaderSlider />
       <Container>
@@ -28,12 +28,12 @@ const LandingPage: React.FC = () => {
           <CategoriesCard
             icon={IoMdCart}
             title="Produtos"
-            link="/categories/produto"
+            link="/categories/products/1"
           />
           <CategoriesCard
             icon={IoMdBuild}
             title="Serviços"
-            link="/categories/servico"
+            link="/categories/services/1"
           />
         </Sider>
         <Title>Sobre a UniJobs</Title>

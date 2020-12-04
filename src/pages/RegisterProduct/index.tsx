@@ -49,6 +49,8 @@ const RegisterProduct: React.FC = () => {
 
   const handleCreateProduct = useCallback(
     async (data: ItemProps) => {
+      console.log(data);
+
       const imagem1 = new FormData();
       imagem1.append('file', img1);
       const apiImg1 = await api.post('/files', imagem1);

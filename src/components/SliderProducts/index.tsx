@@ -1,39 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
-
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
-import { ProductItem,
-         ProductImage,
-         ProductContent,
-         ProductHeader,
-         ProductCategory,
-         ProductTitle,
-         ProductDescription,
-         ProductFooter,
-         ProductLink,
-         ProductPrice
-        } from './styles';
-// import api from '../../services/api';
+import { IItem } from '../../services/types';
 
-
-interface Product {
-  _id: string;
-  title: string;
-  description: string;
-  price: string;
-  type: string;
-  image: string[];
-}
+import {
+  ProductItem,
+  ProductImage,
+  ProductContent,
+  ProductHeader,
+  ProductCategory,
+  ProductTitle,
+  ProductDescription,
+  ProductFooter,
+  ProductLink,
+  ProductPrice,
+} from './styles';
+import api from '../../services/api';
 
 const Slider: React.FC = () => {
-  // const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState<IItem[]>([]);
 
-  // useEffect(() => {
-  //   api.get('/items/?perPage=8&page=1').then(response => {
-  //     setProducts(response.data.docs);
-  //   });
-  // }, []);
+  useEffect(() => {
+    api.get('/items/1').then(response => {
+      setProducts(response.data.data);
+    });
+  }, []);
 
   return (
     <Carousel
@@ -46,27 +38,30 @@ const Slider: React.FC = () => {
         900: {
           slidesPerPage: 1,
           arrows: false,
-        }
+        },
       }}
     >
-      {/* {products.map(product => ( */}
-        <ProductItem>
-          <ProductImage src="https://www.montarumnegocio.com/wp-content/uploads/2019/01/doces-para-vender-na-rua.jpg.webp" alt=" TÍTULO DE MÁXIMO 60 CARACTERES" />
+      {products.map(product => (
+        <ProductItem key={product.id}>
+          <ProductImage
+            src={`http://200.208.73.149:3333/api/files/${product.thumbnail_id}`}
+            alt={product.title}
+          />
           <ProductContent>
             <ProductHeader>
-              <ProductCategory>Produto</ProductCategory>
-              <ProductTitle>INSIRA UM TÍTULO DE MÁXIMO 60 CARACTERES</ProductTitle>
+              <ProductCategory>{product.type}</ProductCategory>
+              <ProductTitle>{product.title}</ProductTitle>
             </ProductHeader>
-            <ProductDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae quaerat distinctio ullam nostrum corrupti reiciendis ducimus esse expedita veritatis, qui similique ipsum consequuntur at nam incidunt molestiae labore dolores nihil?
-            </ProductDescription>
+            <ProductDescription>{product.description}</ProductDescription>
             <ProductFooter>
-            <ProductLink to="#/">+ informações</ProductLink>
-            <ProductPrice>R$ 40,00</ProductPrice>
+              <ProductLink to={`/item/${product.id}`}>
+                + informações
+              </ProductLink>
+              <ProductPrice>R$ {product.price}</ProductPrice>
             </ProductFooter>
           </ProductContent>
         </ProductItem>
-      {/* ))} */}
+      ))}
     </Carousel>
   );
 };

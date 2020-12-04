@@ -16,11 +16,8 @@ import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
 import Loading from '../../components/Loading';
 
-import FakeItem from '../../services/product';
 import api from '../../services/api';
 import ScrollToTopOnMount from '../../utils/ScrollToTopOnMount';
-
-
 
 interface RepositoryParams {
   id: string;
@@ -33,16 +30,20 @@ const Product: React.FC = () => {
 
   useEffect(() => {
     setLoading(true);
-    api.get(`/items/${params.id}`).then(response => {
-      setPost(response.data);
-    }).catch(e => {
-      setPost(FakeItem);
-    })
+    api
+      .get(`/item/${params.id}`)
+      .then(response => {
+        console.log(response.data[0]);
+        setPost(response.data[0]);
+      })
+      .catch(e => {
+        console.log(e);
+      });
     setLoading(false);
   }, [params.id]);
 
-  //Remove tudo exceto números
-  const contactLink = post?.contact.replace(/[^\d]+/g, '');
+  // Remove tudo exceto números
+  const contactLink = post?.user.phone.replace(/[^\d]+/g, '');
 
   return (
     <>
@@ -52,12 +53,15 @@ const Product: React.FC = () => {
       <Content>
         <Item>
           <Images>
-            <img src={post?.image[1]} alt={post?.name} />
+            <img
+              src={`http://200.208.73.149:3333/api/files/${post?.image_id}`}
+              alt={post?.title}
+            />
           </Images>
 
           <InfoContact>
             <p>
-              Por <strong>{post?.name}</strong>
+              Por <strong>{post?.user.name}</strong>
             </p>
             <h1>{post?.title}</h1>
 
@@ -69,10 +73,10 @@ const Product: React.FC = () => {
               <a
                 href={`http://wa.me/55${contactLink}`}
                 target="_blank"
-                rel="noopener noreferrer" >
-
+                rel="noopener noreferrer"
+              >
                 <FaWhatsapp size={25} style={{ marginRight: 12 }} />
-                {post?.contact}
+                {post?.user.phone}
               </a>
             </Buttons>
           </InfoContact>

@@ -9,7 +9,6 @@ import { Container, Content, Pages, Informations } from './styles';
 import Banner from '../../components/Banner';
 import Footer from '../../components/Footer';
 import Loading from '../../components/Loading';
-import FakeItem from '../../services/product';
 import { IItem } from '../../services/types';
 
 import ScrollToTopOnMount from '../../utils/ScrollToTopOnMount';
@@ -24,7 +23,7 @@ import ScrollToTopOnMount from '../../utils/ScrollToTopOnMount';
 
 interface RepositoryParams {
   page: string;
-  category: string;
+  itemType: string;
 }
 
 const Catalog: React.FC = () => {
@@ -33,56 +32,67 @@ const Catalog: React.FC = () => {
   const { params } = useRouteMatch<RepositoryParams>();
   const [loading, setLoading] = useState(false);
 
-  const hasCategory = params.category;
+  const { itemType } = params;
 
   useEffect(() => {
     setLoading(true);
-    if (hasCategory) {
+    if (itemType) {
+      console.log(itemType.replace(/[0-9]/g, '').replace(/[^a-zA-Z ]/g, ''));
       api
-        .get(`/categories/${params.category}?perPage=12&page=${params.page}`)
+        .get(
+          `/${params.itemType
+            .replace(/[0-9]/g, '')
+            .replace(/[^a-zA-Z ]/g, '')}/${params.page}`,
+        )
         .then(response => {
-          setProducts(response.data.docs);
+          setProducts(response.data.data);
         })
         .catch(e => {
-          setProducts([FakeItem, FakeItem, FakeItem]);
+          console.log(e);
         });
       setLoading(false);
     } else {
       api
-        .get(`/items?perPage=12&page=${params.page}`).then(response => {
-          setProducts(response.data.docs);
+        .get(`/items/${params.page}`)
+        .then(response => {
+          setProducts(response.data.data);
         })
         .catch(e => {
-          setProducts([FakeItem, FakeItem, FakeItem]);
+          console.log(e);
         });
       setLoading(false);
     }
     const nextPage = parseInt(params.page) + 1;
     setNextPage(nextPage.toString());
     setLoading(false);
-  }, [hasCategory, params.category, params.page]);
+  }, [itemType, params.itemType, params.page]);
 
   const history = useHistory();
 
   return (
     <>
-    <ScrollToTopOnMount />
+      <ScrollToTopOnMount />
       <Loading loading={loading} />
       <Banner backIcon />
       <Container>
-        {products.map(product => (
-          <Content>
-            <Link to={`/items/${product._id}`} key={product._id}>
-              <img src={product.image[0]} alt="Produto" />
-              <Informations>
-                <span>{product.type}</span>
-                <h1>{product.title}</h1>
-                <p>{product.description}</p>
-              </Informations>
-              <strong>R$ {product.price}</strong>
-            </Link>
-          </Content>
-        ))}
+        {products.map(product => {
+          return (
+            <Content key={product.id}>
+              <Link to={`/item/${product.id}`} key={product.id}>
+                <img
+                  src={`http://200.208.73.149:3333/api/files/${product.thumbnail_id}`}
+                  alt="Produto"
+                />
+                <Informations>
+                  <span>{product.type}</span>
+                  <h1>{product.title}</h1>
+                  <p>{product.description}</p>
+                </Informations>
+                <strong>R$ {product.price}</strong>
+              </Link>
+            </Content>
+          );
+        })}
       </Container>
       <Pages>
         <button type="button" onClick={history.goBack}>

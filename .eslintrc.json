@@ -32,8 +32,10 @@
       "no-underscore-dangle": "off",
       "no-param-reassign": "off",
       "camelcase":"off",
+      "radix": "off",
       "react/jsx-props-no-spreading":"off",
       "react/prop-types": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "off",
       "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
@@ -48,7 +50,8 @@
         "ignorePackages",
         {
           "ts": "never",
-          "tsx": "never"
+          "tsx": "never",
+          "jsx": "never"
         }
       ]
     },
