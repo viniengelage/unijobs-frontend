@@ -33,16 +33,18 @@ export const StyledCol = styled.div<StyledProps>`
         -ms-flex: 0 0 ${colSizes[11]};
         flex: 0 0 ${colSizes[11]};
         max-width: ${colSizes[11]};
-      `}
+      }`
+    }
 
   // Small >=576px
   ${props =>
     props.sm &&
-    css`@media (min-width: 576px) {
+    css`@media (min-width: 576.01px) {
       -ms-flex: 0 0 ${colSizes[props.sm - 1]};
       flex: 0 0 ${colSizes[props.sm - 1]};
       max-width: ${colSizes[props.sm - 1]};
-    `}
+    }`
+  }
 
 
   // Medium >=768px
@@ -52,7 +54,8 @@ export const StyledCol = styled.div<StyledProps>`
       -ms-flex: 0 0 ${colSizes[props.md - 1]};
       flex: 0 0 ${colSizes[props.md - 1]};
       max-width: ${colSizes[props.md - 1]};
-    `}
+    }`
+  }
 
   // Large >=992px
   ${props =>
@@ -61,7 +64,8 @@ export const StyledCol = styled.div<StyledProps>`
       -ms-flex: 0 0 ${colSizes[props.lg - 1]};
       flex: 0 0 ${colSizes[props.lg - 1]};
       max-width: ${colSizes[props.lg - 1]};
-    `}
+    }`
+  }
 
   // Extra Large >=1200px
   ${props =>
@@ -70,5 +74,6 @@ export const StyledCol = styled.div<StyledProps>`
       -ms-flex: 0 0 ${colSizes[props.xl - 1]};
       flex: 0 0 ${colSizes[props.xl - 1]};
       max-width: ${colSizes[props.xl - 1]};
-    `}
+    }`
+  }
 `;

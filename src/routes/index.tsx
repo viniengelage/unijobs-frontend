@@ -27,7 +27,7 @@ const Routes: React.FC = () => (
     <Route path="/forgot" component={ForgotPassword} />
     <Route path="/resetpassword" component={ResetPassword} />
     <Route path="/profile" component={Profile} />
-    <Route path="/who" component={Who} />
+    <Route path="/quem-somos" component={Who} />
     <Route path="/ajuda-e-contato" component={SupportAndContact} />
   </Switch>
 );
