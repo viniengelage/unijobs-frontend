@@ -11,6 +11,8 @@ import {
   IoIosShirt,
   IoIosHourglass,
   IoIosIceCream,
+  IoIosHeadset,
+  IoIosBulb,
 } from 'react-icons/io';
 import Banner from '../../components/Banner';
 import SliderProducts from '../../components/SliderProducts';
@@ -81,9 +83,19 @@ const LandingPage: React.FC = () => {
             link="/categories/products/roupas-e-calcados/1"
           />
           <CategoriesCard
+            icon={IoIosHeadset}
+            title="Acessórios"
+            link="/categories/products/acessorios/1"
+          />
+          <CategoriesCard
+            icon={IoIosBulb}
+            title="Roupas"
+            link="/categories/products/artesanatos/1"
+          />
+          <CategoriesCard
             icon={IoIosHourglass}
             title="Outros"
-            link="/categories/services/1"
+            link="/catalog/1"
           />
         </Carousel>
         <Title>Sobre a UniJobs</Title>

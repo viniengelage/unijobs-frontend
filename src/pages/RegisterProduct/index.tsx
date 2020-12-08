@@ -164,8 +164,7 @@ const RegisterProduct: React.FC = () => {
                     onFocus={handleInputFocus}
                     onBlur={handleInputBlur}
                     onChangeEvent={(event: ChangeEvent<HTMLInputElement>) =>
-                      setCurrency(event.target.value)
-                    }
+                      setCurrency(event.target.value)}
                   />
                 </PrecoArea>
                 <Select
@@ -174,6 +173,7 @@ const RegisterProduct: React.FC = () => {
                     { value: 'service', label: 'Serviço' },
                     { value: 'product', label: 'Produto' },
                   ]}
+                  label="Tipo do item"
                 />
                 <Select
                   name="item_category"
@@ -181,11 +181,28 @@ const RegisterProduct: React.FC = () => {
                     { value: 'gastronomia', label: 'Gastronomia' },
                     { value: 'aula-particular', label: 'Aula Particular' },
                     { value: 'roupas-e-calcados', label: 'Roupas e calçados' },
+                    { value: 'acessorios', label: 'Acessórios' },
+                    { value: 'artesanato', label: 'Artesanato' },
+                    {
+                      value: 'assistencia-tecnica',
+                      label: 'Assitencia técnica',
+                    },
                     { value: 'outros', label: 'Outros' },
                   ]}
+                  label="Categoria do item"
                 />
-                <Input name="thumbnail" type="file" onChange={handleImage1} />
-                <Input name="image" type="file" onChange={handleImage2} />
+                <Input
+                  name="thumbnail"
+                  type="file"
+                  onChange={handleImage1}
+                  label="Thumbnail"
+                />
+                <Input
+                  name="image"
+                  type="file"
+                  onChange={handleImage2}
+                  label="Imagem destaque"
+                />
                 <Buttons>
                   <Button type="submit">Salvar</Button>
                   <Button type="button">Cancelar</Button>
