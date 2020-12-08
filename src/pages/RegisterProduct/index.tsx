@@ -180,6 +180,8 @@ const RegisterProduct: React.FC = () => {
                   options={[
                     { value: 'gastronomia', label: 'Gastronomia' },
                     { value: 'aula-particular', label: 'Aula Particular' },
+                    { value: 'roupas-e-calcados', label: 'Roupas e calçados' },
+                    { value: 'outros', label: 'Outros' },
                   ]}
                 />
                 <Input name="thumbnail" type="file" onChange={handleImage1} />

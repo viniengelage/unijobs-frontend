@@ -1,7 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Carousel from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
+import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 
-import { IoMdCart, IoMdBuild } from 'react-icons/io';
+import {
+  IoMdCart,
+  IoMdBuild,
+  IoIosSchool,
+  IoIosShirt,
+  IoIosHourglass,
+  IoIosIceCream,
+} from 'react-icons/io';
 import Banner from '../../components/Banner';
 import SliderProducts from '../../components/SliderProducts';
 import HeaderSlider from '../../components/HeaderSlider';
@@ -38,18 +48,44 @@ const LandingPage: React.FC = () => {
         </Sider>
 
         <Title>Categorias</Title>
-        <Sider>
+        <Carousel
+          infinite
+          slidesPerPage={4}
+          arrowLeft={<FiChevronLeft size={60} color="#0E346A" />}
+          arrowRight={<FiChevronRight size={60} color="#0E346A" />}
+          addArrowClickHandler
+          breakpoints={{
+            640: {
+              slidesPerPage: 1,
+              arrows: false,
+            },
+            900: {
+              slidesPerPage: 2,
+              arrows: false,
+            },
+          }}
+        >
           <CategoriesCard
-            icon={IoMdCart}
-            title="Produtos"
-            link="/categories/products/1"
+            icon={IoIosIceCream}
+            title="Gastronomia"
+            link="/categories/products/gastronomia/1"
           />
           <CategoriesCard
-            icon={IoMdBuild}
-            title="Serviços"
+            icon={IoIosSchool}
+            title="Aulas particulares"
+            link="/categories/services/aula-particular/1"
+          />
+          <CategoriesCard
+            icon={IoIosShirt}
+            title="Roupas"
+            link="/categories/products/roupas-e-calcados/1"
+          />
+          <CategoriesCard
+            icon={IoIosHourglass}
+            title="Outros"
             link="/categories/services/1"
           />
-        </Sider>
+        </Carousel>
         <Title>Sobre a UniJobs</Title>
         <Imagem src={aboutUnijobs} alt="Sobre a UniJobs" />
       </Container>

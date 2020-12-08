@@ -10,7 +10,11 @@ type CategoriesProps = {
   link: string;
 };
 
-const CategoriesCard: React.FC<CategoriesProps> = ({ icon: Icon, title, link }) => (
+const CategoriesCard: React.FC<CategoriesProps> = ({
+  icon: Icon,
+  title,
+  link,
+}) => (
   <Container>
     <Content>
       <Link to={link}>

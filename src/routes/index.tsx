@@ -21,6 +21,10 @@ const Routes: React.FC = () => (
     <Route path="/item/:id+" component={Product} />
     <Route path="/catalog/:page+" component={Catalog} />
     <Route path="/categories/:itemType+/:page+" component={Catalog} />
+    <Route
+      path="/categories/:itemType+/:categorie+/:page+"
+      component={Catalog}
+    />
     <Route path="/registeruser" component={RegisterUser} />
     <Route path="/login" component={Login} />
     <PrivateRoutes path="/register" component={RegisterProduct} />

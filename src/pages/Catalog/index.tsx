@@ -34,23 +34,39 @@ const Catalog: React.FC = () => {
 
   const { itemType } = params;
 
+  function splitString(stringToSplit: string, separator: string) {
+    const arrayOfStrings = stringToSplit.split(separator);
+    return arrayOfStrings;
+  }
+
   useEffect(() => {
     setLoading(true);
     if (itemType) {
-      console.log(itemType.replace(/[0-9]/g, '').replace(/[^a-zA-Z ]/g, ''));
-      api
-        .get(
-          `/${params.itemType
-            .replace(/[0-9]/g, '')
-            .replace(/[^a-zA-Z ]/g, '')}/${params.page}`,
-        )
-        .then(response => {
-          setProducts(response.data.data);
-        })
-        .catch(e => {
-          console.log(e);
-        });
-      setLoading(false);
+      const separetedCategorie = splitString(itemType, '/');
+      console.log(`${separetedCategorie[0]}/${params.page}`);
+      if (separetedCategorie.length === 2) {
+        api
+          .get(
+            `/${separetedCategorie[0]}/${separetedCategorie[1]}/${params.page}`,
+          )
+          .then(response => {
+            setProducts(response.data.data);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+        setLoading(false);
+      } else {
+        api
+          .get(`/${separetedCategorie[0]}/${params.page}`)
+          .then(response => {
+            setProducts(response.data.data);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+        setLoading(false);
+      }
     } else {
       api
         .get(`/items/${params.page}`)
