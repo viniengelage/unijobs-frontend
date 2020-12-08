@@ -13,6 +13,7 @@ import ForgotPassword from '../pages/ForgotPassword';
 import ResetPassword from '../pages/ResetPassword';
 import Who from '../pages/Who';
 import SupportAndContact from '../pages/SupportAndContact';
+import HowItWorks from '../pages/HowItWorks';
 
 const Routes: React.FC = () => (
   <Switch>
@@ -29,6 +30,7 @@ const Routes: React.FC = () => (
     <Route path="/profile" component={Profile} />
     <Route path="/who" component={Who} />
     <Route path="/ajuda-e-contato" component={SupportAndContact} />
+    <Route path="/como-funciona-a-unijobs" component={HowItWorks} />
   </Switch>
 );
 

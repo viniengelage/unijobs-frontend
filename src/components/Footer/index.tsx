@@ -17,16 +17,13 @@ const Footer: React.FC = () => (
       </LogoIMG>
       <Navigation>
         <li>
+          <Link to="/quem-somos">Quem somos</Link>
+        </li>
+        <li>
+          <Link to="/como-funciona-a-unijobs">Como funciona a Unijobs</Link>
+        </li>
+        <li>
           <Link to="/ajuda-e-contato">Ajuda e contato</Link>
-        </li>
-        <li>
-          <Link to="/link">Mapa do site</Link>
-        </li>
-        <li>
-          <Link to="/link">Noções básicas de como comprar</Link>
-        </li>
-        <li>
-          <Link to="/link">Vender na Unijobs</Link>
         </li>
       </Navigation>
       <Midias>
