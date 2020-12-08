@@ -37,6 +37,41 @@ const SliderWho: React.FC = () => {
     >
       {/* {products.map(product => ( */}
       <WhoItem>
+        <WhoImage src="https://avatars3.githubusercontent.com/u/50602159?s=460&u=7e2ffed2b475dc96021d656f746f6f1d5a47665c&v=4" alt="Vinicios Engelage" />
+        <WhoContent>
+          <WhoHeader>
+            <WhoCategory>Estudante Eng. Software</WhoCategory>
+            <WhoTitle>Vinicios Engelage</WhoTitle>
+          </WhoHeader>
+          <WhoDescription>
+            Acadêmico de Engenharia de Software. Apaixonado por design e tecnologias que mudam o rumo das coisas.
+          </WhoDescription>
+          <WhoSeeMore>Veja mais em</WhoSeeMore>
+          <WhoFooter>
+
+            <WhoLink href="https://github.com/viniengelage/" target="_blank" rel="noopener noreferrer"><FaGithub /> Github</WhoLink>
+            <WhoLink href="https://www.linkedin.com/in/vinicios-engelage-41188417a/" target="_blank" rel="noopener noreferrer"><FaLinkedin /> Linkedin</WhoLink>
+          </WhoFooter>
+        </WhoContent>
+      </WhoItem>
+      <WhoItem>
+        <WhoImage src="https://avatars3.githubusercontent.com/u/16155022?s=460&u=0c322b3c7e9eae8c9e3b874dbce24feb5d336ff3&v=4" alt="Catherine Korres" />
+        <WhoContent>
+          <WhoHeader>
+            <WhoCategory>Estudante Eng. Software</WhoCategory>
+            <WhoTitle>Catherine Korres</WhoTitle>
+          </WhoHeader>
+          <WhoDescription>
+            Desenvolvedora Front-end, acadêmica de Engenharia de Software na Uniamérica.
+            </WhoDescription>
+            <WhoSeeMore>Veja mais em</WhoSeeMore>
+          <WhoFooter>
+            <WhoLink href="https://github.com/catherinekorres/" target="_blank" rel="noopener noreferrer"><FaGithub /> Github</WhoLink>
+            <WhoLink href="https://www.linkedin.com/in/catherinekorres/" target="_blank" rel="noopener noreferrer"><FaLinkedin /> Linkedin</WhoLink>
+          </WhoFooter>
+        </WhoContent>
+      </WhoItem>
+      <WhoItem>
         <WhoImage src="https://avatars2.githubusercontent.com/u/14930948?s=460&u=3014f75d7233f1feeab041878b67b3e7a62786c2&v=4" alt="Vinicius Oliveira" />
         <WhoContent>
           <WhoHeader>
@@ -49,26 +84,8 @@ const SliderWho: React.FC = () => {
             </WhoDescription>
             <WhoSeeMore>Veja mais em</WhoSeeMore>
           <WhoFooter>
-            <WhoLink href="https://github.com/viniciusol1"><FaGithub /> Github</WhoLink>
-            <WhoLink href="https://www.linkedin.com/in/vinicius-oliveira-de-freitas-a3a686b7/"><FaLinkedin /> Linkedin</WhoLink>
-          </WhoFooter>
-        </WhoContent>
-      </WhoItem>
-      <WhoItem>
-        <WhoImage src="https://avatars3.githubusercontent.com/u/50602159?s=460&u=7e2ffed2b475dc96021d656f746f6f1d5a47665c&v=4" alt="Vinicios Engelage" />
-        <WhoContent>
-          <WhoHeader>
-            <WhoCategory>Estudante Eng. Software</WhoCategory>
-            <WhoTitle>Vinicios Engelage</WhoTitle>
-          </WhoHeader>
-          <WhoDescription>
-            Acadêmico de Engenharia de Software. Apaixonado por design e tecnologias que mudam o rumo das coisas.
-          </WhoDescription>
-          <WhoSeeMore>Veja mais em</WhoSeeMore>
-          <WhoFooter>
-            
-            <WhoLink href="https://github.com/viniengelage"><FaGithub /> Github</WhoLink>
-            <WhoLink href="https://www.linkedin.com/in/vinicios-engelage-41188417a/"><FaLinkedin /> Linkedin</WhoLink>
+            <WhoLink href="https://github.com/viniciusol1/" target="_blank" rel="noopener noreferrer"><FaGithub /> Github</WhoLink>
+            <WhoLink href="https://www.linkedin.com/in/vinicius-oliveira-de-freitas-a3a686b7/" target="_blank" rel="noopener noreferrer"><FaLinkedin /> Linkedin</WhoLink>
           </WhoFooter>
         </WhoContent>
       </WhoItem>
@@ -84,9 +101,9 @@ const SliderWho: React.FC = () => {
           </WhoDescription>
           <WhoSeeMore>Veja mais em</WhoSeeMore>
           <WhoFooter>
-            
-            <WhoLink href="https://github.com/thainaweingartner"><FaGithub /> Github</WhoLink>
-            <WhoLink href="https://www.linkedin.com/in/thainachagas/"><FaLinkedin /> Linkedin</WhoLink>
+
+            <WhoLink href="https://github.com/thainaweingartner/" target="_blank" rel="noopener noreferrer"><FaGithub /> Github</WhoLink>
+            <WhoLink href="https://www.linkedin.com/in/thainachagas/" target="_blank" rel="noopener noreferrer"><FaLinkedin /> Linkedin</WhoLink>
           </WhoFooter>
         </WhoContent>
       </WhoItem>
@@ -102,7 +119,7 @@ const SliderWho: React.FC = () => {
           </WhoDescription>
           <WhoSeeMore>Veja mais em</WhoSeeMore>
           <WhoFooter>
-            <WhoLink href="https://github.com/thiagoalvesfoz"><FaGithub /> Github</WhoLink>
+            <WhoLink href="https://github.com/thiagoalvesfoz/" target="_blank" rel="noopener noreferrer"><FaGithub /> Github</WhoLink>
             <WhoLink href="https://www.linkedin.com/in/thiagoalvesfoz"><FaLinkedin /> Linkedin</WhoLink>
           </WhoFooter>
         </WhoContent>
