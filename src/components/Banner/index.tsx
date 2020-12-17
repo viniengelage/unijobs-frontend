@@ -51,7 +51,7 @@ const Banner: React.FC<BannerProps> = ({ backIcon }) => {
         </div>
       ) : (
         <div className="menu">
-          <a href="/registerr">Anunciar</a>
+          <a href="/register">Anunciar</a>
           <a href="/login">Login</a>
         </div>
       )}
