@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// new ip
+// new ip v2
 const api = axios.create({
   baseURL: `https://unijobsback.uniamerica.br/api`,
 });
