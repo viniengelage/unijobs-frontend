@@ -1,6 +1,6 @@
 {
   "name": "unijobs-typscript",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@brainhubeu/react-carousel": "^1.19.14",
